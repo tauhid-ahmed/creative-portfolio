@@ -159,36 +159,6 @@ export const projects: Project[] = [
   },
 ];
 
-export const experiences: Experience[] = [
-  {
-    company: "TechCorp Inc.",
-    position: "Senior Frontend Developer",
-    duration: "2021 - Present",
-    description:
-      "Leading frontend development for enterprise applications, implementing modern UI/UX practices, and mentoring junior developers.",
-    technologies: ["React", "TypeScript", "Next.js", "GraphQL"],
-    logo: "/placeholder.svg?height=100&width=100",
-  },
-  {
-    company: "Digital Solutions",
-    position: "Frontend Developer",
-    duration: "2019 - 2021",
-    description:
-      "Developed responsive web applications and collaborated with design team to implement pixel-perfect interfaces.",
-    technologies: ["React", "JavaScript", "CSS3", "RESTful APIs"],
-    logo: "/placeholder.svg?height=100&width=100",
-  },
-  {
-    company: "Creative Agency",
-    position: "UI Developer",
-    duration: "2017 - 2019",
-    description:
-      "Created interactive websites for clients across various industries, focusing on animations and user experience.",
-    technologies: ["JavaScript", "HTML5", "CSS3", "jQuery"],
-    logo: "/placeholder.svg?height=100&width=100",
-  },
-];
-
 export const testimonials: Testimonial[] = [
   {
     name: "Sarah Johnson",
@@ -213,5 +183,64 @@ export const testimonials: Testimonial[] = [
     content:
       "Tauhid has a rare combination of technical expertise and design sensibility. He can take complex designs and implement them flawlessly while adding his own creative touches.",
     avatar: "/placeholder.svg?height=100&width=100",
+  },
+];
+
+export const profileData = [
+  {
+    section: "about",
+    content: [
+      "With over 5 years of experience in web development, I specialize in creating responsive, accessible, and performant web applications using modern technologies like React, Next.js, and TypeScript.",
+      "My passion lies in the intersection of code and design, where I strive to build interfaces that are not only functional but also aesthetically pleasing and intuitive to use.",
+      "I'm constantly exploring new technologies and techniques to enhance user experiences and create memorable digital products that leave a lasting impression.",
+    ],
+  },
+  {
+    section: "experience",
+    content: [
+      {
+        company: "TechCorp Inc.",
+        position: "Senior Frontend Developer",
+        duration: "2021 - Present",
+        description:
+          "Leading frontend development for enterprise applications, implementing modern UI/UX practices, and mentoring junior developers.",
+        technologies: ["React", "TypeScript", "Next.js", "GraphQL"],
+      },
+      {
+        company: "Digital Solutions",
+        position: "Frontend Developer",
+        duration: "2019 - 2021",
+        description:
+          "Developed responsive web applications and collaborated with design team to implement pixel-perfect interfaces.",
+        technologies: ["React", "JavaScript", "CSS3", "RESTful APIs"],
+      },
+      {
+        company: "Creative Agency",
+        position: "UI Developer",
+        duration: "2017 - 2019",
+        description:
+          "Created interactive websites for clients across various industries, focusing on animations and user experience.",
+        technologies: ["JavaScript", "HTML5", "CSS3", "jQuery"],
+      },
+    ],
+  },
+  {
+    section: "education",
+    content: [
+      {
+        degree: "Bachelor of Science in Computer Science",
+        description: "Majoring in Web Development",
+        institution: "University of XYZ",
+        duration: "2014 - 2018",
+        gpa: "3.8/4.0",
+      },
+      {
+        degree: "High School Diploma",
+        description: "Graduated with honors",
+        institution: "ABC High School",
+        duration: "2010 - 2014",
+        gpa: "4.0/4.0",
+      },
+    ],
   },
 ];

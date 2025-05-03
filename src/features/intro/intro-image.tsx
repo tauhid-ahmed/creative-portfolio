@@ -23,7 +23,7 @@ export function IntroImage({ rotate }: { rotate: MotionValue }) {
       style={{ rotate }}
       className="relative hidden lg:block perspective-1000"
     >
-      <div className="relative aspect-square max-w-md mx-auto transform-3d">
+      <div className="relative aspect-square lg:max-w-lg xl:max-w-xl mx-auto transform-3d">
         {/* Premium decorative elements */}
         <motion.div
           className="absolute -top-10 -right-10 w-32 h-32 rounded-full bg-primary/30 blur-xl"

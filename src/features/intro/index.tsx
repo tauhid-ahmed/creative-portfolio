@@ -66,7 +66,7 @@ export function Intro() {
           <motion.div
             ref={contentRef}
             style={{ y, opacity, scale }}
-            className="grid lg:grid-cols-2 gap-12 items-center"
+            className="grid lg:grid-cols-2 gap-4 items-center"
           >
             <IntroInformation />
             <IntroImage rotate={rotate} />
