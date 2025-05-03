@@ -18,7 +18,7 @@ interface MarqueeProps {
 export default function Marquee({
   children,
   direction = "left",
-  speed = 50,
+  speed = 400,
   pauseOnHover = true,
   className = "",
 }: MarqueeProps) {

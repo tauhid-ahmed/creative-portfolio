@@ -3,7 +3,6 @@ import type {
   SocialLink,
   Skill,
   Project,
-  Experience,
   Testimonial,
   Developer,
 } from "@/lib/types";
@@ -63,6 +62,8 @@ export const skills: Skill[] = [
       "CSS3",
     ],
     color: "from-violet-500 to-purple-500",
+    description:
+      "Crafting modern, scalable, and maintainable frontend applications using cutting-edge JavaScript frameworks and web standards.",
   },
   {
     category: "UI Frameworks",
@@ -75,24 +76,32 @@ export const skills: Skill[] = [
       "Chakra UI",
     ],
     color: "from-blue-500 to-cyan-400",
+    description:
+      "Designing elegant and consistent user interfaces with utility-first and component-based UI libraries.",
   },
   {
     category: "Animation",
     icon: "Sparkles",
     items: ["Framer Motion", "GSAP", "Three.js", "CSS Animations", "Lottie"],
     color: "from-amber-500 to-orange-400",
+    description:
+      "Enhancing user engagement with interactive, smooth, and performance-optimized animations across platforms.",
   },
   {
     category: "Design",
     icon: "Palette",
     items: ["Figma", "Adobe XD", "Photoshop", "Illustrator", "UI/UX Design"],
     color: "from-pink-500 to-rose-400",
+    description:
+      "Bridging creativity and usability to design visually appealing and intuitive digital experiences.",
   },
   {
     category: "Performance",
     icon: "Zap",
     items: ["Web Vitals", "Lighthouse", "Webpack", "Vite", "Code Splitting"],
     color: "from-emerald-500 to-green-400",
+    description:
+      "Optimizing applications for speed, efficiency, and best practices using performance monitoring and build tools.",
   },
   {
     category: "Mobile",
@@ -105,6 +114,8 @@ export const skills: Skill[] = [
       "Touch Interfaces",
     ],
     color: "from-indigo-500 to-blue-400",
+    description:
+      "Building mobile-first experiences with cross-platform tools, adaptive layouts, and native-like interactions.",
   },
 ];
 

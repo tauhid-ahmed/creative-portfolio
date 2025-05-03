@@ -1,58 +1,59 @@
 export interface NavItem {
-  name: string
-  href: string
+  name: string;
+  href: string;
 }
 
 export interface SocialLink {
-  platform: string
-  url: string
-  icon: string
+  platform: string;
+  url: string;
+  icon: string;
 }
 
 export interface Skill {
-  category: string
-  icon: string
-  items: string[]
-  color: string
+  category: string;
+  icon: string;
+  items: string[];
+  color: string;
+  description: string;
 }
 
 export interface Project {
-  id: string
-  title: string
-  description: string
-  image: string
-  tags: string[]
-  demoUrl: string
-  githubUrl: string
-  featured: boolean
-  category: "frontend" | "fullstack" | "design" | "mobile"
+  id: string;
+  title: string;
+  description: string;
+  image: string;
+  tags: string[];
+  demoUrl: string;
+  githubUrl: string;
+  featured: boolean;
+  category: "frontend" | "fullstack" | "design" | "mobile";
 }
 
 export interface Experience {
-  company: string
-  position: string
-  duration: string
-  description: string
-  technologies: string[]
-  logo?: string
+  company: string;
+  position: string;
+  duration: string;
+  description: string;
+  technologies: string[];
+  logo?: string;
 }
 
 export interface Testimonial {
-  name: string
-  position: string
-  company: string
-  content: string
-  avatar?: string
+  name: string;
+  position: string;
+  company: string;
+  content: string;
+  avatar?: string;
 }
 
 export interface Developer {
-  name: string
-  title: string
-  bio: string
-  location: string
-  email: string
-  phone: string
-  avatar: string
-  resume: string
-  typingTexts: string[]
+  name: string;
+  title: string;
+  bio: string;
+  location: string;
+  email: string;
+  phone: string;
+  avatar: string;
+  resume: string;
+  typingTexts: string[];
 }
