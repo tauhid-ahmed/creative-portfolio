@@ -3,7 +3,7 @@ import Footer from "@/components/footer";
 import Skills from "@/components/skills";
 import Projects from "@/components/projects";
 import Contact from "@/components/contact";
-import About from "@/components/about";
+import About from "@/features/about-me/about";
 import ScrollProgress from "@/components/scroll-progress";
 import { Suspense } from "react";
 import { Intro } from "@/features/intro";

@@ -2,7 +2,7 @@ import { motion, MotionValue } from "motion/react";
 import Image from "next/image";
 import { developer } from "@/data/portfolio-data";
 
-import myPic from "./images/my-pic.webp";
+import me from "@/images/me/me.webp";
 import reactIcon from "@/images/tech-icons/react.svg";
 import typescriptIcon from "@/images/tech-icons/typescript.svg";
 import nextjsIcon from "@/images/tech-icons/nextjs.svg";
@@ -63,7 +63,7 @@ export function IntroImage({ rotate }: { rotate: MotionValue }) {
               <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(255,255,255,0.1),transparent_70%)] z-20" />
 
               <Image
-                src={myPic}
+                src={me}
                 alt={`${developer.name} - ${developer.title}`}
                 fill
                 className="object-cover transform-gpu hover:scale-105 transition-transform duration-1000"
@@ -100,7 +100,7 @@ function FloatingInformation() {
         initial={{ scale: 0 }}
         animate={{ scale: 1 }}
         transition={{ delay: 1.5, type: "spring", stiffness: 200 }}
-        className="absolute -bottom-5 -left-5 bg-background/80 backdrop-blur-sm rounded-full px-3 py-1.5 font-medium text-xs border border-primary/20 shadow-lg"
+        className="absolute -bottom-5 -left-2 bg-background/80 backdrop-blur-sm rounded-full px-3 py-1.5 font-medium text-xs border border-primary/20 shadow-lg"
       >
         React • Next.js • TypeScript
       </motion.div>
