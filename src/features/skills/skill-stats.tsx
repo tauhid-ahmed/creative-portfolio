@@ -1,13 +1,21 @@
 "use client";
 
-import { useRef, useState, useMemo } from "react";
-import { motion, useInView, AnimatePresence } from "motion/react";
+import { useState, useMemo } from "react";
+import { motion, AnimatePresence } from "motion/react";
 import { skills } from "@/data/portfolio-data";
-import ParallaxSection from "@/components/parallax-section";
 import Card3D from "@/components/card-3d";
 import { Badge } from "@/components/ui/badge";
 import * as Icons from "@/components/icons";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import {
+  Section,
+  SectionDescription,
+  SectionHeader,
+  SectionInner,
+  SectionName,
+  SectionTitle,
+} from "@/components/section";
+import Container from "@/components/layout/container";
 
 const icons = {
   Code: <Icons.LayersIcon />,
@@ -83,126 +91,146 @@ export function SkillStats() {
     [activeCategory, skills]
   );
   return (
-    <div className="mb-12">
-      <Tabs>
-        <TabsList className="flex flex-wrap gap-4 p-1 bg-background/50 justify-center w-full backdrop-blur border border-border/50 rounded-full">
-          {skills.map((skill) => {
-            return (
-              <TabsTrigger
-                key={skill.category}
-                onClick={() => setActiveCategory(skill.category)}
-                className={`relative flex items-center gap-2 px-4 py-2 rounded-full text font-medium transition-all duration-300 ${
-                  activeCategory === skill.category
-                    ? "text-primary-foreground"
-                    : "text-muted-foreground hover:text-foreground"
-                }`}
-                value={""}
-              >
-                {activeCategory === skill.category && (
-                  <motion.div
-                    layoutId="activeSkillCategory"
-                    className={`absolute inset-0 rounded-full bg-gradient-to-r ${skill.color} -z-10`}
-                    transition={{
-                      type: "spring",
-                      stiffness: 300,
-                      damping: 30,
-                    }}
-                  />
-                )}
-                {icons[skill.icon as keyof typeof icons]}
-                <span>{skill.category}</span>
-              </TabsTrigger>
-            );
-          })}
-        </TabsList>
-        <TabsContent className="mt-4" value={""}>
-          <AnimatePresence mode="wait">
-            <motion.div
-              key={activeCategory}
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -20 }}
-              transition={{ duration: 0.5 }}
-              className="grid md:grid-cols-2 gap-8"
-            >
-              {/* Skill details */}
-              <Card3D className="modern-card p-6 md:p-8 h-full">
-                <div className="flex items-center gap-3 mb-6">
-                  <div
-                    className={`flex items-center justify-center w-12 h-12 rounded-xl bg-gradient-to-r ${activeSkill.color} text-white`}
+    <Section>
+      <SectionInner>
+        <motion.div
+        // initial={{ opacity: 0, y: 20 }}
+        // animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+        // transition={{ duration: 0.6 }}
+        >
+          <SectionHeader>
+            <SectionName>My Expertise</SectionName>
+            <SectionTitle>Skills & Technologies</SectionTitle>
+            <SectionDescription>
+              A comprehensive toolkit of technologies and skills that I use to
+              bring ideas to life
+            </SectionDescription>
+          </SectionHeader>
+        </motion.div>
+        <Container size="lg">
+          <Tabs>
+            <TabsList className="flex flex-wrap gap-4 p-1 bg-background/50 justify-center w-full backdrop-blur border border-border/50 rounded-full">
+              {skills.map((skill) => {
+                return (
+                  <TabsTrigger
+                    key={skill.category}
+                    onClick={() => setActiveCategory(skill.category)}
+                    className={`relative flex items-center gap-2 px-4 py-2 rounded-full text font-medium transition-all duration-300 ${
+                      activeCategory === skill.category
+                        ? "text-primary-foreground"
+                        : "text-muted-foreground hover:text-foreground"
+                    }`}
+                    value={""}
                   >
-                    {icons[activeSkill.icon as keyof typeof icons]}
-                  </div>
-                  <h3 className="text-2xl font-bold gradient-text">
-                    {activeSkill.category}
-                  </h3>
-                </div>
-
-                <div className="space-y-6">
-                  <p className="text-muted-foreground text-base">
-                    {activeSkill.description}
-                  </p>
-
-                  <div className="flex flex-wrap gap-2 pt-2">
-                    {activeSkill.items.map((item) => (
-                      <Badge
-                        key={item}
-                        className="px-3 py-1 bg-primary/10 text-primary rounded-full text-sm border border-primary/20 hover:bg-primary/20"
+                    {activeCategory === skill.category && (
+                      <motion.div
+                        layoutId="activeSkillCategory"
+                        className={`absolute inset-0 rounded-full bg-gradient-to-r ${skill.color} -z-10`}
+                        transition={{
+                          type: "spring",
+                          stiffness: 300,
+                          damping: 30,
+                        }}
+                      />
+                    )}
+                    {icons[skill.icon as keyof typeof icons]}
+                    <span>{skill.category}</span>
+                  </TabsTrigger>
+                );
+              })}
+            </TabsList>
+            <TabsContent className="mt-4" value={""}>
+              <AnimatePresence mode="wait">
+                <motion.div
+                  key={activeCategory}
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: -20 }}
+                  transition={{ duration: 0.5 }}
+                  className="grid md:grid-cols-2 gap-8"
+                >
+                  {/* Skill details */}
+                  <Card3D className="modern-card p-6 md:p-8 h-full">
+                    <div className="flex items-center gap-3 mb-6">
+                      <div
+                        className={`flex items-center justify-center w-12 h-12 rounded-xl bg-gradient-to-r ${activeSkill.color} text-white`}
                       >
-                        {item}
-                      </Badge>
-                    ))}
-                  </div>
-                </div>
-              </Card3D>
-
-              {/* Skill proficiency */}
-              <Card3D className="modern-card p-6 md:p-8 h-full">
-                <h3 className="text-xl font-bold mb-6 gradient-text">
-                  Proficiency
-                </h3>
-                <div className="space-y-6">
-                  {activeSkill.items
-                    .filter(
-                      (item) =>
-                        skillProficiency[item as keyof typeof skillProficiency]
-                    )
-                    .slice(0, 6)
-                    .map((skill) => (
-                      <div key={skill} className="space-y-2">
-                        <div className="flex justify-between items-center">
-                          <span className="font-medium">{skill}</span>
-                          <span className="text-sm text-muted-foreground">
-                            {
-                              skillProficiency[
-                                skill as keyof typeof skillProficiency
-                              ]
-                            }
-                            %
-                          </span>
-                        </div>
-                        <div className="relative h-2 w-full bg-primary/10 rounded-full overflow-hidden">
-                          <motion.div
-                            className="absolute top-0 left-0 h-full bg-gradient-to-r from-primary to-purple-500 rounded-full"
-                            initial={{ width: 0 }}
-                            animate={{
-                              width: `${
-                                skillProficiency[
-                                  skill as keyof typeof skillProficiency
-                                ]
-                              }%`,
-                            }}
-                            transition={{ duration: 1, delay: 0.2 }}
-                          />
-                        </div>
+                        {icons[activeSkill.icon as keyof typeof icons]}
                       </div>
-                    ))}
-                </div>
-              </Card3D>
-            </motion.div>
-          </AnimatePresence>
-        </TabsContent>
-      </Tabs>
-    </div>
+                      <h3 className="text-2xl font-bold gradient-text">
+                        {activeSkill.category}
+                      </h3>
+                    </div>
+
+                    <div className="space-y-6">
+                      <p className="text-muted-foreground text-base">
+                        {activeSkill.description}
+                      </p>
+
+                      <div className="flex flex-wrap gap-2 pt-2">
+                        {activeSkill.items.map((item) => (
+                          <Badge
+                            key={item}
+                            className="px-3 py-1 bg-primary/10 text-primary rounded-full text-sm border border-primary/20 hover:bg-primary/20"
+                          >
+                            {item}
+                          </Badge>
+                        ))}
+                      </div>
+                    </div>
+                  </Card3D>
+
+                  {/* Skill proficiency */}
+                  <Card3D className="modern-card p-6 md:p-8 h-full">
+                    <h3 className="text-xl font-bold mb-6 gradient-text">
+                      Proficiency
+                    </h3>
+                    <div className="space-y-6">
+                      {activeSkill.items
+                        .filter(
+                          (item) =>
+                            skillProficiency[
+                              item as keyof typeof skillProficiency
+                            ]
+                        )
+                        .slice(0, 6)
+                        .map((skill) => (
+                          <div key={skill} className="space-y-2">
+                            <div className="flex justify-between items-center">
+                              <span className="font-medium">{skill}</span>
+                              <span className="text-sm text-muted-foreground">
+                                {
+                                  skillProficiency[
+                                    skill as keyof typeof skillProficiency
+                                  ]
+                                }
+                                %
+                              </span>
+                            </div>
+                            <div className="relative h-2 w-full bg-primary/10 rounded-full overflow-hidden">
+                              <motion.div
+                                className="absolute top-0 left-0 h-full bg-gradient-to-r from-primary to-purple-500 rounded-full"
+                                initial={{ width: 0 }}
+                                animate={{
+                                  width: `${
+                                    skillProficiency[
+                                      skill as keyof typeof skillProficiency
+                                    ]
+                                  }%`,
+                                }}
+                                transition={{ duration: 1, delay: 0.2 }}
+                              />
+                            </div>
+                          </div>
+                        ))}
+                    </div>
+                  </Card3D>
+                </motion.div>
+              </AnimatePresence>
+            </TabsContent>
+          </Tabs>
+        </Container>
+      </SectionInner>
+    </Section>
   );
 }

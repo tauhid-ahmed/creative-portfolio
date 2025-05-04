@@ -11,4 +11,8 @@ export {
   LucidePalette as PaletteIcon,
   LucideZap as ZapIcon,
   LucideSmartphone as SmartphoneIcon,
+  LucideRocket as RocketIcon,
+  LucideFileSearch as FileSearchIcon,
+  LucideGauge as GaugeIcon,
+  LucideSend as SendIcon,
 } from "lucide-react";

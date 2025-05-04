@@ -56,11 +56,11 @@ export function IntroImage({ rotate }: { rotate: MotionValue }) {
           <div className="absolute inset-0 bg-gradient-to-br from-primary/20 to-purple-400/20 rounded-2xl -rotate-6 transform-gpu translate-z-[-10px]" />
           <div className="absolute inset-0 bg-gradient-to-br from-primary/10 to-purple-400/10 rounded-2xl rotate-3 transform-gpu translate-z-[-5px]" />
 
-          <div className="relative w-full h-full rounded-2xl overflow-hidden bg-gradient-to-br from-background to-background/80 p-4 backdrop-blur-sm border border-primary/20 shadow-2xl">
+          <div className="relative w-full h-full rounded-2xl overflow-hidden bg-gradient-to-br from-primary/50 to-background/10 p-4 backdrop-blur border border-primary/20 shadow-2xl">
             <div className="w-full h-full rounded-lg overflow-hidden relative">
               {/* Premium image treatment */}
-              <div className="absolute inset-0 bg-gradient-to-b from-primary/10 to-transparent mix-blend-overlay z-10" />
-              <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(255,255,255,0.1),transparent_70%)] z-20" />
+
+              <div className="absolute inset-0 bg-gradient-to-tr from-primary/50 via-transparent to-primary/50 mix-blend-overlay z-10" />
 
               <Image
                 src={me}
@@ -72,7 +72,7 @@ export function IntroImage({ rotate }: { rotate: MotionValue }) {
               />
 
               {/* Overlay gradient */}
-              <div className="absolute inset-0 bg-gradient-to-t from-background/60 to-transparent" />
+              <div className="absolute inset-0 bg-gradient-to-t from-primary/20 to-transparent" />
 
               {/* Subtle scan line effect */}
               <div className="absolute inset-0 bg-[linear-gradient(to_bottom,transparent_50%,rgba(0,0,0,0.05)_50%)] bg-[length:100%_4px] opacity-20" />

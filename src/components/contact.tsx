@@ -10,7 +10,6 @@ import { Textarea } from "@/components/ui/textarea";
 import { Mail, MapPin, Phone, Send } from "lucide-react";
 import { developer } from "@/data/portfolio-data";
 import Card3D from "@/components/card-3d";
-import ParallaxSection from "@/components/parallax-section";
 
 export default function Contact() {
   const sectionRef = useRef<HTMLElement>(null);

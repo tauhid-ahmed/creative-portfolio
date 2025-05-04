@@ -3,7 +3,6 @@ import { Mona_Sans as FontSans } from "next/font/google";
 import { ThemeProvider } from "@/components/theme-provider";
 import { env } from "@/env";
 import "@/styles/globals.css";
-import CustomCursor from "@/components/custom-cursor";
 
 const fontSans = FontSans({
   subsets: ["latin"],
@@ -46,7 +45,6 @@ export default function RootLayout({
       <body
         className={`${fontSans.variable} min-h-screen font-sans antialiased`}
       >
-        <CustomCursor />
         <ThemeProvider>{children}</ThemeProvider>
       </body>
     </html>

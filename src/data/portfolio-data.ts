@@ -50,7 +50,7 @@ export const developer: Developer = {
 
 export const skills: Skill[] = [
   {
-    category: "Frontend",
+    category: "Frontend Development",
     icon: "Code",
     items: [
       "React",
@@ -63,10 +63,10 @@ export const skills: Skill[] = [
     ],
     color: "from-violet-500 to-purple-500",
     description:
-      "Crafting modern, scalable, and maintainable frontend applications using cutting-edge JavaScript frameworks and web standards.",
+      "Developing responsive, dynamic, and maintainable user interfaces using modern JavaScript frameworks and web technologies to deliver seamless digital experiences.",
   },
   {
-    category: "UI Frameworks",
+    category: "UI Frameworks & Component Libraries",
     icon: "Layers",
     items: [
       "Tailwind CSS",
@@ -77,34 +77,34 @@ export const skills: Skill[] = [
     ],
     color: "from-blue-500 to-cyan-400",
     description:
-      "Designing elegant and consistent user interfaces with utility-first and component-based UI libraries.",
+      "Accelerating interface development with scalable component libraries and utility-first CSS frameworks to ensure consistency, flexibility, and design system alignment.",
   },
   {
-    category: "Animation",
+    category: "Web Animation & Interaction",
     icon: "Sparkles",
     items: ["Framer Motion", "GSAP", "Three.js", "CSS Animations", "Lottie"],
     color: "from-amber-500 to-orange-400",
     description:
-      "Enhancing user engagement with interactive, smooth, and performance-optimized animations across platforms.",
+      "Creating immersive and interactive user experiences through animation, motion design, and real-time 3D rendering while ensuring performance and accessibility.",
   },
   {
-    category: "Design",
+    category: "Digital Design & Prototyping",
     icon: "Palette",
     items: ["Figma", "Adobe XD", "Photoshop", "Illustrator", "UI/UX Design"],
     color: "from-pink-500 to-rose-400",
     description:
-      "Bridging creativity and usability to design visually appealing and intuitive digital experiences.",
+      "Transforming ideas into intuitive, user-centered interfaces by combining creative design tools with deep understanding of usability and visual communication.",
   },
   {
-    category: "Performance",
+    category: "Performance Optimization",
     icon: "Zap",
     items: ["Web Vitals", "Lighthouse", "Webpack", "Vite", "Code Splitting"],
     color: "from-emerald-500 to-green-400",
     description:
-      "Optimizing applications for speed, efficiency, and best practices using performance monitoring and build tools.",
+      "Ensuring high-performance web applications by monitoring core vitals, optimizing assets, and leveraging advanced bundling and loading strategies.",
   },
   {
-    category: "Mobile",
+    category: "Mobile & Responsive Development",
     icon: "Smartphone",
     items: [
       "React Native",
@@ -115,7 +115,7 @@ export const skills: Skill[] = [
     ],
     color: "from-indigo-500 to-blue-400",
     description:
-      "Building mobile-first experiences with cross-platform tools, adaptive layouts, and native-like interactions.",
+      "Delivering seamless mobile experiences through responsive layouts, progressive web app capabilities, and cross-platform development tools.",
   },
 ];
 
@@ -253,5 +253,38 @@ export const profileData = [
         gpa: "4.0/4.0",
       },
     ],
+  },
+];
+
+export const developmentProcess = [
+  {
+    title: "Discovery & Planning",
+    description:
+      "Collaborate with stakeholders to define goals, gather requirements, and outline a scalable technical architecture.",
+    icon: "FileSearch",
+  },
+  {
+    title: "Design & Prototyping",
+    description:
+      "Craft intuitive wireframes, refine UI/UX design systems, and prototype user flows for validation and feedback.",
+    icon: "Palette",
+  },
+  {
+    title: "Development",
+    description:
+      "Build robust, maintainable applications using modern frameworks, clean architecture, and industry best practices.",
+    icon: "Code",
+  },
+  {
+    title: "Testing & Optimization",
+    description:
+      "Implement rigorous testing, ensure cross-platform compatibility, and optimize performance for speed and accessibility.",
+    icon: "Gauge",
+  },
+  {
+    title: "Deployment & Lifecycle Management",
+    description:
+      "Deploy secure, production-ready builds, monitor real-world usage, and provide continuous updates and support.",
+    icon: "Rocket",
   },
 ];

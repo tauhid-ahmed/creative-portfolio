@@ -1,18 +1,8 @@
 import Card3D from "@/components/card-3d";
-import ParallaxSection from "@/components/parallax-section";
+import { Heading } from "@/components/heading";
 import { developer } from "@/data/portfolio-data";
 import { Mail, MapPin, Phone } from "lucide-react";
 import { motion } from "motion/react";
-
-const containerVariants = {
-  hidden: { opacity: 0 },
-  visible: {
-    opacity: 1,
-    transition: {
-      staggerChildren: 0.2,
-    },
-  },
-};
 
 const itemVariants = {
   hidden: { y: 20, opacity: 0 },
@@ -27,9 +17,9 @@ export function ContactInformation() {
   return (
     <>
       <motion.div variants={itemVariants} className="mb-8">
-        <h3 className="text-2xl font-bold mb-4 gradient-text">
+        <Heading as="h3" size="h4" weight="bold" align="left">
           Contact Information
-        </h3>
+        </Heading>
         <p className="text-muted-foreground mb-6">
           Feel free to reach out through any of the following channels. I'm
           always open to discussing new projects, creative ideas, or
