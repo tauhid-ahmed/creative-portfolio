@@ -230,7 +230,7 @@ export function PremiumBackground() {
   return (
     <motion.div
       ref={containerRef}
-      className="fixed bg-transparent inset-0 size-full z-0 overflow-hidden"
+      className="fixed bg-transparent inset-0 size-full z-0 overflow-hidden pointer-events-none"
       style={{ opacity: scrollOpacity }}
     >
       <canvas

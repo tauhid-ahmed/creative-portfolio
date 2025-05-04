@@ -42,7 +42,7 @@ export function Information() {
             <TabsTrigger
               value={item.section}
               key={index}
-              className="data-[state=active]:bg-primary data-[state=active]:border-primary! capitalize data-[state=active]:text-primary! flex items-center gap-2 cursor-pointer"
+              className="data-[state=active]:text-primary  flex items-center gap-2 cursor-pointer p-1.5"
             >
               {item.section === "about" && <User />}
               {item.section === "experience" && <Briefcase />}

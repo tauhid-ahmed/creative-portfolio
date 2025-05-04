@@ -8,7 +8,7 @@ import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { Code, Layers, Search } from "lucide-react";
 import { projects } from "@/data/portfolio-data";
-import PremiumProjectCard from "@/components/premium-project-card";
+import PremiumProjectCard from "@/features/projects-showcase/project-card";
 import PremiumTextReveal from "@/components/premium-text-reveal";
 import PremiumSection from "@/components/premium-section";
 

@@ -12,7 +12,7 @@ import {
 import { cn } from "@/lib/utils";
 
 type ColorTheme =
-  | "gray"
+  | "default"
   | "purple"
   | "blue"
   | "green"
@@ -22,7 +22,7 @@ type ColorTheme =
   | "yellow";
 
 const themes: { value: ColorTheme; label: string; color: string }[] = [
-  { value: "gray", label: "Default", color: "bg-gray-500" },
+  { value: "default", label: "Default", color: "bg-gray-500" },
   { value: "red", label: "Red", color: "bg-red-500" },
   { value: "rose", label: "Rose", color: "bg-rose-500" },
   { value: "orange", label: "Orange", color: "bg-orange-500" },

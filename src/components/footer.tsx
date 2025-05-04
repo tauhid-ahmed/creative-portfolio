@@ -5,6 +5,7 @@ import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { navItems, socialLinks, developer } from "@/data/portfolio-data";
 import dynamic from "next/dynamic";
+import Container from "./layout/container";
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
@@ -16,7 +17,7 @@ export default function Footer() {
       <div className="absolute -top-40 -right-40 w-80 h-80 rounded-full bg-primary/5 blur-3xl" />
       <div className="absolute -bottom-40 -left-40 w-80 h-80 rounded-full bg-purple-400/5 blur-3xl" />
 
-      <div className="container px-4 md:px-6 py-12 relative z-10">
+      <Container>
         <div className="grid gap-8 lg:grid-cols-3">
           <div className="space-y-4">
             <Link
@@ -124,7 +125,7 @@ export default function Footer() {
             </Button>
           </div>
         </div>
-      </div>
+      </Container>
     </footer>
   );
 }
