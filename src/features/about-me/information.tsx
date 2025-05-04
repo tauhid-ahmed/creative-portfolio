@@ -4,9 +4,6 @@ import { Briefcase, GraduationCap, User } from "lucide-react";
 import { motion } from "motion/react";
 import { profileData } from "@/data/portfolio-data";
 
-// === Proper Type Definitions ===
-type ProfileData = typeof profileData;
-
 type AboutContentType = string[];
 
 type ExperienceItem = {

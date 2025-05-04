@@ -21,6 +21,7 @@ import Container from "@/components/layout/container";
 import Me from "./me";
 import { MyStats } from "./my-stats";
 import { Information } from "./information";
+import { CTA } from "./cta";
 
 export function AboutMe() {
   const sectionRef = useRef<HTMLElement>(null);
@@ -117,35 +118,15 @@ export function AboutMe() {
               Frontend Developer & UI/UX Enthusiast
             </motion.h3>
             <Information />
-
-            <MyStats />
-
-            <motion.div
-              variants={itemVariants}
-              className="pt-4 flex flex-wrap gap-4"
-            >
-              <Button
-                asChild
-                className="gap-2 bg-gradient-to-r from-primary to-purple-500 hover:opacity-90 transition-opacity interactive"
-              >
-                <a href={developer.resume} download>
-                  <Download className="h-4 w-4" />
-                  Download Resume
-                </a>
-              </Button>
-
-              <Button
-                asChild
-                variant="outline"
-                className="gap-2 border-primary/20 hover:bg-primary/10 interactive"
-              >
-                <a href="#projects">
-                  View Projects
-                  <ArrowRight className="h-4 w-4" />
-                </a>
-              </Button>
-            </motion.div>
+            <div className="hidden lg:block">
+              <MyStats />
+              <CTA />
+            </div>
           </motion.div>
+        </div>
+        <div className="lg:hidden">
+          <MyStats />
+          <CTA />
         </div>
       </Container>
     </section>

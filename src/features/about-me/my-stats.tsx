@@ -12,7 +12,10 @@ const itemVariants = {
 
 export function MyStats() {
   return (
-    <motion.div variants={itemVariants} className="grid grid-cols-2 gap-4 pt-4">
+    <motion.div
+      variants={itemVariants}
+      className="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-2 gap-4 pt-4"
+    >
       {[
         { number: "4+", label: "Years Experience" },
         { number: "50+", label: "Projects Completed" },
