@@ -16,3 +16,5 @@ export {
   LucideGauge as GaugeIcon,
   LucideSend as SendIcon,
 } from "lucide-react";
+
+export { siRedux as ReduxIcon } from "simple-icons";

@@ -27,7 +27,9 @@ const icons = {
 };
 
 export function SkillStats() {
-  const [activeCategory, setActiveCategory] = useState<string>("Frontend");
+  const [activeCategory, setActiveCategory] = useState<string>(
+    "Frontend Development"
+  );
 
   // Skill proficiency data (for progress bars)
   const skillProficiency = useMemo(
@@ -93,11 +95,7 @@ export function SkillStats() {
   return (
     <Section>
       <SectionInner>
-        <motion.div
-        // initial={{ opacity: 0, y: 20 }}
-        // animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
-        // transition={{ duration: 0.6 }}
-        >
+        <motion.div>
           <SectionHeader>
             <SectionName>My Expertise</SectionName>
             <SectionTitle>Skills & Technologies</SectionTitle>
@@ -115,9 +113,9 @@ export function SkillStats() {
                   <TabsTrigger
                     key={skill.category}
                     onClick={() => setActiveCategory(skill.category)}
-                    className={`relative flex items-center gap-2 px-4 py-2 rounded-full text font-medium transition-all duration-300 ${
+                    className={`relative flex items-center gap-2 px-4 py-2 rounded-full text font-medium transition-colors duration-300 ${
                       activeCategory === skill.category
-                        ? "text-primary-foreground"
+                        ? "text-white!"
                         : "text-muted-foreground hover:text-foreground"
                     }`}
                     value={""}
@@ -139,7 +137,7 @@ export function SkillStats() {
                 );
               })}
             </TabsList>
-            <TabsContent className="mt-4" value={""}>
+            <TabsContent className="mt-4" value="">
               <AnimatePresence mode="wait">
                 <motion.div
                   key={activeCategory}
@@ -153,7 +151,7 @@ export function SkillStats() {
                   <Card3D className="modern-card p-6 md:p-8 h-full">
                     <div className="flex items-center gap-3 mb-6">
                       <div
-                        className={`flex items-center justify-center w-12 h-12 rounded-xl bg-gradient-to-r ${activeSkill.color} text-white`}
+                        className={`flex items-center justify-center size-12 shrink-0 rounded-xl bg-gradient-to-r ${activeSkill.color} text-white`}
                       >
                         {icons[activeSkill.icon as keyof typeof icons]}
                       </div>

@@ -49,3 +49,35 @@
     overflow-x: hidden;
   }
 }
+
+.animate-gradient-border {
+  --gradient-animation: 0deg;
+  cursor: pointer;
+  display: inline-block;
+  /* background: linear-gradient(
+    var(--gradient-animation),
+    red 1%,
+    red 10%,
+    transparent 10%
+  ); */
+  animation: animate-gradient 10s infinite;
+}
+
+@property --gradient-animation {
+  syntax: "<angle>";
+  inherits: false;
+  initial-value: 0deg;
+}
+
+@keyframes animate-gradient {
+  from {
+    --gradient-animation: 0deg;
+  }
+  to {
+    --gradient-animation: 360deg;
+  }
+}
+
+.box:hover {
+  animation: animate-gradient 1s linear infinite both;
+}

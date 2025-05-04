@@ -9,6 +9,7 @@ import {
 import { motion } from "motion/react";
 import { developmentProcess } from "@/data/portfolio-data";
 import * as Icons from "@/components/icons";
+import { Heading } from "@/components/heading";
 
 const icons = {
   Rocket: <Icons.RocketIcon />,
@@ -39,16 +40,23 @@ export function DevelopmentProcess({ isInView }: { isInView: boolean }) {
                 <div className="space-y-12 relative">
                   {developmentProcess.map((step, index) => {
                     return (
-                      <div key={step.title} className="relative">
+                      <div
+                        key={step.title}
+                        className="relative group hover:scale-105 transition-transform duration-300"
+                      >
                         <div className="md:grid md:grid-cols-2 md:gap-8 items-center">
                           <div
                             className={`md:text-right ${
                               index % 2 === 1 ? "md:order-2" : ""
                             }`}
                           >
-                            <h4 className="text-lg font-bold mb-2">
+                            <Heading
+                              size="h5"
+                              as="h4"
+                              align={index % 2 === 0 ? "left" : "right"}
+                            >
                               {step.title}
-                            </h4>
+                            </Heading>
                             <p className="text-muted-foreground">
                               {step.description}
                             </p>
@@ -61,7 +69,7 @@ export function DevelopmentProcess({ isInView }: { isInView: boolean }) {
                                 : "md:justify-end"
                             } mt-4 md:mt-0`}
                           >
-                            <div className="flex items-center justify-center w-16 h-16 rounded-full bg-primary/10 border border-primary/20">
+                            <div className="flex items-center justify-center w-16 h-16 rounded-full bg-primary/10 border border-primary/20 group-hover:bg-primary/20 group-hover:text-primary transition-colors duration-300">
                               {icons[step.icon as keyof typeof icons]}
                             </div>
                           </div>

@@ -13,9 +13,7 @@ export default function Home() {
   return (
     <main className="min-h-screen">
       <ScrollProgress />
-
       <Header />
-
       <Suspense
         fallback={
           <div className="min-h-screen flex items-center justify-center">
