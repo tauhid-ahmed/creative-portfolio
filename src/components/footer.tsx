@@ -1,21 +1,20 @@
 "use client";
 
-import { motion } from "motion/react";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
-import { navItems, socialLinks, developer } from "@/data/portfolio-data";
-import dynamic from "next/dynamic";
+import { navItems, developer } from "@/data/portfolio-data";
 import Container from "./layout/container";
+import { SocialInformation } from "./social-information";
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="border-t relative overflow-hidden">
+    <footer className="border-t relative overflow-hidden py-10">
       {/* Background elements */}
-      <div className="absolute inset-0 bg-gradient-to-t from-primary/5 to-background" />
-      <div className="absolute -top-40 -right-40 w-80 h-80 rounded-full bg-primary/5 blur-3xl" />
-      <div className="absolute -bottom-40 -left-40 w-80 h-80 rounded-full bg-purple-400/5 blur-3xl" />
+      <div className="absolute -z-10 inset-0 bg-gradient-to-t from-primary/5 to-background" />
+      <div className="absolute -z-10 -top-40 -right-40 w-80 h-80 rounded-full bg-primary/5 blur-3xl" />
+      <div className="absolute -z-10 -bottom-40 -left-40 w-80 h-80 rounded-full bg-purple-400/5 blur-3xl" />
 
       <Container>
         <div className="grid gap-8 lg:grid-cols-3">
@@ -24,44 +23,14 @@ export default function Footer() {
               href="/"
               className="text-2xl font-bold tracking-tighter interactive"
             >
-              <span className="gradient-text">Dev</span>Portfolio
+              <span className="gradient-text">Tauhid</span>
             </Link>
             <p className="text-muted-foreground max-w-xs">
               Creating exceptional digital experiences with modern web
               technologies and a passion for design.
             </p>
             <div className="flex gap-4">
-              {socialLinks.map((social, index) => {
-                const IconComponent = dynamic(
-                  () =>
-                    import("lucide-react").then((mod) => {
-                      const Icon = mod[social.icon as keyof typeof mod];
-                      return { default: Icon };
-                    }),
-                  { ssr: false }
-                );
-
-                return (
-                  <motion.a
-                    key={social.platform}
-                    href={social.url}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex items-center justify-center w-10 h-10 rounded-full bg-primary/10 text-primary hover:bg-primary hover:text-primary-foreground transition-colors duration-300 interactive"
-                    whileHover={{
-                      scale: 1.2,
-                      y: -5,
-                      boxShadow: "0 10px 25px -10px rgba(139, 92, 246, 0.7)",
-                    }}
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ delay: 0.1 * index }}
-                  >
-                    <IconComponent className="h-5 w-5" />
-                    <span className="sr-only">{social.platform}</span>
-                  </motion.a>
-                );
-              })}
+              <SocialInformation />
             </div>
           </div>
 
@@ -106,7 +75,7 @@ export default function Footer() {
 
         <div className="flex flex-col sm:flex-row justify-between items-center mt-12 pt-8 border-t border-primary/10">
           <p className="text-sm text-muted-foreground">
-            &copy; {currentYear} DevPortfolio. All rights reserved.
+            &copy; {currentYear} Tauhid. All rights reserved.
           </p>
           <div className="flex gap-4 mt-4 sm:mt-0">
             <Button

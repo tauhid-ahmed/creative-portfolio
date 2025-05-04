@@ -85,7 +85,7 @@ export function SkillStats() {
   return (
     <div className="mb-12">
       <Tabs>
-        <TabsList className="flex flex-wrap gap-2 p-1 bg-background/50 justify-center w-full backdrop-blur border border-border/50 rounded-full">
+        <TabsList className="flex flex-wrap gap-4 p-1 bg-background/50 justify-center w-full backdrop-blur border border-border/50 rounded-full">
           {skills.map((skill) => {
             return (
               <TabsTrigger
@@ -115,7 +115,7 @@ export function SkillStats() {
             );
           })}
         </TabsList>
-        <TabsContent value={""}>
+        <TabsContent className="mt-4" value={""}>
           <AnimatePresence mode="wait">
             <motion.div
               key={activeCategory}

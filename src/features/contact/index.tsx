@@ -12,6 +12,7 @@ import { developer } from "@/data/portfolio-data";
 import Card3D from "@/components/card-3d";
 import ParallaxSection from "@/components/parallax-section";
 import Container from "@/components/layout/container";
+import { ContactInformation } from "./information";
 
 export function Contact() {
   const sectionRef = useRef<HTMLElement>(null);
@@ -110,73 +111,14 @@ export function Contact() {
           </p>
         </motion.div>
 
-        <div className="grid lg:grid-cols-2 gap-12 items-start">
+        <div className="grid lg:grid-cols-2 gap-12 items-end">
           <motion.div
             variants={containerVariants}
             initial="hidden"
             animate={isInView ? "visible" : "hidden"}
           >
-            <motion.div variants={itemVariants} className="mb-8">
-              <h3 className="text-2xl font-bold mb-4 gradient-text">
-                Contact Information
-              </h3>
-              <p className="text-muted-foreground mb-6">
-                Feel free to reach out through any of the following channels.
-                I'm always open to discussing new projects, creative ideas, or
-                opportunities.
-              </p>
-            </motion.div>
-
-            <div className="grid gap-6">
-              {[
-                {
-                  icon: <Mail className="h-6 w-6 text-white" />,
-                  title: "Email",
-                  content: developer.email,
-                  link: `mailto:${developer.email}`,
-                  color: "from-violet-500 to-purple-500",
-                },
-                {
-                  icon: <Phone className="h-6 w-6 text-white" />,
-                  title: "Phone",
-                  content: developer.phone,
-                  link: `tel:${developer.phone.replace(/\s/g, "")}`,
-                  color: "from-blue-500 to-cyan-400",
-                },
-                {
-                  icon: <MapPin className="h-6 w-6 text-white" />,
-                  title: "Location",
-                  content: developer.location,
-                  link: `https://maps.google.com/?q=${encodeURIComponent(
-                    developer.location
-                  )}`,
-                  color: "from-pink-500 to-rose-400",
-                },
-              ].map((item, index) => (
-                <ParallaxSection key={item.title} direction="left" speed={0.2}>
-                  <Card3D className="modern-card">
-                    <div className="flex items-start gap-4">
-                      <div
-                        className={`bg-gradient-to-r ${item.color} p-3 rounded-full`}
-                      >
-                        {item.icon}
-                      </div>
-                      <div>
-                        <h4 className="font-medium mb-1">{item.title}</h4>
-                        <a
-                          href={item.link}
-                          className="text-muted-foreground hover:text-primary transition-colors interactive"
-                          target="_blank"
-                          rel="noopener noreferrer"
-                        >
-                          {item.content}
-                        </a>
-                      </div>
-                    </div>
-                  </Card3D>
-                </ParallaxSection>
-              ))}
-            </div>
+            {/* contact info */}
+            <ContactInformation />
           </motion.div>
 
           <motion.div
