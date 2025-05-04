@@ -1,6 +1,6 @@
 "use client";
 import { cn } from "@/lib/utils";
-import { animate, useInView } from "motion/react";
+import { animate } from "motion/react";
 import { useEffect, useRef } from "react";
 
 type AnimateStatsProps = {

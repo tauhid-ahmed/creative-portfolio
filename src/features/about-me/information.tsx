@@ -39,7 +39,7 @@ export function Information() {
             <TabsTrigger
               value={item.section}
               key={index}
-              className="data-[state=active]:text-primary  flex items-center gap-2 cursor-pointer p-1.5"
+              className="data-[state=active]:text-primary-foreground flex items-center gap-2 cursor-pointer p-1.5 transition-transform duration-300"
             >
               {item.section === "about" && <User />}
               {item.section === "experience" && <Briefcase />}
@@ -84,7 +84,7 @@ function AboutContent({ items }: { items: AboutContentType }) {
   return (
     <TabsContent
       value="about"
-      className="space-y-4 animate-in fade-in-50 duration-300"
+      className="space-y-4 animate-in fade-in-50 duration-300 [&>p:first-child]:first-letter:bg-primary [&>p:first-child]:first-letter:font-bold [&>p:first-child]:first-letter:text-2xl [&>p:first-child]:first-letter:leading-0 [&>p:first-child]:first-letter:tracking-tight [&>p:first-child]:first-letter:p-4 [&>p:first-child]:first-letter:mr-1.5 [&>p:first-child]:first-letter:float-left [&>p:first-child]:first-letter:text-primary-foreground [&>p:first-child]:first-letter:mt-1 [&>p:first-child]:first-letter:rounded "
     >
       {items.map((item, index) => (
         <motion.p

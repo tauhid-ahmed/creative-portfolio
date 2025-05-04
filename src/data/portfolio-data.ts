@@ -201,9 +201,9 @@ export const profileData = [
   {
     section: "about",
     content: [
-      "With over 5 years of experience in web development, I specialize in creating responsive, accessible, and performant web applications using modern technologies like React, Next.js, and TypeScript.",
-      "My passion lies in the intersection of code and design, where I strive to build interfaces that are not only functional but also aesthetically pleasing and intuitive to use.",
-      "I'm constantly exploring new technologies and techniques to enhance user experiences and create memorable digital products that leave a lasting impression.",
+      "Hi, I'm a web developer with over 5 years of experience building fast, accessible, and responsive web applications using tools like React, Next.js, and TypeScript. I focus on writing clean, scalable code that solves real problems.",
+      "I enjoy working at the intersection of design and development, creating user interfaces that are both intuitive and visually polished. I believe good design enhances functionality and leads to better user experiences.",
+      "I'm always learning—exploring new technologies, refining my workflow, and improving performance. My goal is to build meaningful digital products that leave a lasting impression.",
     ],
   },
   {
