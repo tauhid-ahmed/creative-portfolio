@@ -46,10 +46,10 @@ export default function NotFoundPage() {
         <Button
           asChild
           variant="outline"
-          className="group border-stone-300 dark:border-stone-700 dark:text-white text-stone-950"
+          className="group border-stone-300 dark:border-stone-700 dark:text-white text-stone-950 dark:hover:text-stone-100 hover:text-stone-200"
         >
-          <Link href="javascript:history.back()">
-            <ArrowLeft className="mr-2 h-4 w-4 transition-transform group-hover:-transtone-x-0.5" />
+          <Link href="/">
+            <ArrowLeft className="mr-2 h-4 w-4 transition-transform group-hover:-translate-x-0.5" />
             Go Back
           </Link>
         </Button>
