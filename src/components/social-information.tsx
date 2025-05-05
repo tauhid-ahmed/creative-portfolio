@@ -19,7 +19,7 @@ export function SocialInformation() {
           <motion.a
             key={link.platform}
             href={link.url}
-            className="relative flex items-center justify-center w-10 h-10 rounded-full bg-primary/10 text-primary hover:bg-primary hover:text-primary-foreground transition-colors duration-300 interactive"
+            className="relative flex items-center justify-center w-10 h-10 rounded-full bg-primary/10 text-primary hover:bg-primary hover:text-primary-foreground transition-colors duration-300 "
             whileHover={{
               scale: 1.2,
               transition: {

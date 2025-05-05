@@ -57,8 +57,8 @@ export function ProjectCard({ project, index }: ProjectCardProps) {
 
           {/* <div className="absolute inset-0 bg-gradient-to-t from-primary/20 via-background/10 to-transparent group-hover:opacity-100 opacity-70" /> */}
 
-          <div className="px-6 relative z-10 space-y-4 mt-auto pb-6 flex flex-col justify-between">
-            <motion.div className="flex gap-2">
+          <div className="px-6 relative z-10 space-y-4 mt-auto p-6 flex flex-col justify-between">
+            <motion.div className="flex flex-wrap gap-2">
               {project.tags.slice(0, 3).map((tag) => (
                 <Badge
                   key={tag}

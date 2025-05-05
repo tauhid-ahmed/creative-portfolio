@@ -179,7 +179,7 @@ export default function Skills() {
                       : activeSkill.category === "UI Frameworks"
                       ? "Utilizing component libraries and design systems to create consistent and beautiful interfaces."
                       : activeSkill.category === "Animation"
-                      ? "Creating engaging and interactive animations to enhance user experience and bring interfaces to life."
+                      ? "Creating engaging and  animations to enhance user experience and bring interfaces to life."
                       : activeSkill.category === "Design"
                       ? "Designing intuitive and visually appealing user interfaces with a focus on user experience."
                       : activeSkill.category === "Performance"
@@ -312,7 +312,7 @@ export default function Skills() {
                   {
                     title: "Design & Prototyping",
                     description:
-                      "Creating wireframes, designing UI components, and building interactive prototypes.",
+                      "Creating wireframes, designing UI components, and building  prototypes.",
                     icon: "Palette",
                   },
                   {

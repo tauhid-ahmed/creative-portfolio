@@ -64,7 +64,7 @@ export function ContactInformation() {
                   <h4 className="font-medium mb-1">{item.title}</h4>
                   <a
                     href={item.link}
-                    className="text-muted-foreground hover:text-primary transition-colors interactive"
+                    className="text-muted-foreground hover:text-primary transition-colors "
                     target="_blank"
                     rel="noopener noreferrer"
                   >

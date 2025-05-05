@@ -90,10 +90,7 @@ export function Header() {
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.5 }}
           >
-            <Link
-              href="#home"
-              className="text-xl font-bold tracking-tight interactive"
-            >
+            <Link href="#home" className="text-xl font-bold tracking-tight ">
               <motion.div
                 whileHover={{ scale: 1.05 }}
                 transition={{ type: "spring", stiffness: 400, damping: 10 }}
@@ -115,7 +112,7 @@ export function Header() {
               >
                 <Link
                   href={item.href}
-                  className={`relative px-3 py-2 text-sm font-medium transition-colors rounded-md interactive ${
+                  className={`relative px-3 py-2 text-sm font-medium transition-colors rounded-md ${
                     activeSection === item.href.substring(1)
                       ? "text-primary"
                       : "text-foreground/70 hover:text-foreground"
@@ -152,7 +149,7 @@ export function Header() {
               size="icon"
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
               aria-label="Toggle menu"
-              className="interactive"
+              className=""
             >
               <motion.div
                 animate={{ rotate: mobileMenuOpen ? 90 : 0 }}
@@ -177,10 +174,10 @@ export function Header() {
           opacity: mobileMenuOpen ? 1 : 0,
         }}
         transition={{ duration: 0.3 }}
-        className="md:hidden overflow-hidden bg-background/60 backdrop-blur border-b border-border/50"
+        className="md:hidden overflow-hidden backdrop-blur-md border-b border-border/50"
       >
         <Container>
-          <nav className="flex flex-col py-4 gap-6 pb-6">
+          <nav className="flex flex-col py-4 gap-6 pb-6 -mx-6 border-b">
             {navItems.map((item, index) => (
               <motion.div
                 key={item.name}
@@ -193,10 +190,10 @@ export function Header() {
               >
                 <Link
                   href={item.href}
-                  className={`py-3 px-2 text-sm font-medium transition-colors rounded-md ${
+                  className={`py-2 font-bold transition-colors block backdrop-blur px-6 border ${
                     activeSection === item.href.substring(1)
-                      ? "text-primary bg-primary/10"
-                      : "text-foreground/70 hover:text-foreground hover:bg-muted/50"
+                      ? "text-foreground bg-primary/5 border-primary/50"
+                      : "text-foreground/70 hover:text-foreground hover:bg-muted/50 border-transparent hover:border-primary/30"
                   }`}
                   onClick={() => setMobileMenuOpen(false)}
                 >

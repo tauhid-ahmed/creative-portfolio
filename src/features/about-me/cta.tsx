@@ -21,7 +21,7 @@ export function CTA() {
       >
         <Button
           asChild
-          className="gap-2 bg-gradient-to-r from-primary to-purple-500 hover:opacity-90 transition-opacity interactive"
+          className="gap-2 bg-gradient-to-r from-primary to-purple-500 hover:opacity-90 transition-opacity "
         >
           <a href={developer.resume} download>
             <Download className="h-4 w-4" />
@@ -32,7 +32,7 @@ export function CTA() {
         <Button
           asChild
           variant="outline"
-          className="gap-2 border-primary/20 hover:bg-primary/10 interactive"
+          className="gap-2 border-primary/20 hover:bg-primary/10 "
         >
           <a href="#projects">
             View Projects

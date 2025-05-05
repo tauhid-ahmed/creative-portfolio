@@ -51,7 +51,7 @@ export default function IntroInformation() {
         className="flex flex-wrap gap-4 justify-center lg:justify-start"
       >
         <Button
-          className="px-6 py-6 text-base relative overflow-hidden group interactive"
+          className="px-6 py-6 text-base relative overflow-hidden group "
           size="lg"
           asChild
         >
@@ -67,7 +67,7 @@ export default function IntroInformation() {
           </Link>
         </Button>
         <Button
-          className="px-6 py-6 text-base interactive relative overflow-hidden group"
+          className="px-6 py-6 text-base  relative overflow-hidden group"
           variant="outline"
           size="lg"
           asChild

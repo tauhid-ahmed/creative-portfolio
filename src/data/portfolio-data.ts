@@ -77,7 +77,7 @@ export const skills: Skill[] = [
     items: ["Framer Motion", "GSAP", "Three.js", "CSS Animations", "Lottie"],
     color: "from-amber-500 to-orange-400",
     description:
-      "Creating immersive and interactive user experiences through animation, motion design, and real-time 3D rendering while ensuring performance and accessibility.",
+      "Creating immersive and  user experiences through animation, motion design, and real-time 3D rendering while ensuring performance and accessibility.",
   },
   {
     category: "Digital Design & Prototyping",

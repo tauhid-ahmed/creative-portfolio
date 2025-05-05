@@ -76,7 +76,7 @@ export function ThemeSelector() {
           <span className="sr-only">Select a color theme</span>
         </Button>
       </DropdownMenuTrigger>
-      <DropdownMenuContent align="end">
+      <DropdownMenuContent className="z-[100]" align="end">
         {themes.map((theme) => (
           <DropdownMenuItem
             key={theme.value}

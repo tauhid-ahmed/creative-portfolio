@@ -19,10 +19,7 @@ export function Footer() {
       <Container>
         <div className="grid gap-8 lg:grid-cols-3">
           <div className="space-y-4">
-            <Link
-              href="/"
-              className="text-2xl font-bold tracking-tighter interactive"
-            >
+            <Link href="/" className="text-2xl font-bold tracking-tighter ">
               <span className="gradient-text">Tauhid</span>
             </Link>
             <p className="text-muted-foreground max-w-xs">
@@ -42,7 +39,7 @@ export function Footer() {
                   <Link
                     key={item.name}
                     href={item.href}
-                    className="text-muted-foreground hover:text-primary transition-colors interactive"
+                    className="text-muted-foreground hover:text-primary transition-colors "
                   >
                     {item.name}
                   </Link>
@@ -55,13 +52,13 @@ export function Footer() {
               <div className="flex flex-col space-y-2 text-sm">
                 <a
                   href={`mailto:${developer.email}`}
-                  className="text-muted-foreground hover:text-primary transition-colors interactive"
+                  className="text-muted-foreground hover:text-primary transition-colors "
                 >
                   {developer.email}
                 </a>
                 <a
                   href={`tel:${developer.phone.replace(/\s/g, "")}`}
-                  className="text-muted-foreground hover:text-primary transition-colors interactive"
+                  className="text-muted-foreground hover:text-primary transition-colors "
                 >
                   {developer.phone}
                 </a>
@@ -81,14 +78,14 @@ export function Footer() {
             <Button
               variant="link"
               size="sm"
-              className="text-xs text-muted-foreground hover:text-primary interactive"
+              className="text-xs text-muted-foreground hover:text-primary "
             >
               Privacy Policy
             </Button>
             <Button
               variant="link"
               size="sm"
-              className="text-xs text-muted-foreground hover:text-primary interactive"
+              className="text-xs text-muted-foreground hover:text-primary "
             >
               Terms of Service
             </Button>

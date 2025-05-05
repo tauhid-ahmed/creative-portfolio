@@ -135,7 +135,7 @@ export function Contact() {
                       value={formState.name}
                       onChange={handleChange}
                       required
-                      className="bg-background/50 backdrop-blur-sm border-primary/20 focus:border-primary interactive"
+                      className="bg-background/50 backdrop-blur-sm border-primary/20 focus:border-primary "
                       disabled={isSubmitting}
                     />
                   </div>
@@ -152,7 +152,7 @@ export function Contact() {
                       value={formState.email}
                       onChange={handleChange}
                       required
-                      className="bg-background/50 backdrop-blur-sm border-primary/20 focus:border-primary interactive"
+                      className="bg-background/50 backdrop-blur-sm border-primary/20 focus:border-primary "
                       disabled={isSubmitting}
                     />
                   </div>
@@ -169,14 +169,14 @@ export function Contact() {
                       value={formState.message}
                       onChange={handleChange}
                       required
-                      className="bg-background/50 backdrop-blur-sm border-primary/20 focus:border-primary interactive"
+                      className="bg-background/50 backdrop-blur-sm border-primary/20 focus:border-primary "
                       disabled={isSubmitting}
                     />
                   </div>
 
                   <Button
                     type="submit"
-                    className="w-full gap-2 bg-gradient-to-r from-primary to-purple-500 hover:opacity-90 transition-opacity interactive"
+                    className="w-full gap-2 bg-gradient-to-r from-primary to-purple-500 hover:opacity-90 transition-opacity "
                     disabled={isSubmitting}
                   >
                     {isSubmitting ? (

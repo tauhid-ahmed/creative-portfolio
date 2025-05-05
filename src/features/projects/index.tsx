@@ -50,7 +50,7 @@ export function ProjectsShowcase() {
   ];
 
   return (
-    <Section id="projects" ref={sectionRef}>
+    <Section id="projects" className="overflow-hidden" ref={sectionRef}>
       <div className="text-center mb-16">
         <span className="px-4 py-1.5 rounded-full text-sm font-medium bg-primary/10 text-primary border border-primary/20 inline-block mb-4">
           My Work
@@ -81,7 +81,7 @@ export function ProjectsShowcase() {
                 activeCategory === category.value
                   ? "bg-primary text-primary-foreground"
                   : "hover:bg-primary/10 hover:text-primary"
-              } interactive`}
+              } `}
             >
               {activeCategory === category.value && (
                 <motion.div
@@ -126,7 +126,7 @@ export function ProjectsShowcase() {
                 {filteredProjects.map((project, index) => (
                   <div
                     key={project.id}
-                    className="sm:basis-1/2 lg:basis-1/3 p-4"
+                    className="basis-1/1 sm:basis-1/2 lg:basis-1/3 shrink-0 p-4"
                   >
                     <ProjectCard project={project} index={index} />
                   </div>
