@@ -2,7 +2,7 @@
 
 import { useRef } from "react";
 import { motion, useInView } from "motion/react";
-import Container from "@/components/layout/container";
+import { Container } from "@/components/layout/container";
 import Me from "./me";
 import { MyStats } from "./my-stats";
 import { Information } from "./information";

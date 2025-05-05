@@ -7,9 +7,9 @@ import { motion, useInView } from "motion/react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
-import { Mail, MapPin, Phone, Send } from "lucide-react";
+import { Send } from "lucide-react";
 import Card3D from "@/components/card-3d";
-import Container from "@/components/layout/container";
+import { Container } from "@/components/layout/container";
 import { ContactInformation } from "./information";
 import {
   Section,

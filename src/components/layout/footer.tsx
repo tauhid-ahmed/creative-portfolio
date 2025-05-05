@@ -3,10 +3,10 @@
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { navItems, developer } from "@/data/portfolio-data";
-import Container from "./layout/container";
-import { SocialInformation } from "./social-information";
+import { Container } from "@/components/layout/container";
+import { SocialInformation } from "@/components/social-information";
 
-export default function Footer() {
+export function Footer() {
   const currentYear = new Date().getFullYear();
 
   return (

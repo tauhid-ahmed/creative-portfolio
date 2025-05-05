@@ -2,7 +2,7 @@
 
 import { useEffect, useRef, useState } from "react";
 import { motion, useScroll, useTransform } from "motion/react";
-import Container from "@/components/layout/container";
+import { Container } from "@/components/layout/container";
 import IntroInformation from "./intro-information";
 import { IntroImage } from "./intro-image";
 import { Section } from "@/components/section";

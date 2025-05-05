@@ -1,5 +1,5 @@
 import Card3D from "@/components/card-3d";
-import Container from "@/components/layout/container";
+import { Container } from "@/components/layout/container";
 import {
   Section,
   SectionHeader,

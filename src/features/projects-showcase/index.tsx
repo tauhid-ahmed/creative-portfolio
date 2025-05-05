@@ -10,7 +10,7 @@ import { Code, Layers, Search } from "lucide-react";
 import { projects } from "@/data/portfolio-data";
 import { ProjectCard } from "./project-card";
 import PremiumTextReveal from "@/components/premium-text-reveal";
-import Container from "@/components/layout/container";
+import { Container } from "@/components/layout/container";
 
 type ProjectCategory = "all" | "frontend" | "fullstack" | "design" | "mobile";
 

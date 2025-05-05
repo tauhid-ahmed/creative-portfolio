@@ -4,7 +4,7 @@ type Props = {
   size?: "sm" | "md" | "lg";
 } & React.ComponentProps<"div">;
 
-export default function Container({ size, ...props }: Props) {
+export function Container({ size, ...props }: Props) {
   return (
     <div
       className={cn("container mx-auto px-6", {

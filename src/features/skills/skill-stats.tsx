@@ -15,7 +15,7 @@ import {
   SectionName,
   SectionTitle,
 } from "@/components/section";
-import Container from "@/components/layout/container";
+import { Container } from "@/components/layout/container";
 
 const icons = {
   Code: <Icons.LayersIcon />,
