@@ -11,7 +11,7 @@ import { projects } from "@/data/portfolio-data";
 import { ProjectCard } from "./project-card";
 import PremiumTextReveal from "@/components/premium-text-reveal";
 import { Container } from "@/components/layout/container";
-import { Section } from "@/components/section";
+import { Section } from "@/components/layout/section";
 
 type ProjectCategory = "all" | "frontend" | "fullstack" | "design" | "mobile";
 

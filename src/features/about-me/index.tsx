@@ -14,7 +14,7 @@ import {
   SectionInner,
   SectionName,
   SectionTitle,
-} from "@/components/section";
+} from "@/components/layout/section";
 
 export function AboutMe() {
   const sectionRef = useRef<HTMLElement>(null);

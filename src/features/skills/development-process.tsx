@@ -5,7 +5,7 @@ import {
   SectionHeader,
   SectionInner,
   SectionTitle,
-} from "@/components/section";
+} from "@/components/layout/section";
 import { motion } from "motion/react";
 import { developmentProcess } from "@/data/portfolio-data";
 import * as Icons from "@/components/icons";

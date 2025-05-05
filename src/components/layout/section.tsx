@@ -1,5 +1,5 @@
 import { cn } from "@/lib/utils";
-import { Heading } from "./heading";
+import { Heading } from "@/components/heading";
 import { forwardRef } from "react";
 
 type Props = React.ComponentProps<"section"> & {};

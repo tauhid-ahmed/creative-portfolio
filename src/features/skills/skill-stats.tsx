@@ -14,7 +14,7 @@ import {
   SectionInner,
   SectionName,
   SectionTitle,
-} from "@/components/section";
+} from "@/components/layout/section";
 import { Container } from "@/components/layout/container";
 
 const icons = {
