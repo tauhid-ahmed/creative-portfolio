@@ -77,9 +77,9 @@ export function Header() {
         duration: 0.3,
         ease: "easeInOut",
       }}
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+      className={`fixed top-0 left-0 right-0 z-[100] transition-all duration-300 backdrop-blur ${
         scrolled
-          ? "bg-background/80 backdrop-blur-md shadow-sm border-b border-border/50"
+          ? "bg-primary/5 backdrop-blur-md shadow-sm border-b border-border/50"
           : "bg-transparent"
       }`}
     >
@@ -117,7 +117,7 @@ export function Header() {
                   href={item.href}
                   className={`relative px-3 py-2 text-sm font-medium transition-colors rounded-md interactive ${
                     activeSection === item.href.substring(1)
-                      ? "text-primaryx"
+                      ? "text-primary"
                       : "text-foreground/70 hover:text-foreground"
                   }`}
                 >
@@ -177,10 +177,10 @@ export function Header() {
           opacity: mobileMenuOpen ? 1 : 0,
         }}
         transition={{ duration: 0.3 }}
-        className="md:hidden overflow-hidden bg-background/60 backdrop-blur border-b border-border/50 pb-6"
+        className="md:hidden overflow-hidden bg-background/60 backdrop-blur border-b border-border/50"
       >
         <Container>
-          <nav className="flex flex-col py-4 gap-6">
+          <nav className="flex flex-col py-4 gap-6 pb-6">
             {navItems.map((item, index) => (
               <motion.div
                 key={item.name}

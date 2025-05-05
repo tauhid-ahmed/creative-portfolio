@@ -11,6 +11,7 @@ import { projects } from "@/data/portfolio-data";
 import { ProjectCard } from "./project-card";
 import PremiumTextReveal from "@/components/premium-text-reveal";
 import { Container } from "@/components/layout/container";
+import { Section } from "@/components/section";
 
 type ProjectCategory = "all" | "frontend" | "fullstack" | "design" | "mobile";
 
@@ -49,7 +50,7 @@ export function ProjectsShowcase() {
   ];
 
   return (
-    <section id="projects" ref={sectionRef}>
+    <Section id="projects" ref={sectionRef}>
       <div className="text-center mb-16">
         <span className="px-4 py-1.5 rounded-full text-sm font-medium bg-primary/10 text-primary border border-primary/20 inline-block mb-4">
           My Work
@@ -159,6 +160,6 @@ export function ProjectsShowcase() {
           </Button>
         </motion.div>
       </Container>
-    </section>
+    </Section>
   );
 }

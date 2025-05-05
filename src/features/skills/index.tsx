@@ -3,7 +3,7 @@
 import { useRef } from "react";
 import { motion, useInView } from "motion/react";
 import { SkillStats } from "./skill-stats";
-import { TechStackShowcase } from "./tech-stack-showcase";
+import { TechStackShowcase } from "./tech-showcase";
 import { DevelopmentProcess } from "./development-process";
 
 export function Skills() {
