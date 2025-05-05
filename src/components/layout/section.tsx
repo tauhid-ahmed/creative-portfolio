@@ -11,7 +11,10 @@ export const Section = forwardRef<HTMLElement, Props>(function Section(
   return (
     <section
       ref={ref}
-      className={cn("py-14 md:py-20 lg:py-28 relative", props.className)}
+      className={cn(
+        "py-14 md:py-20 lg:py-28 relative overflow-hidden",
+        props.className
+      )}
       {...props}
     >
       {props.children}

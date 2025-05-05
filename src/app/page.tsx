@@ -8,7 +8,9 @@ import { ProjectsShowcase } from "@/features/projects";
 import { Contact } from "@/features/contact";
 import { PremiumBackground } from "@/components/animations/premium-background";
 
-export default function Home() {
+export default async function Home() {
+  // await new Promise((resolve) => setTimeout(resolve, 10000000));
+  // throw Error();
   return (
     <main className="min-h-screen">
       <Header />

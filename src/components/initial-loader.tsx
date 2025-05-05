@@ -1,6 +1,7 @@
 "use client";
 import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "motion/react";
+import { LucideLoader2 } from "lucide-react";
 
 export default function InitialLoader({
   children,
@@ -14,7 +15,7 @@ export default function InitialLoader({
     const timer = setTimeout(() => {
       setShowSplash(false);
       setMounted(true);
-    }, 100);
+    }, 0);
     return () => clearTimeout(timer);
   }, []);
 
@@ -22,23 +23,28 @@ export default function InitialLoader({
     <>
       <AnimatePresence>
         {showSplash && (
-          <motion.div
+          <div
             key="splash"
-            className="fixed inset-0 z-50 bg-background flex items-center justify-center"
-            initial={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            transition={{ duration: 0.5 }}
+            className="flex h-screen items-center justify-center bg-background w-full"
           >
-            <motion.h1
-              initial={{ scale: 0.9, opacity: 0 }}
-              animate={{ scale: 1, opacity: 1 }}
-              exit={{ scale: 0.95, opacity: 0 }}
-              transition={{ duration: 0.5 }}
-              className="text-4xl font-bold"
-            >
-              Loading...
-            </motion.h1>
-          </motion.div>
+            {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map((i) => (
+              <motion.div
+                initial={{
+                  y: 0,
+                  opacity: 1,
+                }}
+                animate={{
+                  y: "100%",
+                  opacity: 0,
+                }}
+                transition={{
+                  delay: (i - 1) * 0.05,
+                }}
+                key={i}
+                className="h-screen w-1/10 bg-gray-300 dark:bg-stone-900"
+              />
+            ))}
+          </div>
         )}
       </AnimatePresence>
       {mounted && children}

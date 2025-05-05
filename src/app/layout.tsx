@@ -2,8 +2,8 @@ import type { Metadata, Viewport } from "next";
 import { Mona_Sans as FontSans } from "next/font/google";
 import { ThemeProvider } from "@/components/theme-provider";
 import { env } from "@/env";
-import "@/styles/globals.css";
 import { LenisProvider } from "@/components/animations/lenis";
+import "@/styles/globals.css";
 
 const fontSans = FontSans({
   subsets: ["latin"],

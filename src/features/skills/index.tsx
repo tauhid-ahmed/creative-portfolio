@@ -11,7 +11,7 @@ export function Skills() {
   const isInView = useInView(sectionRef, { once: true, amount: 0.1 });
 
   return (
-    <div id="skills" className="relative" ref={sectionRef}>
+    <div id="skills" className="relative overflow-hidden" ref={sectionRef}>
       <BackgroundBlob />
       {/* Modern Skills Navigation */}
       <SkillStats />

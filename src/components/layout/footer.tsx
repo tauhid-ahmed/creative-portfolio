@@ -31,7 +31,7 @@ export function Footer() {
             </div>
           </div>
 
-          <div className="grid grid-cols-2 gap-8 lg:col-span-2">
+          <div className="grid grid-cols-[1fr_1fr] gap-12 lg:col-span-2 justify-between">
             <div className="space-y-4">
               <h3 className="text-sm font-medium gradient-text">Navigation</h3>
               <nav className="flex flex-col space-y-2 text-sm">
