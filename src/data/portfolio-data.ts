@@ -208,7 +208,7 @@ export const profileData: ResumeData = [
   {
     section: "about",
     content: [
-      "I'm Tauhid Ahmed, a self-taught web developer with over 5 years of experience building fast, responsive, and accessible web applications using technologies like React, Next.js, and TypeScript.",
+      "I am Tauhid Ahmed, a self-taught web developer with over 5 years of experience building fast, responsive, and accessible web applications using technologies like React, Next.js, and TypeScript.",
       "My journey into development began during my university years, where I transitioned from a business background to software engineering through self-learning and hands-on practice.",
       "I’ve completed multiple freelance projects, earned certifications from global platforms, and currently work professionally as a frontend developer at Softnio, contributing to real-world, production-level systems.",
       "I care deeply about clean code, intuitive UI/UX, and continuous learning. My goal is to build impactful digital experiences that are user-focused and performance-driven.",
