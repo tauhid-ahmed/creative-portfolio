@@ -6,6 +6,7 @@ import me from "@/images/me/me.webp";
 import reactIcon from "@/images/tech-icons/react.svg";
 import typescriptIcon from "@/images/tech-icons/typescript.svg";
 import nextjsIcon from "@/images/tech-icons/nextjs.svg";
+import Card3D from "@/components/card-3d";
 
 export function IntroImage({ rotate }: { rotate: MotionValue }) {
   return (

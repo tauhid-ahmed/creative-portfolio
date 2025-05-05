@@ -106,8 +106,8 @@ export function SkillStats() {
           </SectionHeader>
         </motion.div>
         <Container size="lg">
-          <Tabs>
-            <TabsList className="flex flex-wrap gap-4 p-1 bg-background/50 justify-center w-full backdrop-blur border border-border/50 rounded-full">
+          <Tabs className="space-y-6">
+            <TabsList className="flex flex-wrap gap-4 p-1 bg-background/50 justify-center backdrop-blur border border-border/50 rounded-full w-full px-6">
               {skills.map((skill) => {
                 return (
                   <TabsTrigger
@@ -137,7 +137,7 @@ export function SkillStats() {
                 );
               })}
             </TabsList>
-            <TabsContent className="mt-4" value="">
+            <TabsContent value="">
               <AnimatePresence mode="wait">
                 <motion.div
                   key={activeCategory}
@@ -145,7 +145,7 @@ export function SkillStats() {
                   animate={{ opacity: 1, y: 0 }}
                   exit={{ opacity: 0, y: -20 }}
                   transition={{ duration: 0.5 }}
-                  className="grid md:grid-cols-2 gap-8"
+                  className="grid md:grid-cols-2 gap-8 perspective-distant"
                 >
                   {/* Skill details */}
                   <Card3D className="modern-card p-6 md:p-8 h-full">

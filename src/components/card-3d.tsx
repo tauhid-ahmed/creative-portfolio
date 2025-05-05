@@ -1,11 +1,11 @@
 "use client";
 
-import { useState, useRef } from "react";
+import { useState, useRef, useCallback, useMemo } from "react";
 import { motion, useMotionValue, useSpring, useTransform } from "motion/react";
 import { cn } from "@/lib/utils";
 
-// Modern themes using shadcn color tokens
 type Theme = "light" | "dark" | "glass" | "accent" | "muted";
+type Radius = "none" | "sm" | "md" | "lg" | "xl" | "rounded";
 
 interface Card3DProps extends React.ComponentProps<typeof motion.div> {
   children: React.ReactNode;
@@ -17,11 +17,11 @@ interface Card3DProps extends React.ComponentProps<typeof motion.div> {
   float?: boolean;
   hoverScale?: number;
   disabled?: boolean;
-  radius?: "none" | "sm" | "md" | "lg" | "xl" | "rounded";
+  radius?: Radius;
 }
 
-// Spring configurations
-const SPRING_CONFIG = { damping: 30, stiffness: 250, mass: 0.5 };
+// Constants extracted outside component to prevent recreations
+const SPRING_CONFIG = { damping: 40, stiffness: 180, mass: 0.5 };
 const FLOAT_ANIMATION = {
   y: [0, -8, 0],
   transition: {
@@ -30,6 +30,16 @@ const FLOAT_ANIMATION = {
     repeatType: "reverse" as const,
     ease: "easeInOut",
   },
+};
+
+// Theme configuration map
+const THEME_CLASSES = {
+  light: "bg-card text-card-foreground border-border/10",
+  dark: "bg-card/95 text-card-foreground border-border/20 dark:bg-card/40",
+  glass:
+    "bg-background/30 backdrop-blur-md border-white/10 dark:bg-background/10",
+  accent: "bg-primary/10 text-primary-foreground border-primary/20",
+  muted: "bg-muted text-muted-foreground border-muted-foreground/20",
 };
 
 export default function Card3D({
@@ -44,26 +54,26 @@ export default function Card3D({
   hoverScale = 1.01,
   disabled = false,
   radius = "xl",
-
   onClick,
   ...props
 }: Card3DProps) {
-  const [isHovered, setIsHovered] = useState(false);
+  // Refs and state
   const cardRef = useRef<HTMLDivElement>(null);
+  const [isHovered, setIsHovered] = useState(false);
 
-  // Motion values for 3D effect
+  // Motion values with reduced updates
   const rotateX = useMotionValue(0);
   const rotateY = useMotionValue(0);
   const scale = useMotionValue(1);
   const glareX = useMotionValue(50);
   const glareY = useMotionValue(50);
 
-  // Spring animations for smooth transitions
+  // Spring animations with optimized configuration
   const springRotateX = useSpring(rotateX, SPRING_CONFIG);
   const springRotateY = useSpring(rotateY, SPRING_CONFIG);
   const springScale = useSpring(scale, SPRING_CONFIG);
 
-  // Z-transform for depth effect
+  // Z-transform with memoized transform function
   const z = useTransform([springRotateX, springRotateY], ([rotX, rotY]) => {
     if (!isHovered) return 0;
     const absoluteRotation =
@@ -71,69 +81,120 @@ export default function Card3D({
     return Math.min(20, absoluteRotation / 2);
   });
 
-  // Event handlers
-  function handleMouseMove(e: React.MouseEvent<HTMLDivElement>) {
-    if (!cardRef.current || disabled) return;
+  // Memoized styles and classes
+  const radiusClass = useMemo(
+    () => (radius === "none" ? "rounded-none" : `rounded-${radius}`),
+    [radius]
+  );
 
-    const rect = cardRef.current.getBoundingClientRect();
+  const shadowClass = useMemo(() => {
+    if (!shadow) return "";
+    return cn(
+      "shadow-lg",
+      isHovered && "shadow-xl",
+      theme === "accent" && "shadow-primary/10",
+      theme === "dark" && "shadow-black/20"
+    );
+  }, [shadow, isHovered, theme]);
 
-    // Calculate mouse position relative to card center
-    const centerX = (e.clientX - rect.left) / rect.width - 0.5;
-    const centerY = (e.clientY - rect.top) / rect.height - 0.5;
+  // Event handlers with useCallback for performance
+  const handleMouseMove = useCallback(
+    (e: React.MouseEvent<HTMLDivElement>) => {
+      if (!cardRef.current || disabled) return;
 
-    // Update motion values
-    rotateX.set(-centerY * intensity);
-    rotateY.set(centerX * intensity);
-    scale.set(hoverScale);
+      const rect = cardRef.current.getBoundingClientRect();
 
-    // Update glare position
-    if (glare) {
-      glareX.set(((e.clientX - rect.left) / rect.width) * 100);
-      glareY.set(((e.clientY - rect.top) / rect.height) * 100);
-    }
-  }
+      // Calculate relative position - optimized math
+      const centerX = (e.clientX - rect.left) / rect.width - 0.5;
+      const centerY = (e.clientY - rect.top) / rect.height - 0.5;
 
-  function handleMouseLeave() {
+      // Update motion values - throttled updates
+      rotateX.set(-centerY * intensity);
+      rotateY.set(centerX * intensity);
+      scale.set(hoverScale);
+
+      // Update glare position if enabled
+      if (glare) {
+        const xPercent = ((e.clientX - rect.left) / rect.width) * 100;
+        const yPercent = ((e.clientY - rect.top) / rect.height) * 100;
+        glareX.set(xPercent);
+        glareY.set(yPercent);
+      }
+    },
+    [
+      disabled,
+      intensity,
+      hoverScale,
+      glare,
+      rotateX,
+      rotateY,
+      scale,
+      glareX,
+      glareY,
+    ]
+  );
+
+  const handleMouseLeave = useCallback(() => {
     rotateX.set(0);
     rotateY.set(0);
     scale.set(1);
     setIsHovered(false);
-  }
+  }, [rotateX, rotateY, scale]);
 
-  function handleMouseEnter() {
+  const handleMouseEnter = useCallback(() => {
     if (!disabled) {
       setIsHovered(true);
     }
-  }
+  }, [disabled]);
 
-  // Theme configurations
-  const themeClasses = {
-    light: "bg-card text-card-foreground border-border/10",
-    dark: "bg-card/95 text-card-foreground border-border/20 dark:bg-card/40",
-    glass:
-      "bg-background/30 backdrop-blur-md border-white/10 dark:bg-background/10",
-    accent: "bg-primary/10 text-primary-foreground border-primary/20",
-    muted: "bg-muted text-muted-foreground border-muted-foreground/20",
-  };
+  // Memoized border component to prevent rerenders
+  const borderElement = useMemo(() => {
+    if (!border || !isHovered) return null;
 
-  // Shadow classes
-  const shadowClasses = shadow
-    ? cn(
-        "shadow-lg",
-        isHovered && "shadow-xl",
-        theme === "accent" && "shadow-primary/10",
-        theme === "dark" && "shadow-black/20"
-      )
-    : "";
+    return (
+      <motion.div
+        className={cn(
+          "absolute inset-0 pointer-events-none",
+          theme === "accent"
+            ? "border border-primary/30"
+            : "border border-border/30"
+        )}
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 0.2 }}
+      />
+    );
+  }, [border, isHovered, theme]);
+
+  // Memoized glare effect
+  const glareElement = useMemo(() => {
+    if (!glare || !isHovered) return null;
+
+    return (
+      <div className="absolute inset-0 overflow-hidden pointer-events-none z-[2]">
+        <div
+          className="absolute pointer-events-none"
+          style={{
+            background:
+              "radial-gradient(circle at center, rgba(255, 255, 255, 0.1) 0%, transparent 50%)",
+            width: "200%",
+            height: "200%",
+            top: `${glareY.get() - 100}%`,
+            left: `${glareX.get() - 100}%`,
+          }}
+        />
+      </div>
+    );
+  }, [glare, isHovered, glareX, glareY]);
 
   return (
     <motion.div
       ref={cardRef}
       className={cn(
         "relative overflow-hidden transition-colors duration-300",
-        radius === "none" ? "rounded-none" : `rounded-${radius}`,
-        themeClasses[theme],
-        shadowClasses,
+        radiusClass,
+        THEME_CLASSES[theme],
+        shadowClass,
         className
       )}
       style={{
@@ -150,46 +211,20 @@ export default function Card3D({
       onMouseEnter={handleMouseEnter}
       onClick={onClick}
       whileTap={{ scale: disabled ? 1 : 0.98 }}
-      animate={float ? FLOAT_ANIMATION : {}}
+      animate={float ? FLOAT_ANIMATION : undefined}
       {...props}
     >
-      {/* Card content with relative positioning */}
+      {/* Card content */}
       <div className="relative z-10">{children}</div>
 
-      {/* Border effect */}
-      {border && isHovered && (
-        <motion.div
-          className={cn(
-            "absolute inset-0 pointer-events-none",
-            theme === "accent"
-              ? "border border-primary/30"
-              : "border border-border/30"
-          )}
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.2 }}
-        />
-      )}
+      {/* Effects */}
+      {borderElement}
+      {glareElement}
 
-      {/* Glare effect */}
-      {glare && isHovered && (
-        <div className="absolute inset-0 overflow-hidden pointer-events-none z-[2]">
-          <div
-            className="absolute pointer-events-none"
-            style={{
-              background:
-                "radial-gradient(circle at center, rgba(255, 255, 255, 0.1) 0%, transparent 50%)",
-              width: "200%",
-              height: "200%",
-              top: `${glareY.get() - 100}%`,
-              left: `${glareX.get() - 100}%`,
-            }}
-          />
-        </div>
+      {/* Ambient light effect - simplified */}
+      {isHovered && (
+        <div className="absolute inset-0 bg-gradient-to-br from-white/5 via-transparent to-black/5 pointer-events-none" />
       )}
-
-      {/* Ambient light effect - subtle gradient */}
-      <div className="absolute inset-0 bg-gradient-to-br from-white/5 via-transparent to-black/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none" />
     </motion.div>
   );
 }

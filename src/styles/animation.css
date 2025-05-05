@@ -1,0 +1,23 @@
+@theme {
+  --animate-fade-in: fade-in 0.4s ease-in-out both;
+
+  @keyframes fade-in {
+    0% {
+      transform: scale(0.7);
+    }
+    100% {
+      transform: scale(1);
+    }
+  }
+
+  --animate-bg-y: bg-y 20s linear infinite both;
+  @keyframes bg-y {
+    0%,
+    100% {
+      background-position-y: 0%;
+    }
+    50% {
+      background-position-y: -100%;
+    }
+  }
+}

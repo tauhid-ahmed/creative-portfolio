@@ -12,7 +12,7 @@ import { PremiumBackground } from "@/components/animations/premium-background";
 export default function Home() {
   return (
     <main className="min-h-screen">
-      <ScrollProgress />
+      {/* <ScrollProgress /> */}
       <Header />
       <Suspense
         fallback={

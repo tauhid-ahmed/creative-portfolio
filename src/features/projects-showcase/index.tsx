@@ -10,7 +10,6 @@ import { Code, Layers, Search } from "lucide-react";
 import { projects } from "@/data/portfolio-data";
 import { ProjectCard } from "./project-card";
 import PremiumTextReveal from "@/components/premium-text-reveal";
-import PremiumSection from "@/components/premium-section";
 import Container from "@/components/layout/container";
 
 type ProjectCategory = "all" | "frontend" | "fullstack" | "design" | "mobile";
@@ -23,7 +22,7 @@ export function ProjectsShowcase() {
   const filteredProjects =
     activeCategory === "all"
       ? projects
-      : projects.filter((project) => project.category === activeCategory);
+      : projects.filter((project) => project.category.includes(activeCategory));
 
   const categories: {
     value: ProjectCategory;
@@ -98,21 +97,46 @@ export function ProjectsShowcase() {
         </div>
 
         <AnimatePresence mode="wait">
-          <motion.div
-            key={activeCategory}
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -20 }}
-            transition={{ duration: 0.5 }}
-            className="grid md:grid-cols-2 gap-8"
-          >
-            {filteredProjects.map((project, index) => (
-              <ProjectCard key={project.id} project={project} index={index} />
-            ))}
-          </motion.div>
+          {filteredProjects.length <= 0 ? (
+            <motion.div
+              className="text-center p-8"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -20 }}
+              transition={{ duration: 0.3 }}
+            >
+              <span className="text-muted-foreground gradient-text text-[clamp(3rem,4.5vw,6rem)] font-bold">
+                No projects found
+              </span>{" "}
+              <br />
+              <span className="inline-block underline underline-offset-4 capitalize px-4 py-2 text-sm text-primary">
+                Coming soon
+              </span>
+            </motion.div>
+          ) : (
+            <motion.div
+              key={activeCategory}
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -20 }}
+              transition={{ duration: 0.3 }}
+            >
+              <div className="-mx-8 px-4 flex flex-wrap justify-center">
+                {filteredProjects.map((project, index) => (
+                  <div
+                    key={project.id}
+                    className="sm:basis-1/2 lg:basis-1/3 p-4"
+                  >
+                    <ProjectCard project={project} index={index} />
+                  </div>
+                ))}
+              </div>
+            </motion.div>
+          )}
         </AnimatePresence>
 
         <motion.div
+          layout
           className="text-center mt-12"
           initial={{ opacity: 0 }}
           animate={isInView ? { opacity: 1 } : { opacity: 0 }}

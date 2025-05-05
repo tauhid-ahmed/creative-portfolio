@@ -1,25 +1,20 @@
-import { Badge } from "@/components/ui/badge";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Briefcase, GraduationCap, User } from "lucide-react";
 import { motion } from "motion/react";
 import { profileData } from "@/data/portfolio-data";
+import { Timeline } from "@/components/timeline";
 
-type AboutContentType = string[];
+type AboutData = Extract<ResumeData[number], { section: "about" }>["content"];
 
-type ExperienceItem = {
-  company: string;
-  position: string;
-  duration: string;
-  description: string;
-  technologies: string[];
-};
+type ExperienceData = Extract<
+  ResumeData[number],
+  { section: "experience" }
+>["content"];
 
-type EducationItem = {
-  degree: string;
-  institution: string;
-  duration: string;
-  description: string;
-};
+type EducationData = Extract<
+  ResumeData[number],
+  { section: "education" }
+>["content"];
 
 const itemVariants = {
   hidden: { y: 20, opacity: 0 },
@@ -39,7 +34,7 @@ export function Information() {
             <TabsTrigger
               value={item.section}
               key={index}
-              className="data-[state=active]:text-primary-foreground flex items-center gap-2 cursor-pointer p-1.5 transition-transform duration-300"
+              className="data-[state=active]:text-secondary! data-[state=active]:bg-primary! flex items-center gap-2 cursor-pointer p-1.5 transition-transform duration-300"
             >
               {item.section === "about" && <User />}
               {item.section === "experience" && <Briefcase />}
@@ -52,35 +47,20 @@ export function Information() {
 
       {profileData.map((item, index) => {
         if (item.section === "about") {
-          return (
-            <AboutContent
-              key={index}
-              items={item.content as AboutContentType}
-            />
-          );
+          return <AboutContent key={index} items={item.content} />;
         }
         if (item.section === "experience") {
-          return (
-            <ExperienceContent
-              key={index}
-              items={item.content as ExperienceItem[]}
-            />
-          );
+          return <ExperienceContent key={index} items={item.content} />;
         }
         if (item.section === "education") {
-          return (
-            <EducationContent
-              key={index}
-              items={item.content as EducationItem[]}
-            />
-          );
+          return <EducationContent key={index} items={item.content} />;
         }
       })}
     </Tabs>
   );
 }
 
-function AboutContent({ items }: { items: AboutContentType }) {
+function AboutContent({ items }: { items: AboutData }) {
   return (
     <TabsContent
       value="about"
@@ -99,39 +79,33 @@ function AboutContent({ items }: { items: AboutContentType }) {
   );
 }
 
-function ExperienceContent({ items }: { items: ExperienceItem[] }) {
+function ExperienceContent({ items }: { items: ExperienceData }) {
   return (
     <TabsContent
       value="experience"
       className="space-y-4 animate-in fade-in-50 duration-300"
     >
-      {items.map((item, index) => (
-        <motion.div variants={itemVariants} key={index} className="space-y-6">
-          <div className="relative pl-8 before:absolute before:left-0 before:top-0 before:bottom-0 before:w-0.5 before:bg-gradient-to-b before:from-primary before:to-primary/30">
-            <div className="absolute left-0 top-1.5 w-4 h-4 rounded-full bg-primary -translate-x-1/2"></div>
-            <h4 className="font-bold text-lg">{item.position}</h4>
-            <p className="text-sm text-primary mb-2">
+      <motion.div variants={itemVariants} className="space-y-6">
+        {items.map((item, index) => (
+          <Timeline.Root key={index}>
+            <Timeline.Title>{item.position}</Timeline.Title>
+            <Timeline.Subtitle>
               {item.company} • {item.duration}
-            </p>
-            <p className="text-muted-foreground">{item.description}</p>
-            <div className="flex flex-wrap gap-2 mt-2">
+            </Timeline.Subtitle>
+            <Timeline.Description>{item.description}</Timeline.Description>
+            <Timeline.Tags>
               {item.technologies.map((tech, index) => (
-                <Badge
-                  key={index}
-                  className="bg-primary/10 text-primary border-primary/20"
-                >
-                  {tech}
-                </Badge>
+                <Timeline.Tag key={index}>{tech}</Timeline.Tag>
               ))}
-            </div>
-          </div>
-        </motion.div>
-      ))}
+            </Timeline.Tags>
+          </Timeline.Root>
+        ))}
+      </motion.div>
     </TabsContent>
   );
 }
 
-function EducationContent({ items }: { items: EducationItem[] }) {
+function EducationContent({ items }: { items: EducationData }) {
   return (
     <TabsContent
       value="education"
@@ -139,17 +113,13 @@ function EducationContent({ items }: { items: EducationItem[] }) {
     >
       <motion.div variants={itemVariants} className="space-y-6">
         {items.map((item, index) => (
-          <div
-            key={index}
-            className="relative pl-8 before:absolute before:left-0 before:top-0 before:bottom-0 before:w-0.5 before:bg-gradient-to-b before:from-primary before:to-primary/30"
-          >
-            <div className="absolute left-0 top-1.5 w-4 h-4 rounded-full bg-primary -translate-x-1/2"></div>
-            <h4 className="font-bold text-lg">{item.degree}</h4>
-            <p className="text-sm text-primary mb-2">
+          <Timeline.Root key={index}>
+            <Timeline.Title>{item.degree}</Timeline.Title>
+            <Timeline.Subtitle>
               {item.institution} • {item.duration}
-            </p>
-            <p className="text-muted-foreground">{item.description}</p>
-          </div>
+            </Timeline.Subtitle>
+            <Timeline.Description>{item.description}</Timeline.Description>
+          </Timeline.Root>
         ))}
       </motion.div>
     </TabsContent>

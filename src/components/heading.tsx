@@ -13,7 +13,7 @@ const classnames = (size: Props["size"]) => ({
   "text-[clamp(2rem,5vw,4rem)] tracking-tight": size === "h2",
   "text-[clamp(1.75rem,4vw,3rem)] tracking-tight": size === "h3",
   "text-[clamp(1.5rem,3.5vw,2.25rem)] tracking-tight": size === "h4",
-  "text-[clamp(1.25rem,3vw,1.5rem)]": size === "h5",
+  "text-[clamp(1rem,1vw,1.2rem)]": size === "h5",
   "text-sm": size === "h6",
 });
 

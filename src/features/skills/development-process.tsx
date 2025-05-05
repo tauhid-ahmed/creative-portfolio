@@ -31,6 +31,7 @@ export function DevelopmentProcess({ isInView }: { isInView: boolean }) {
             initial={{ opacity: 0, y: 30 }}
             animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
             transition={{ duration: 0.6, delay: 0.4 }}
+            className="perspective-midrange"
           >
             <Card3D className="modern-card py-20">
               <div className="relative">
@@ -40,10 +41,7 @@ export function DevelopmentProcess({ isInView }: { isInView: boolean }) {
                 <div className="space-y-12 relative">
                   {developmentProcess.map((step, index) => {
                     return (
-                      <div
-                        key={step.title}
-                        className="relative group hover:scale-105 transition-transform duration-300"
-                      >
+                      <div key={step.title} className="relative group">
                         <div className="md:grid md:grid-cols-2 md:gap-8 items-center">
                           <div
                             className={`md:text-right ${
@@ -69,7 +67,10 @@ export function DevelopmentProcess({ isInView }: { isInView: boolean }) {
                                 : "md:justify-end"
                             } mt-4 md:mt-0`}
                           >
-                            <div className="flex items-center justify-center w-16 h-16 rounded-full bg-primary/10 border border-primary/20 group-hover:bg-primary/20 group-hover:text-primary transition-colors duration-300">
+                            <div
+                              className="flex items-center justify-center size-16 rounded-full bg-primary/10 border border-primary/40 group-hover:bg-primary/30
+                            group-hover:border-primary group-hover:text-primary transition-colors duration-300"
+                            >
                               {icons[step.icon as keyof typeof icons]}
                             </div>
                           </div>

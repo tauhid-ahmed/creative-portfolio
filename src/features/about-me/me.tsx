@@ -6,7 +6,7 @@ import me from "@/images/me/me.webp";
 
 export default function Me({ isInView }: { isInView: boolean }) {
   return (
-    <div className="overflow-hidden border p-6 rounded-2xl relative">
+    <div className="overflow-hidden border p-6 rounded-2xl relative perspective-dramatic">
       {/* Decorative elements */}
       <div className="absolute -top-2 -left-2 w-24 h-24 border-2 border-primary/30 rounded-lg z-0"></div>
       <div className="absolute -bottom-2 -right-2 w-24 h-24 border-2 border-primary/30 rounded-lg z-0"></div>

@@ -1,11 +1,3 @@
-import type {
-  NavItem,
-  SocialLink,
-  Skill,
-  Project,
-  Testimonial,
-  Developer,
-} from "@/lib/types";
 import { env } from "@/env";
 
 export const navItems: NavItem[] = [
@@ -121,52 +113,67 @@ export const skills: Skill[] = [
 
 export const projects: Project[] = [
   {
-    id: "ecommerce-dashboard",
-    title: "E-Commerce Dashboard",
+    id: "E-commerce Platform",
+    title: "E-Commerce Platform",
     description:
-      "A comprehensive dashboard for e-commerce businesses with real-time analytics and inventory management.",
+      "A full-featured e-commerce system built with modern web technologies, featuring product creation, image uploads, real-time inventory, and secure authentication. Includes a performant dashboard for business insights.",
     image: "/placeholder.svg?height=600&width=800",
-    tags: ["React", "Next.js", "Tailwind CSS", "Chart.js"],
+    tags: [
+      "Next.js",
+      "Hono tRPC",
+      "Drizzle ORM",
+      "Shadcn UI",
+      "Tailwindcss",
+      "Motion for React",
+      "Neon Postgres",
+      "Redis",
+      "Auth.js",
+    ],
     demoUrl: "#",
     githubUrl: "#",
     featured: true,
-    category: "frontend",
+    category: ["fullstack"],
   },
   {
-    id: "travel-booking",
-    title: "Travel Booking Platform",
-    description:
-      "A modern travel booking platform with interactive maps, destination search, and personalized recommendations.",
-    image: "/placeholder.svg?height=600&width=800",
-    tags: ["TypeScript", "React", "GSAP", "Mapbox"],
-    demoUrl: "#",
-    githubUrl: "#",
-    featured: true,
-    category: "fullstack",
-  },
-  {
-    id: "creative-portfolio",
+    id: "Creative-Portfolio",
     title: "Creative Portfolio",
     description:
-      "A creative portfolio website for a digital agency with advanced animations and interactive elements.",
+      "A visually engaging portfolio site with smooth animations and modern UI components. Showcases creative work using motion effects and aesthetic design principles.",
     image: "/placeholder.svg?height=600&width=800",
-    tags: ["Next.js", "Framer Motion", "Three.js", "GSAP"],
+    tags: [
+      "Next.js",
+      "Motion for React",
+      "Shadcn UI",
+      "Tailwindcss",
+      "CSS Animations",
+    ],
     demoUrl: "#",
     githubUrl: "#",
     featured: true,
-    category: "design",
+    category: ["frontend", "design"],
   },
   {
-    id: "finance-app",
-    title: "Finance App",
+    id: "issue-tracker",
+    title: "Issue Tracker App",
     description:
-      "A personal finance application with expense tracking, budgeting tools, and interactive data visualizations.",
+      "A robust issue tracking system inspired by modern project management tools. Supports ticket creation, status updates, and team collaboration — built with the same tech stack as the e-commerce app.",
     image: "/placeholder.svg?height=600&width=800",
-    tags: ["React", "TypeScript", "D3.js", "Tailwind CSS"],
+    tags: [
+      "Next.js",
+      "Prisma ORM",
+      "Auth.js",
+      "Tailwindcss",
+      "Redis",
+      "Redix UI",
+      "Neon Postgres",
+      "Shadcn UI",
+      "Motion for React",
+      "Hono tRPC",
+    ],
     demoUrl: "#",
     githubUrl: "#",
-    featured: true,
-    category: "mobile",
+    featured: false,
+    category: ["fullstack"],
   },
 ];
 
@@ -197,41 +204,40 @@ export const testimonials: Testimonial[] = [
   },
 ];
 
-export const profileData = [
+export const profileData: ResumeData = [
   {
     section: "about",
     content: [
-      "Hi, I'm a web developer with over 5 years of experience building fast, accessible, and responsive web applications using tools like React, Next.js, and TypeScript. I focus on writing clean, scalable code that solves real problems.",
-      "I enjoy working at the intersection of design and development, creating user interfaces that are both intuitive and visually polished. I believe good design enhances functionality and leads to better user experiences.",
-      "I'm always learning—exploring new technologies, refining my workflow, and improving performance. My goal is to build meaningful digital products that leave a lasting impression.",
+      "I'm Tauhid Ahmed, a self-taught web developer with over 5 years of experience building fast, responsive, and accessible web applications using technologies like React, Next.js, and TypeScript.",
+      "My journey into development began during my university years, where I transitioned from a business background to software engineering through self-learning and hands-on practice.",
+      "I’ve completed multiple freelance projects, earned certifications from global platforms, and currently work professionally as a frontend developer at Softnio, contributing to real-world, production-level systems.",
+      "I care deeply about clean code, intuitive UI/UX, and continuous learning. My goal is to build impactful digital experiences that are user-focused and performance-driven.",
     ],
   },
   {
     section: "experience",
     content: [
       {
-        company: "TechCorp Inc.",
-        position: "Senior Frontend Developer",
-        duration: "2021 - Present",
-        description:
-          "Leading frontend development for enterprise applications, implementing modern UI/UX practices, and mentoring junior developers.",
-        technologies: ["React", "TypeScript", "Next.js", "GraphQL"],
-      },
-      {
-        company: "Digital Solutions",
+        company: "Softnio",
         position: "Frontend Developer",
-        duration: "2019 - 2021",
+        duration: "2024 – Present",
         description:
-          "Developed responsive web applications and collaborated with design team to implement pixel-perfect interfaces.",
-        technologies: ["React", "JavaScript", "CSS3", "RESTful APIs"],
+          "Building and maintaining scalable frontend applications. Collaborating with designers and backend engineers to deliver performant and user-friendly interfaces.",
+        technologies: ["React", "TypeScript", "Next.js", "Tailwind CSS"],
       },
       {
-        company: "Creative Agency",
-        position: "UI Developer",
-        duration: "2017 - 2019",
+        company: "Freelance Projects",
+        position: "Frontend Developer",
+        duration: "2020 – 2024",
         description:
-          "Created interactive websites for clients across various industries, focusing on animations and user experience.",
-        technologies: ["JavaScript", "HTML5", "CSS3", "jQuery"],
+          "Designed, developed, and deployed full-stack web applications for clients across various industries. Handled everything from planning to production independently.",
+        technologies: [
+          "Next.js",
+          "Node.js",
+          "MongoDB",
+          "Vercel",
+          "Motion for React",
+        ],
       },
     ],
   },
@@ -239,18 +245,18 @@ export const profileData = [
     section: "education",
     content: [
       {
-        degree: "Bachelor of Science in Computer Science",
-        description: "Majoring in Web Development",
-        institution: "University of XYZ",
-        duration: "2014 - 2018",
-        gpa: "3.8/4.0",
+        degree: "Professional Training in Web & Software Development",
+        description:
+          "Completed online certifications and project-based courses in web development, JavaScript, React, and full-stack engineering.",
+        institution: "freeCodeCamp, Coursera, YouTube, and other platforms",
+        duration: "2017 – Present",
       },
       {
-        degree: "High School Diploma",
-        description: "Graduated with honors",
-        institution: "ABC High School",
-        duration: "2010 - 2014",
-        gpa: "4.0/4.0",
+        degree: "Bachelor of Business Administration (BBA)",
+        description:
+          "Completed core business and management coursework. Developed a strong interest in software development during this period and began transitioning into the tech field through self-guided learning.",
+        institution: "Private University, Bangladesh",
+        duration: "2014 – 2018",
       },
     ],
   },

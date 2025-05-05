@@ -1,6 +1,7 @@
 @import "tailwindcss";
 @import "./themes.css";
 @import "./custom.css";
+@import "./animation.css";
 
 @theme inline {
   --color-background: var(--background);
@@ -63,6 +64,10 @@
   animation: animate-gradient 10s infinite;
 }
 
+.animate-y {
+  animation: animate-y 30s linear infinite both alternate-reverse;
+}
+
 @property --gradient-animation {
   syntax: "<angle>";
   inherits: false;
@@ -78,6 +83,11 @@
   }
 }
 
-.box:hover {
-  animation: animate-gradient 1s linear infinite both;
+@keyframes animate-y {
+  from {
+    transform: translateY(0);
+  }
+  to {
+    transform: translateY(50vh);
+  }
 }
