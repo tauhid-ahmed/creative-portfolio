@@ -7,6 +7,7 @@ import { motion } from "motion/react";
 import Link from "next/link";
 import { ScrollIndicator } from "./scroll-indicator";
 import { resumeDownloadPath } from "@/paths";
+import { Heading } from "@/components/heading";
 
 export function IntroInformation() {
   return (
@@ -21,13 +22,13 @@ export function IntroInformation() {
           {developer.name}
         </motion.span>
 
-        <h1 className="text-[clamp(2rem,4.5vw,4rem)] font-bold tracking-tight leading-tight">
+        <Heading as="h1" size="display">
           <TextWeave />
           <motion.span
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 1.2, duration: 0.8 }}
-            className="block text-primary mt-2"
+            className="block text-primary"
           >
             as a{" "}
             <span className="relative">
@@ -35,7 +36,7 @@ export function IntroInformation() {
               <span className="relative">Frontend Developer</span>
             </span>
           </motion.span>
-        </h1>
+        </Heading>
       </motion.div>
       <motion.p
         initial={{ opacity: 0, y: 20 }}
