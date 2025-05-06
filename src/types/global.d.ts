@@ -1,5 +1,4 @@
 export {}; // keep this so the file is treated as a module
-import { type ResumeData } from "../resume-data";
 
 declare global {
   interface NavItem {
