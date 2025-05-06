@@ -17,7 +17,7 @@ export function ScrollIndicator() {
     >
       <Button variant="ghost" size="icon" asChild className="text-primary ">
         <a href="#about" aria-label="Scroll down">
-          <ArrowDown className="h-5 w-5" />
+          <ArrowDown className="size-6" />
         </a>
       </Button>
     </motion.div>

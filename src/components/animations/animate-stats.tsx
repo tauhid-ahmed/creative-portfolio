@@ -9,6 +9,7 @@ type AnimateStatsProps = {
     to: number;
     duration?: number;
     inView: boolean;
+    suffix?: string;
   };
 } & React.ComponentProps<"span">;
 
@@ -27,7 +28,7 @@ export function AnimateStats({
         if (nodeRef.current && latest !== undefined) {
           nodeRef.current.textContent = latest.toFixed(0);
           if (latest === data.to) {
-            nodeRef.current.textContent += "+";
+            nodeRef.current.textContent += data.suffix;
             controls.stop();
           }
         }
@@ -36,13 +37,15 @@ export function AnimateStats({
 
     return () => controls.stop();
   }, [data.inView]);
+
   return (
     <span
       ref={nodeRef}
       className={cn("font-bold text-4xl gradient-text mb-1", className)}
       {...props}
     >
-      {data.to}+
+      {data.to}
+      {data.suffix}
     </span>
   );
 }

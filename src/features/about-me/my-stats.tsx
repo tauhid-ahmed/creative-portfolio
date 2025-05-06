@@ -23,15 +23,20 @@ export function MyStats() {
       className="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-2 gap-4 pt-4"
     >
       {[
-        { number: "4", label: "Years Experience" },
-        { number: "50", label: "Projects Completed" },
-        { number: "30", label: "Happy Clients" },
-        { number: "15", label: "Technologies" },
+        { number: "4", suffix: "+", label: "Years Experience" },
+        { number: "20", suffix: "+", label: "Projects Completed" },
+        { number: "10", suffix: "K+", label: "Hours Worked" },
+        { number: "15", suffix: "+", label: "Technologies" },
       ].map((item, index) => (
         <Card3D key={index} className="modern-card rounded-xl overflow-hidden">
           <div className="p-4 text-center">
             <AnimateStats
-              data={{ from: 0, to: parseInt(item.number), inView: isInView }}
+              data={{
+                from: 0,
+                to: parseInt(item.number),
+                inView: isInView,
+                suffix: item.suffix,
+              }}
             />
             <p className="text-sm text-muted-foreground">{item.label}</p>
           </div>

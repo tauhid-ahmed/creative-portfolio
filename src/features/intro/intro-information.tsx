@@ -88,8 +88,8 @@ export function IntroInformation() {
         animate={{ opacity: 1 }}
         transition={{ delay: 2.1, duration: 0.8 }}
       >
-        <SocialInformation />
         <ScrollIndicator />
+        <SocialInformation />
       </motion.div>
     </div>
   );
