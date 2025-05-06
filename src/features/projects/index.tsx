@@ -145,23 +145,14 @@ export function ProjectsShowcase() {
             animate={isInView ? { opacity: 1 } : { opacity: 0 }}
             transition={{ duration: 0.6, delay: 0.8 }}
           >
-            <Button
-              asChild
-              size="lg"
-              className="relative overflow-hidden group"
-            >
+            <Button asChild size="lg">
               <Link
                 href="https://github.com"
-                className="gap-2"
+                className="gap-2 px-8 py-6"
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                <span className="relative z-10 flex items-center gap-2">
-                  View All Projects on GitHub
-                </span>
-                <span className="absolute inset-0 bg-gradient-to-r from-primary to-purple-500 transition-opacity duration-300" />
-
-                <span className="absolute inset-0 bg-gradient-to-r from-primary/20 to-purple-500/20 blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 -z-10" />
+                View All Projects on GitHub
               </Link>
             </Button>
           </motion.div>

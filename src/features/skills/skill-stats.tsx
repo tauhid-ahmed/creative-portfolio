@@ -165,7 +165,12 @@ export function SkillStats() {
                       >
                         {icons[activeSkill.icon as keyof typeof icons]}
                       </div>
-                      <Heading as="h3" size="h4" align="left">
+                      <Heading
+                        className="leading-tight"
+                        as="h3"
+                        size="h4"
+                        align="left"
+                      >
                         {activeSkill.category}
                       </Heading>
                     </div>

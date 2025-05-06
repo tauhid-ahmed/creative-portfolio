@@ -51,12 +51,8 @@ export function IntroInformation() {
         transition={{ delay: 1.8, duration: 0.8 }}
         className="flex flex-wrap gap-4 justify-center lg:justify-start"
       >
-        <Button
-          className="px-6 py-6 text-base relative overflow-hidden group "
-          size="lg"
-          asChild
-        >
-          <Link href="#projects" target="_blank">
+        <Button size="lg" asChild>
+          <Link href="#projects" target="_blank" className="px-8 py-6">
             <span className="relative z-10 flex items-center gap-2">
               View Projects
               <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
@@ -67,16 +63,12 @@ export function IntroInformation() {
             <span className="absolute inset-0 bg-gradient-to-r from-primary/20 to-purple-500/20 blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 -z-10" />
           </Link>
         </Button>
-        <Button
-          className="px-6 py-6 text-base  relative overflow-hidden group"
-          variant="outline"
-          size="lg"
-          asChild
-        >
+        <Button variant="outline" size="lg" asChild>
           <Link
             href={resumeDownloadPath}
             download="Tauhid Ahmed - Frontend Developer.pdf"
             target="_blank"
+            className="px-8 py-6"
           >
             <span className="relative z-10">Download Resume</span>
             <span className="absolute inset-0 bg-gradient-to-r from-primary/10 to-purple-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
