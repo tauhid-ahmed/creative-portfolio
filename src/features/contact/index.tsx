@@ -19,6 +19,7 @@ import {
   SectionName,
   SectionTitle,
 } from "@/components/layout/section";
+import { SectionAnimation } from "@/components/animations/section-animation";
 
 export function Contact() {
   const sectionRef = useRef<HTMLElement>(null);
@@ -87,7 +88,8 @@ export function Contact() {
 
   return (
     <Section id="contact" ref={sectionRef}>
-      <BackgroundBlobs />
+      <SectionAnimation />
+      <SectionAnimation />
       <SectionContent>
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -103,7 +105,7 @@ export function Contact() {
             </SectionDescription>
           </SectionHeader>
         </motion.div>
-        <div className="h-8 md:h-14"></div>
+        <div className="h-6"></div>
         <Container className="container px-4 md:px-6 relative z-20">
           <div className="grid lg:grid-cols-2 gap-12 items-end">
             <motion.div
@@ -231,17 +233,5 @@ export function Contact() {
         </Container>
       </SectionContent>
     </Section>
-  );
-}
-
-function BackgroundBlobs() {
-  return (
-    <>
-      <div className="absolute inset-0 bg-[linear-gradient(to_right,#8882_1px,transparent_1px),linear-gradient(to_bottom,#8882_1px,transparent_1px)] bg-[size:2rem_2rem] opacity-25" />
-      <div className="absolute top-0 left-0 w-full h-24 bg-gradient-to-b from-background to-transparent z-10" />
-      <div className="absolute bottom-0 left-0 w-full h-24 bg-gradient-to-t from-background to-transparent z-10" />
-      <div className="absolute top-1/3 -right-40 w-80 h-80 rounded-full bg-primary/10 blur-3xl" />
-      <div className="absolute bottom-1/3 -left-40 w-80 h-80 rounded-full bg-purple-400/10 blur-3xl" />
-    </>
   );
 }

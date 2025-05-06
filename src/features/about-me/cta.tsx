@@ -1,7 +1,8 @@
 import { motion } from "motion/react";
 import { Button } from "@/components/ui/button";
-import { developer } from "@/data/portfolio-data";
 import { ArrowRight, Download } from "lucide-react";
+import Link from "next/link";
+import { resumePath } from "@/paths";
 
 const itemVariants = {
   hidden: { y: 20, opacity: 0 },
@@ -23,10 +24,10 @@ export function CTA() {
           asChild
           className="gap-2 bg-gradient-to-r from-primary to-purple-500 hover:opacity-90 transition-opacity "
         >
-          <a href={developer.resume} download>
+          <Link href={resumePath} download>
             <Download className="h-4 w-4" />
-            Download Resume
-          </a>
+            View Resume
+          </Link>
         </Button>
 
         <Button

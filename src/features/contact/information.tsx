@@ -16,7 +16,7 @@ const itemVariants = {
 export function ContactInformation() {
   return (
     <>
-      <motion.div variants={itemVariants} className="mb-8">
+      <motion.div variants={itemVariants}>
         <Heading as="h3" size="h4" weight="bold" align="left">
           Contact Information
         </Heading>

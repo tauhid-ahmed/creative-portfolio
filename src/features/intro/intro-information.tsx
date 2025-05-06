@@ -6,8 +6,9 @@ import { ArrowRight } from "lucide-react";
 import { motion } from "motion/react";
 import Link from "next/link";
 import { ScrollIndicator } from "./scroll-indicator";
+import { resumeDownloadPath } from "@/paths";
 
-export default function IntroInformation() {
+export function IntroInformation() {
   return (
     <div className="space-y-8 text-center lg:text-left">
       <motion.div initial="hidden" animate="visible" className="space-y-2">
@@ -72,10 +73,12 @@ export default function IntroInformation() {
           size="lg"
           asChild
         >
-          <Link href={developer.resume}>
-            <span className="relative z-10">Download CV</span>
-
-            {/* Premium button effect */}
+          <Link
+            href={resumeDownloadPath}
+            download="Tauhid Ahmed - Frontend Developer.pdf"
+            target="_blank"
+          >
+            <span className="relative z-10">Download Resume</span>
             <span className="absolute inset-0 bg-gradient-to-r from-primary/10 to-purple-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
           </Link>
         </Button>

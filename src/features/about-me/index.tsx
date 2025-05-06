@@ -15,6 +15,7 @@ import {
   SectionName,
   SectionTitle,
 } from "@/components/layout/section";
+import { SectionAnimation } from "@/components/animations/section-animation";
 
 export function AboutMe() {
   const sectionRef = useRef<HTMLElement>(null);
@@ -42,7 +43,7 @@ export function AboutMe() {
 
   return (
     <Section id="about" ref={sectionRef}>
-      <BackgroundBlobs />
+      <SectionAnimation />
       <SectionContent>
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -87,42 +88,5 @@ export function AboutMe() {
         </Container>
       </SectionContent>
     </Section>
-  );
-}
-
-function BackgroundBlobs() {
-  return (
-    <>
-      {/* Background elements */}
-      <div className="absolute inset-0 bg-[linear-gradient(to_right,#8882_1px,transparent_1px),linear-gradient(to_bottom,#8882_1px,transparent_1px)] bg-[size:2rem_2rem] opacity-25" />
-      <div className="absolute top-0 left-0 w-full h-24 bg-gradient-to-b from-background to-transparent z-10" />
-      <div className="absolute bottom-0 left-0 w-full h-24 bg-gradient-to-t from-background to-transparent z-10" />
-
-      {/* Animated background blobs */}
-      <motion.div
-        className="absolute -top-40 -right-40 w-80 h-80 rounded-full bg-primary/10 blur-3xl"
-        animate={{
-          x: [0, -20, 0],
-          opacity: [0.5, 0.7, 0.5],
-        }}
-        transition={{
-          duration: 12,
-          repeat: Number.POSITIVE_INFINITY,
-          repeatType: "reverse",
-        }}
-      />
-      <motion.div
-        className="absolute -bottom-40 -left-40 w-80 h-80 rounded-full bg-purple-400/10 blur-3xl"
-        animate={{
-          x: [0, 20, 0],
-          opacity: [0.5, 0.7, 0.5],
-        }}
-        transition={{
-          duration: 15,
-          repeat: Number.POSITIVE_INFINITY,
-          repeatType: "reverse",
-        }}
-      />
-    </>
   );
 }
