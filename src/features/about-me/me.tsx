@@ -31,7 +31,7 @@ export default function Me({ isInView }: { isInView: boolean }) {
         </div>
       </Card3D>
       <motion.div
-        className="absolute bottom-0 right-0 size-20 bg-primary/50 backdrop-blur rounded-full z-20 flex items-center justify-center text-white font-bold text-lg shadow-lg"
+        className="absolute bottom-0 right-0 size-20 bg-primary/50 backdrop-blur rounded-full z-20 flex items-center justify-center text-foreground font-bold text-lg shadow-lg"
         initial={{ scale: 0, rotate: -20 }}
         animate={isInView ? { scale: 1, rotate: 0 } : { scale: 0, rotate: -20 }}
         transition={{ delay: 0.6, type: "spring", stiffness: 200 }}

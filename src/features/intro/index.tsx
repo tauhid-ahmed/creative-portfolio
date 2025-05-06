@@ -7,7 +7,6 @@ import { Section } from "@/components/layout/section";
 import { IntroImage } from "./intro-image";
 import { IntroInformation } from "./intro-information";
 import { BackgroundGrid } from "./background-grid";
-import { SectionAnimation } from "@/components/animations/section-animation";
 
 export function Intro() {
   const sectionRef = useRef<HTMLElement>(null);
@@ -25,10 +24,9 @@ export function Intro() {
 
   return (
     <>
-      <Section id="home" ref={sectionRef} className="overflow-hidden">
+      <Section id="home" ref={sectionRef} className="p-0!">
         <BackgroundGrid />
-        {/* <SectionAnimation /> */}
-        <div className="min-h-screen py-20 flex items-center justify-center">
+        <div className="py-14 sm:py-24 md:py-36 lg:py-56">
           <Container>
             <motion.div
               ref={contentRef}

@@ -5,7 +5,7 @@ import { forwardRef } from "react";
 type Props = React.ComponentProps<"section"> & {};
 
 export const Section = forwardRef<HTMLElement, Props>(function Section(
-  { ...props }: Props,
+  { className, children, ...props }: Props,
   ref
 ) {
   return (
@@ -13,11 +13,11 @@ export const Section = forwardRef<HTMLElement, Props>(function Section(
       ref={ref}
       className={cn(
         "py-14 md:py-20 lg:py-28 relative overflow-hidden",
-        props.className
+        className
       )}
       {...props}
     >
-      {props.children}
+      {children}
     </section>
   );
 });
@@ -28,25 +28,30 @@ type SectionProps = React.ComponentProps<"div"> & {
   align?: "center" | "left" | "right";
 };
 
-export function SectionContent({ ...props }: SectionProps) {
+export function SectionContent({
+  className,
+  children,
+  ...props
+}: SectionProps) {
   return (
-    <div className={cn("space-y-6 lg:space-y-10", props.className)} {...props}>
-      {props.children}
+    <div className={cn("space-y-6 lg:space-y-10", className)} {...props}>
+      {children}
     </div>
   );
 }
 
-export function SectionHeader({ align = "center", ...props }: SectionProps) {
+export function SectionHeader({
+  align = "center",
+  className,
+  children,
+  ...props
+}: SectionProps) {
   return (
     <div
-      className={cn(
-        "space-y-4 px-6",
-        align && `text-${align}`,
-        props.className
-      )}
+      className={cn("space-y-4 px-6", align && `text-${align}`, className)}
       {...props}
     >
-      {props.children}
+      {children}
     </div>
   );
 }
@@ -73,13 +78,17 @@ export function SectionTitle({
   );
 }
 
-export function SectionDescription({ ...props }: SectionProps) {
+export function SectionDescription({
+  className,
+  children,
+  ...props
+}: SectionProps) {
   return (
     <p
-      className={cn("text-muted-foreground max-w-2xl mx-auto", props.className)}
+      className={cn("text-muted-foreground max-w-2xl mx-auto", className)}
       {...props}
     >
-      {props.children}
+      {children}
     </p>
   );
 }

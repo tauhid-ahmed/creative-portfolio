@@ -24,6 +24,8 @@ export function Heading({
   weight = "bold",
   align = "center",
   size = "h2",
+  className,
+  children,
   ...props
 }: Props) {
   const Comp = as;
@@ -36,11 +38,11 @@ export function Heading({
         weight && `font-${weight}`,
         align && `text-${align}`,
         { ...classnames(size) },
-        props.className
+        className
       )}
       {...props}
     >
-      {props.children}
+      {children}
     </Comp>
   );
 }

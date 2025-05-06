@@ -279,7 +279,7 @@ export const profileData: ResumeData = [
         degree: "Bachelor of Business Administration (BBA)",
         description:
           "Completed core business and management coursework. Developed a strong interest in software development during this period and began transitioning into the tech field through self-guided learning.",
-        institution: "Private University, Bangladesh",
+        institution: "National University, Bangladesh",
         duration: "2014 – 2018",
       },
     ],

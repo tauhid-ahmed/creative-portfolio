@@ -23,57 +23,64 @@ function Root({ className, children, ...props }: BaseProps) {
 }
 
 // Title
-function Title({ ...props }: BaseProps) {
+function Title({ className, children, ...props }: BaseProps) {
   return (
-    <Heading as="h3" size="h5" className={cn("", props.className)} {...props}>
-      {props.children}
+    <Heading
+      as="h3"
+      size="h5"
+      align="left"
+      className={cn("", className)}
+      {...props}
+    >
+      {children}
     </Heading>
   );
 }
 
 // Subtitle
-function Subtitle({ ...props }: BaseProps) {
+function Subtitle({ className, children, ...props }: BaseProps) {
   return (
     <Heading
       as="h4"
       size="h6"
-      className={cn("text-sm text-primary", props.className)}
+      align="left"
+      className={cn("text-sm text-primary", className)}
       {...props}
     >
-      {props.children}
+      {children}
     </Heading>
   );
 }
 
 // Description
-function Description({ ...props }: BaseProps) {
+function Description({ className, children, ...props }: BaseProps) {
   return (
-    <p className={cn("text-muted-foreground", props.className)} {...props}>
-      {props.children}
+    <p className={cn("text-muted-foreground", className)} {...props}>
+      {children}
     </p>
   );
 }
 
 // Tags
-function Tags({ ...props }: BaseProps) {
+function Tags({ className, children, ...props }: BaseProps) {
   return (
-    <div className={cn("flex flex-wrap gap-2", props.className)} {...props}>
-      {props.children}
+    <div className={cn("flex flex-wrap gap-2", className)} {...props}>
+      {children}
     </div>
   );
 }
 
 // Tag
-function Tag({ ...props }: BaseProps) {
+function Tag({ className, children, ...props }: BaseProps) {
   return (
     <Badge
       className={cn(
         "bg-primary/10 text-primary border border-primary/20",
-        props.className
+        className
       )}
       {...props}
     >
-      {props.children}
+      {children}
     </Badge>
   );
 }

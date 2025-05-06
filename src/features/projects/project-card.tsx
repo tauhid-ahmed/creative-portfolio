@@ -7,7 +7,6 @@ import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Github, ExternalLink, Search, CodeIcon } from "lucide-react";
-import type { Project } from "../../types/global";
 import {
   Dialog,
   DialogContent,

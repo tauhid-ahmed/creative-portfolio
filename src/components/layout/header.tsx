@@ -77,10 +77,8 @@ export function Header() {
         duration: 0.3,
         ease: "easeInOut",
       }}
-      className={`fixed top-0 left-0 right-0 z-[100] transition-all duration-300 backdrop-blur ${
-        scrolled
-          ? "bg-primary/5 backdrop-blur-md shadow-sm border-b border-border/50"
-          : "bg-transparent"
+      className={`fixed top-0 left-0 right-0 z-[100] transition-all duration-300 backdrop-blur-xs bg-background ${
+        scrolled ? "shadow-sm border-b border-border/50" : "bg-transparent"
       }`}
     >
       <Container>
@@ -90,7 +88,7 @@ export function Header() {
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.5 }}
           >
-            <Link href="#home" className="text-xl font-bold tracking-tight ">
+            <Link href="#home" className="text-xl font-bold tracking-tight">
               <motion.div
                 whileHover={{ scale: 1.05 }}
                 transition={{ type: "spring", stiffness: 400, damping: 10 }}

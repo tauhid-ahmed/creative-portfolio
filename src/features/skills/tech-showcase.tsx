@@ -28,7 +28,7 @@ const techVariants = {
   },
 };
 
-export function TechStackShowcase({ isInView }: { isInView: boolean }) {
+export function TechStackShowcase() {
   return (
     <Section>
       <SectionContent>

@@ -14,6 +14,7 @@ type AnimateStatsProps = {
 
 export function AnimateStats({
   data = { from: 0, to: 0, inView: false },
+  className,
   ...props
 }: AnimateStatsProps) {
   const nodeRef = useRef<HTMLSpanElement>(null);
@@ -38,7 +39,7 @@ export function AnimateStats({
   return (
     <span
       ref={nodeRef}
-      className={cn("font-bold text-4xl gradient-text mb-1", props.className)}
+      className={cn("font-bold text-4xl gradient-text mb-1", className)}
       {...props}
     >
       {data.to}+

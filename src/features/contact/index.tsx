@@ -89,7 +89,6 @@ export function Contact() {
   return (
     <Section id="contact" ref={sectionRef}>
       <SectionAnimation />
-      <SectionAnimation />
       <SectionContent>
         <motion.div
           initial={{ opacity: 0, y: 20 }}

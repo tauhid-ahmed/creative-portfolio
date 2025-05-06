@@ -5,15 +5,12 @@ import { Button } from "@/components/ui/button";
 import { navItems, developer } from "@/data/portfolio-data";
 import { Container } from "@/components/layout/container";
 import { SocialInformation } from "@/components/social-information";
-import { SectionAnimation } from "../animations/section-animation";
 
 export function Footer() {
   const currentYear = new Date().getFullYear();
 
   return (
     <footer className="border-t border-primary/10 relative overflow-hidden py-10">
-      <SectionAnimation />
-
       <Container>
         <div className="grid gap-8 lg:grid-cols-3">
           <div className="space-y-4">

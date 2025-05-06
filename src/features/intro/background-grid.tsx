@@ -1,20 +1,18 @@
 export function BackgroundGrid() {
   return (
-    <div className="absolute inset-0 pointer-events-none overflow-hidden">
+    <div className="absolute inset-0 pointer-events-none overflow-hidden opacity-50">
       {/* Base gradient */}
       <div className="absolute inset-0 bg-gradient-to-b from-primary/10 via-background/10 to-background z-0" />
 
       {/* Grid pattern */}
       <div className="absolute inset-0 bg-[linear-gradient(to_right,#8882_1px,transparent_1px),linear-gradient(to_bottom,#8882_1px,transparent_1px)] bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_100%)]" />
 
-      {/* Static blobs with CSS-only animations */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none z-0 opacity-10">
         <div className="absolute w-72 h-72 rounded-full bg-primary top-1/6 left-1/5 blur-3xl animate-blob1" />
         <div className="absolute w-64 h-64 rounded-full bg-primary top-2/3 left-2/3 blur-3xl animate-blob2" />
         <div className="absolute w-80 h-80 rounded-full bg-primary top-1/2 left-1/2 blur-3xl animate-blob3" />
       </div>
 
-      {/* CSS animation keyframes */}
       <style jsx>{`
         @keyframes blob1 {
           0% {
