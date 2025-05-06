@@ -52,7 +52,6 @@ declare global {
     email: string;
     phone: string;
     avatar: string;
-    resume: string;
     typingTexts: string[];
   }
 

@@ -28,10 +28,9 @@ export const developer: Developer = {
   title: "Frontend Developer",
   bio: "Passionate frontend developer with 5+ years of experience crafting exceptional digital experiences. Specialized in React, Next.js, and modern web technologies.",
   location: "Pabna, BD",
-  email: "tauhidxtauhid@gmail.com",
+  email: "tauhidahmed.dev@gmail.com",
   phone: "+880 1670-012716",
   avatar: "/placeholder.svg?height=600&width=600",
-  resume: "/resume.pdf",
   typingTexts: [
     "Frontend Engineer",
     "UI/UX Enthusiast",
