@@ -11,11 +11,13 @@ import {
   Section,
   SectionDescription,
   SectionHeader,
-  SectionInner,
+  SectionContent,
   SectionName,
   SectionTitle,
 } from "@/components/layout/section";
 import { Container } from "@/components/layout/container";
+import { cn } from "@/lib/utils";
+import { Heading } from "@/components/heading";
 
 const icons = {
   Code: <Icons.LayersIcon />,
@@ -94,7 +96,7 @@ export function SkillStats() {
   );
   return (
     <Section>
-      <SectionInner>
+      <SectionContent>
         <motion.div>
           <SectionHeader>
             <SectionName>My Expertise</SectionName>
@@ -106,38 +108,46 @@ export function SkillStats() {
           </SectionHeader>
         </motion.div>
         <Container size="lg">
-          <Tabs className="space-y-6">
-            <TabsList className="flex flex-wrap gap-4 p-1 bg-background/50 justify-center backdrop-blur border border-border/50 rounded-full w-full px-6">
+          <Tabs
+            onValueChange={setActiveCategory}
+            value={activeCategory}
+            className="space-y-6"
+          >
+            <TabsList className="flex flex-wrap gap-4 p-1 bg-background/50 justify-center backdrop-blur w-full px-6">
               {skills.map((skill) => {
                 return (
                   <TabsTrigger
                     key={skill.category}
-                    onClick={() => setActiveCategory(skill.category)}
-                    className={`relative flex items-center gap-2 px-4 py-2 rounded-full text font-medium transition-colors duration-300 ${
-                      activeCategory === skill.category
-                        ? "text-white!"
-                        : "text-muted-foreground hover:text-foreground"
-                    }`}
-                    value={""}
-                  >
-                    {activeCategory === skill.category && (
-                      <motion.div
-                        layoutId="activeSkillCategory"
-                        className={`absolute inset-0 rounded-full bg-gradient-to-r ${skill.color} -z-10`}
-                        transition={{
-                          type: "spring",
-                          stiffness: 300,
-                          damping: 30,
-                        }}
-                      />
+                    className={cn(
+                      "relative border border-primary/20 flex items-center gap-2 px-4 py-2 rounded-full font-medium transition-colors duration-300 text-muted-foreground hover:text-foreground",
+                      {
+                        "border-primary/50!": activeCategory === skill.category,
+                      }
                     )}
+                    value={skill.category}
+                  >
+                    <motion.div
+                      layoutId="activeSkillCategory"
+                      className={cn(
+                        "absolute inset-0 rounded-full -z-10",
+                        activeCategory === skill.category
+                          ? `bg-gradient-to-r ${skill.color}`
+                          : "bg-transparent"
+                      )}
+                      transition={{
+                        type: "spring",
+                        stiffness: 300,
+                        damping: 30,
+                      }}
+                    />
                     {icons[skill.icon as keyof typeof icons]}
-                    <span>{skill.category}</span>
+                    <span className="lg:hidden">{skill.title.short}</span>
+                    <span className="hidden lg:inline">{skill.title.full}</span>
                   </TabsTrigger>
                 );
               })}
             </TabsList>
-            <TabsContent value="">
+            <TabsContent value={activeCategory}>
               <AnimatePresence mode="wait">
                 <motion.div
                   key={activeCategory}
@@ -155,9 +165,9 @@ export function SkillStats() {
                       >
                         {icons[activeSkill.icon as keyof typeof icons]}
                       </div>
-                      <h3 className="text-2xl font-bold gradient-text">
+                      <Heading as="h3" size="h4" align="left">
                         {activeSkill.category}
-                      </h3>
+                      </Heading>
                     </div>
 
                     <div className="space-y-6">
@@ -179,48 +189,50 @@ export function SkillStats() {
                   </Card3D>
 
                   {/* Skill proficiency */}
-                  <Card3D className="modern-card p-6 md:p-8 h-full">
-                    <h3 className="text-xl font-bold mb-6 gradient-text">
-                      Proficiency
-                    </h3>
+                  <Card3D className="modern-card p-6 md:p-8">
                     <div className="space-y-6">
-                      {activeSkill.items
-                        .filter(
-                          (item) =>
-                            skillProficiency[
-                              item as keyof typeof skillProficiency
-                            ]
-                        )
-                        .slice(0, 6)
-                        .map((skill) => (
-                          <div key={skill} className="space-y-2">
-                            <div className="flex justify-between items-center">
-                              <span className="font-medium">{skill}</span>
-                              <span className="text-sm text-muted-foreground">
-                                {
-                                  skillProficiency[
-                                    skill as keyof typeof skillProficiency
-                                  ]
-                                }
-                                %
-                              </span>
-                            </div>
-                            <div className="relative h-2 w-full bg-primary/10 rounded-full overflow-hidden">
-                              <motion.div
-                                className="absolute top-0 left-0 h-full bg-gradient-to-r from-primary to-purple-500 rounded-full"
-                                initial={{ width: 0 }}
-                                animate={{
-                                  width: `${
+                      <Heading as="h3" size="h4" align="left">
+                        Proficiency
+                      </Heading>
+                      <div className="space-y-6">
+                        {activeSkill.items
+                          .filter(
+                            (item) =>
+                              skillProficiency[
+                                item as keyof typeof skillProficiency
+                              ]
+                          )
+                          .slice(0, 6)
+                          .map((skill) => (
+                            <div key={skill} className="space-y-2">
+                              <div className="flex justify-between items-center">
+                                <span className="font-medium">{skill}</span>
+                                <span className="text-sm text-muted-foreground">
+                                  {
                                     skillProficiency[
                                       skill as keyof typeof skillProficiency
                                     ]
-                                  }%`,
-                                }}
-                                transition={{ duration: 1, delay: 0.2 }}
-                              />
+                                  }
+                                  %
+                                </span>
+                              </div>
+                              <div className="relative h-2 w-full bg-primary/10 rounded-full overflow-hidden">
+                                <motion.div
+                                  className="absolute top-0 left-0 h-full bg-gradient-to-r from-primary to-purple-500 rounded-full"
+                                  initial={{ width: 0 }}
+                                  animate={{
+                                    width: `${
+                                      skillProficiency[
+                                        skill as keyof typeof skillProficiency
+                                      ]
+                                    }%`,
+                                  }}
+                                  transition={{ duration: 1, delay: 0.2 }}
+                                />
+                              </div>
                             </div>
-                          </div>
-                        ))}
+                          ))}
+                      </div>
                     </div>
                   </Card3D>
                 </motion.div>
@@ -228,7 +240,7 @@ export function SkillStats() {
             </TabsContent>
           </Tabs>
         </Container>
-      </SectionInner>
+      </SectionContent>
     </Section>
   );
 }

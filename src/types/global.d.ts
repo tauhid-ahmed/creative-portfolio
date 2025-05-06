@@ -13,6 +13,10 @@ declare global {
   }
 
   interface Skill {
+    title: {
+      full: string;
+      short: string;
+    };
     category: string;
     icon: string;
     items: string[];

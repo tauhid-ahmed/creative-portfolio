@@ -11,7 +11,7 @@ import {
   Section,
   SectionDescription,
   SectionHeader,
-  SectionInner,
+  SectionContent,
   SectionName,
   SectionTitle,
 } from "@/components/layout/section";
@@ -43,7 +43,7 @@ export function AboutMe() {
   return (
     <Section id="about" ref={sectionRef}>
       <BackgroundBlobs />
-      <SectionInner>
+      <SectionContent>
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
@@ -85,7 +85,7 @@ export function AboutMe() {
             <CTA />
           </div>
         </Container>
-      </SectionInner>
+      </SectionContent>
     </Section>
   );
 }

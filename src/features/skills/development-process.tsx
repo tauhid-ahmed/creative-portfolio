@@ -3,7 +3,7 @@ import { Container } from "@/components/layout/container";
 import {
   Section,
   SectionHeader,
-  SectionInner,
+  SectionContent,
   SectionTitle,
 } from "@/components/layout/section";
 import { motion } from "motion/react";
@@ -22,7 +22,7 @@ const icons = {
 export function DevelopmentProcess({ isInView }: { isInView: boolean }) {
   return (
     <Section>
-      <SectionInner>
+      <SectionContent>
         <SectionHeader>
           <SectionTitle>My Development Process</SectionTitle>
         </SectionHeader>
@@ -61,14 +61,14 @@ export function DevelopmentProcess({ isInView }: { isInView: boolean }) {
                           </div>
 
                           <div
-                            className={`flex ${
+                            className={`flex order-1 ${
                               index % 2 === 0
                                 ? "md:justify-start"
                                 : "md:justify-end"
                             } mt-4 md:mt-0`}
                           >
                             <div
-                              className="flex items-center justify-center size-16 rounded-full bg-primary/10 border border-primary/40 group-hover:bg-primary/30
+                              className="flex items-center justify-center size-14 lg:size-16 rounded-full bg-primary/10 border border-primary/40 group-hover:bg-primary/30
                             group-hover:border-primary group-hover:text-primary transition-colors duration-300"
                             >
                               {icons[step.icon as keyof typeof icons]}
@@ -83,7 +83,7 @@ export function DevelopmentProcess({ isInView }: { isInView: boolean }) {
             </Card3D>
           </motion.div>
         </Container>
-      </SectionInner>
+      </SectionContent>
     </Section>
   );
 }

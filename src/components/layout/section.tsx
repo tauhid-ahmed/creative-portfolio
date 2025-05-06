@@ -28,9 +28,9 @@ type SectionProps = React.ComponentProps<"div"> & {
   align?: "center" | "left" | "right";
 };
 
-export function SectionInner({ ...props }: SectionProps) {
+export function SectionContent({ ...props }: SectionProps) {
   return (
-    <div className={cn("space-y-8", props.className)} {...props}>
+    <div className={cn("space-y-6 lg:space-y-10", props.className)} {...props}>
       {props.children}
     </div>
   );

@@ -43,6 +43,10 @@ export const developer: Developer = {
 export const skills: Skill[] = [
   {
     category: "Frontend Development",
+    title: {
+      full: "Frontend Development",
+      short: "Frontend",
+    },
     icon: "Code",
     items: [
       "React",
@@ -59,6 +63,10 @@ export const skills: Skill[] = [
   },
   {
     category: "UI Frameworks & Component Libraries",
+    title: {
+      full: "UI Frameworks & Component Libraries",
+      short: "UI Libraries",
+    },
     icon: "Layers",
     items: [
       "Tailwind CSS",
@@ -73,14 +81,22 @@ export const skills: Skill[] = [
   },
   {
     category: "Web Animation & Interaction",
+    title: {
+      full: "Web Animation & Interaction",
+      short: "Animation",
+    },
     icon: "Sparkles",
     items: ["Framer Motion", "GSAP", "Three.js", "CSS Animations", "Lottie"],
     color: "from-amber-500 to-orange-400",
     description:
-      "Creating immersive and  user experiences through animation, motion design, and real-time 3D rendering while ensuring performance and accessibility.",
+      "Creating immersive and user experiences through animation, motion design, and real-time 3D rendering while ensuring performance and accessibility.",
   },
   {
     category: "Digital Design & Prototyping",
+    title: {
+      full: "Digital Design & Prototyping",
+      short: "Design Tools",
+    },
     icon: "Palette",
     items: ["Figma", "Adobe XD", "Photoshop", "Illustrator", "UI/UX Design"],
     color: "from-pink-500 to-rose-400",
@@ -89,6 +105,10 @@ export const skills: Skill[] = [
   },
   {
     category: "Performance Optimization",
+    title: {
+      full: "Performance Optimization",
+      short: "Performance",
+    },
     icon: "Zap",
     items: ["Web Vitals", "Lighthouse", "Webpack", "Vite", "Code Splitting"],
     color: "from-emerald-500 to-green-400",
@@ -97,6 +117,10 @@ export const skills: Skill[] = [
   },
   {
     category: "Mobile & Responsive Development",
+    title: {
+      full: "Mobile & Responsive Development",
+      short: "Mobile",
+    },
     icon: "Smartphone",
     items: [
       "React Native",
