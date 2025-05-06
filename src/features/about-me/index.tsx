@@ -6,7 +6,6 @@ import { Container } from "@/components/layout/container";
 import Me from "./me";
 import { MyStats } from "./my-stats";
 import { Information } from "./information";
-import { CTA } from "./cta";
 import {
   Section,
   SectionDescription,
@@ -76,13 +75,11 @@ export function AboutMe() {
               <Information />
               <div className="hidden lg:block">
                 <MyStats />
-                <CTA />
               </div>
             </motion.div>
           </div>
           <div className="lg:hidden">
             <MyStats />
-            <CTA />
           </div>
         </Container>
       </SectionContent>

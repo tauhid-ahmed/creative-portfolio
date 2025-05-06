@@ -56,7 +56,7 @@ export function IntroInformation() {
           size="lg"
           asChild
         >
-          <Link href="#projects">
+          <Link href="#projects" target="_blank">
             <span className="relative z-10 flex items-center gap-2">
               View Projects
               <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />

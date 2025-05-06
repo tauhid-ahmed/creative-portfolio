@@ -1,12 +1,12 @@
 import { env } from "@/env";
+import * as path from "@/paths";
 
 export const navItems: NavItem[] = [
-  { name: "Home", href: "#home" },
-  { name: "About", href: "#about" },
-  { name: "Skills", href: "#skills" },
-  { name: "Projects", href: "#projects" },
-  { name: "Experience", href: "#experience" },
-  { name: "Contact", href: "#contact" },
+  { name: "Home", href: path.homeSectionPath },
+  { name: "About", href: path.aboutSectionPath },
+  { name: "Skills", href: path.skillsSectionPath },
+  { name: "Projects", href: path.projectsSectionPath },
+  { name: "Contact", href: path.contactSectionPath },
 ];
 
 export const socialLinks: SocialLink[] = [
@@ -242,12 +242,18 @@ export const profileData: ResumeData = [
     section: "experience",
     content: [
       {
-        company: "Softnio",
+        company: "Softsync",
         position: "Frontend Developer",
         duration: "2024 – Present",
         description:
           "Building and maintaining scalable frontend applications. Collaborating with designers and backend engineers to deliver performant and user-friendly interfaces.",
-        technologies: ["React", "TypeScript", "Next.js", "Tailwind CSS"],
+        technologies: [
+          "React",
+          "TypeScript",
+          "Next.js",
+          "Tailwind CSS",
+          "Motion for React",
+        ],
       },
       {
         company: "Freelance Projects",
@@ -258,7 +264,7 @@ export const profileData: ResumeData = [
         technologies: [
           "Next.js",
           "Node.js",
-          "MongoDB",
+          "SQL",
           "Vercel",
           "Motion for React",
         ],
@@ -272,7 +278,7 @@ export const profileData: ResumeData = [
         degree: "Professional Training in Web & Software Development",
         description:
           "Completed online certifications and project-based courses in web development, JavaScript, React, and full-stack engineering.",
-        institution: "freeCodeCamp, Coursera, YouTube, and other platforms",
+        institution: "freeCodeCamp, Udemy, YouTube, and other platforms",
         duration: "2017 – Present",
       },
       {
