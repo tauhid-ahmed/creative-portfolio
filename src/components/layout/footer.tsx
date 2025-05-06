@@ -10,7 +10,7 @@ export function Footer() {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="border-t border-primary/10 relative overflow-hidden py-10">
+    <footer className="border-t border-primary/10 relative overflow-hidden py-10 bg-background">
       <Container>
         <div className="grid gap-8 lg:grid-cols-3">
           <div className="space-y-4">

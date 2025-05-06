@@ -13,11 +13,10 @@ export function Skills() {
 
   return (
     <div id="skills" className="relative overflow-hidden" ref={sectionRef}>
-      <SectionAnimation />
       {/* Modern Skills Navigation */}
       <SkillStats />
       {/* Tech stack showcase */}
-      <TechStackShowcase isInView={isInView} />
+      <TechStackShowcase />
       {/* Development process */}
       <DevelopmentProcess isInView={isInView} />
     </div>

@@ -43,7 +43,6 @@ export function AboutMe() {
 
   return (
     <Section id="about" ref={sectionRef}>
-      <SectionAnimation />
       <SectionContent>
         <motion.div
           initial={{ opacity: 0, y: 20 }}

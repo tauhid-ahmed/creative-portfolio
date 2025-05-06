@@ -59,7 +59,6 @@ export function ProjectsShowcase() {
 
   return (
     <Section id="projects" ref={sectionRef}>
-      <SectionAnimation />
       <SectionContent>
         <SectionHeader>
           <SectionName>My Work</SectionName>

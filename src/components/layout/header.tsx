@@ -172,10 +172,10 @@ export function Header() {
           opacity: mobileMenuOpen ? 1 : 0,
         }}
         transition={{ duration: 0.3 }}
-        className="md:hidden overflow-hidden backdrop-blur-md border-b border-border/50"
+        className="md:hidden overflow-hidden bg-background/60 border-b-2 border-primary/50"
       >
         <Container>
-          <nav className="flex flex-col py-4 gap-6 pb-6 -mx-6 border-b">
+          <nav className="flex flex-col gap-1 pb-6 -mx-6 border-b">
             {navItems.map((item, index) => (
               <motion.div
                 key={item.name}
@@ -188,10 +188,10 @@ export function Header() {
               >
                 <Link
                   href={item.href}
-                  className={`py-2 font-bold transition-colors block backdrop-blur px-6 border ${
+                  className={`py-4 font-bold transition-colors block px-10 border ${
                     activeSection === item.href.substring(1)
                       ? "text-foreground bg-primary/5 border-primary/50"
-                      : "text-foreground/70 hover:text-foreground hover:bg-muted/50 border-transparent hover:border-primary/30"
+                      : "text-foreground/70 hover:text-foreground hover:bg-primary/5 border-transparent hover:border-primary/30 transition-colors duration-150"
                   }`}
                   onClick={() => setMobileMenuOpen(false)}
                 >
