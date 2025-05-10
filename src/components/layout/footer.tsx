@@ -4,7 +4,7 @@ import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { navItems, developer } from "@/data/portfolio-data";
 import { Container } from "@/components/layout/container";
-import { SocialInformation } from "@/components/social-information";
+import { SocialHandles } from "@/components/social-handles";
 
 export function Footer() {
   const currentYear = new Date().getFullYear();
@@ -22,7 +22,7 @@ export function Footer() {
               technologies and a passion for design.
             </p>
             <div className="flex gap-4">
-              <SocialInformation />
+              <SocialHandles />
             </div>
           </div>
 

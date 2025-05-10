@@ -1,5 +1,6 @@
 import Card3D from "@/components/card-3d";
 import { Heading } from "@/components/heading";
+import { Container } from "@/components/layout/container";
 import { developer } from "@/data/portfolio-data";
 import { Mail, MapPin, Phone } from "lucide-react";
 import { motion } from "motion/react";

@@ -1,5 +1,5 @@
 import { TextWeave } from "@/components/animations/text-weave";
-import { SocialInformation } from "@/components/social-information";
+import { SocialHandles } from "@/components/social-handles";
 import { Button } from "@/components/ui/button";
 import { developer } from "@/data/portfolio-data";
 import { ArrowRight } from "lucide-react";
@@ -82,7 +82,7 @@ export function IntroInformation() {
         transition={{ delay: 2.1, duration: 0.8 }}
       >
         <ScrollIndicator />
-        <SocialInformation />
+        <SocialHandles />
       </motion.div>
     </div>
   );
