@@ -40,7 +40,7 @@ export function TechStackShowcase() {
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, amount: 0.2 }}
-            className="flex flex-wrap gap-3 lg:gap-5 justify-center items-center"
+            className="flex flex-wrap gap-2 justify-center items-center"
           >
             {techWithIcons.map((tech, index) => (
               <motion.div
@@ -58,13 +58,10 @@ export function TechStackShowcase() {
                         index % 2 === 0 ? "reverse" : "normal",
                     }}
                   ></div>
-                  <Card3D className="modern-card md:px-4 py-2" radius="lg">
-                    <span className="font-medium flex gap-2 items-center justify-center text-center text-sm lg:text-base">
+                  <Card3D className="modern-card md:px-3 py-2" radius="lg">
+                    <span className="font-medium flex gap-1 items-center justify-center text-center text-sm">
                       {cloneElement(tech.icon, {
-                        className: cn(
-                          "size-4 lg:size-5",
-                          tech.icon.props.className
-                        ),
+                        className: cn("size-4", tech.icon.props.className),
                       })}
                       {tech.name}
                     </span>

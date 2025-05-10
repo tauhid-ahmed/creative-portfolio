@@ -63,7 +63,7 @@ export function ThemeSelector() {
     <DropdownMenu key={colorTheme}>
       <DropdownMenuTrigger asChild>
         <Button
-          variant="outline"
+          variant="ghost"
           size="icon"
           className="rounded-full size-7 p-0 border-primary/20"
         >

@@ -94,7 +94,7 @@ export function Header() {
                 transition={{ type: "spring", stiffness: 400, damping: 10 }}
                 className="flex items-center"
               >
-                <span className="text-primary">Tauhid</span>
+                <span className="gradient-text">Tauhid</span>
               </motion.div>
             </Link>
           </motion.div>
