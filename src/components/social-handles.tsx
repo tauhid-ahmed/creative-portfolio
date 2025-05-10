@@ -37,7 +37,7 @@ export function SocialHandles() {
                 {cloneElement(
                   socialIcons[link.icon as keyof typeof socialIcons],
                   {
-                    className: "size-5",
+                    className: "size-4",
                   }
                 )}
                 <span className="sr-only">{link.platform}</span>

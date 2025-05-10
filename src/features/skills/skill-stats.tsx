@@ -119,27 +119,26 @@ export function SkillStats() {
                   <TabsTrigger
                     key={skill.category}
                     className={cn(
-                      "relative border border-primary/20 flex items-center gap-2 px-4 py-2 rounded-full font-medium transition-colors duration-300 text-muted-foreground hover:text-foreground",
-                      {
-                        "border-primary/50!": activeCategory === skill.category,
-                      }
+                      "relative bg-primary/5 flex items-center gap-2 px-4 py-2 rounded-full font-medium transition-transform duration-300 text-muted-foreground hover:text-foreground"
                     )}
                     value={skill.category}
                   >
-                    <motion.div
-                      layoutId="activeSkillCategory"
-                      className={cn(
-                        "absolute inset-0 rounded-full -z-10",
-                        activeCategory === skill.category
-                          ? `bg-gradient-to-r ${skill.color}`
-                          : "bg-transparent"
-                      )}
-                      transition={{
-                        type: "spring",
-                        stiffness: 300,
-                        damping: 30,
-                      }}
-                    />
+                    {skill.category === activeCategory && (
+                      <motion.div
+                        layoutId="activeSkillCategory"
+                        className={cn(
+                          "absolute inset-0 rounded-full -z-10",
+                          activeCategory === skill.category
+                            ? `bg-gradient-to-r ${skill.color}`
+                            : "bg-transparent"
+                        )}
+                        transition={{
+                          type: "spring",
+                          stiffness: 300,
+                          damping: 30,
+                        }}
+                      />
+                    )}
                     {icons[skill.icon as keyof typeof icons]}
                     <span className="lg:hidden">{skill.title.short}</span>
                     <span className="hidden lg:inline">{skill.title.full}</span>

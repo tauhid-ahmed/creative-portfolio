@@ -80,7 +80,7 @@ export function ProjectsShowcase() {
                   {activeCategory === category.value && (
                     <motion.div
                       layoutId="background"
-                      className="absolute z-10 inset-0 bg-gradient-to-r from-primary to-purple-500"
+                      className="absolute rounded z-10 inset-0 bg-gradient-to-r from-primary to-purple-500"
                       transition={{
                         type: "spring",
                         stiffness: 300,
