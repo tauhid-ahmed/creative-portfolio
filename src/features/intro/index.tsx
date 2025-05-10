@@ -7,6 +7,8 @@ import { Section } from "@/components/layout/section";
 import { IntroImage } from "./intro-image";
 import { IntroInformation } from "./intro-information";
 import { BackgroundGrid } from "./background-grid";
+import { ScrollIndicator } from "./scroll-indicator";
+import { SocialHandles } from "@/components/social-handles";
 
 export function Intro() {
   const sectionRef = useRef<HTMLElement>(null);
@@ -26,7 +28,7 @@ export function Intro() {
     <>
       <Section id="home" ref={sectionRef} className="p-0!">
         <BackgroundGrid />
-        <div className="py-14 sm:py-24 md:py-36 lg:py-56">
+        <div className="py-14 sm:py-24 md:py-36">
           <Container>
             <motion.div
               ref={contentRef}
@@ -37,6 +39,17 @@ export function Intro() {
               <IntroImage rotate={rotate} />
             </motion.div>
           </Container>
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 2.1, duration: 0.8 }}
+            className="flex flex-col gap-4 items-center py-8"
+          >
+            <ScrollIndicator />
+            <div className="lg:hidden">
+              <SocialHandles />
+            </div>
+          </motion.div>
         </div>
       </Section>
     </>

@@ -1,11 +1,11 @@
 import { Button } from "@/components/ui/button";
 import { ArrowDown } from "lucide-react";
 import { motion } from "motion/react";
+import Link from "next/link";
 
 export function ScrollIndicator() {
   return (
     <motion.div
-      className="absolute bottom-10 left-1/2 transform -translate-x-1/2"
       animate={{
         y: [0, 8, 0],
       }}
@@ -16,9 +16,9 @@ export function ScrollIndicator() {
       }}
     >
       <Button variant="ghost" size="icon" asChild className="text-primary ">
-        <a href="#about" aria-label="Scroll down">
-          <ArrowDown className="size-6" />
-        </a>
+        <Link href="#about" aria-label="Scroll down">
+          <ArrowDown className="size-6 text-primary" />
+        </Link>
       </Button>
     </motion.div>
   );

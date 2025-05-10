@@ -5,7 +5,6 @@ import { developer } from "@/data/portfolio-data";
 import { ArrowRight } from "lucide-react";
 import { motion } from "motion/react";
 import Link from "next/link";
-import { ScrollIndicator } from "./scroll-indicator";
 import { resumeDownloadPath } from "@/paths";
 import { Heading } from "@/components/heading";
 
@@ -81,8 +80,9 @@ export function IntroInformation() {
         animate={{ opacity: 1 }}
         transition={{ delay: 2.1, duration: 0.8 }}
       >
-        <ScrollIndicator />
-        <SocialHandles />
+        <div className="hidden lg:block">
+          <SocialHandles />
+        </div>
       </motion.div>
     </div>
   );

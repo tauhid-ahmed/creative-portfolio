@@ -9,16 +9,16 @@ type Props = React.HTMLAttributes<HTMLHeadingElement> & {
 };
 
 const classnames = (size: Props["size"]) => ({
-  "text-[clamp(3rem,5vw,4rem)] font-extrabold tracking-tight leading-tight":
-    size === "display", // ~56–74px
-  "text-[clamp(2.75rem,4.5vw,3.69rem)] font-bold tracking-tight": size === "h1", // ~44–59px
-  "text-[clamp(2.25rem,4vw,2.95rem)] font-bold tracking-tight": size === "h2", // ~36–47px
-  "text-[clamp(1.75rem,3vw,2.36rem)] font-semibold tracking-tight":
-    size === "h3", // ~28–38px
+  "text-[clamp(2.25rem,3vw,4rem)] font-extrabold tracking-tight leading-tight":
+    size === "display",
+  "text-[clamp(2rem,4.5vw,3.69rem)] font-bold tracking-tight": size === "h1",
+  "text-[clamp(1.8rem,4vw,2.95rem)] font-bold tracking-tight": size === "h2",
+  "text-[clamp(1.6rem,3vw,2.36rem)] font-semibold tracking-tight":
+    size === "h3",
   "text-[clamp(1.375rem,2.5vw,1.89rem)] font-semibold tracking-tight":
-    size === "h4", // ~22–30px
-  "text-[clamp(1.125rem,2vw,1.51rem)] font-medium": size === "h5", // ~18–24px
-  "text-[clamp(0.875rem,1.5vw,0.875rem)] font-medium": size === "h6", // Fixed 14px
+    size === "h4",
+  "text-[clamp(1.125rem,2vw,1.51rem)] font-medium": size === "h5",
+  "text-[clamp(0.875rem,1.5vw,0.875rem)] font-medium": size === "h6",
 });
 
 export function Heading({

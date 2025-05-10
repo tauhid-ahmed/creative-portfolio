@@ -34,7 +34,7 @@ export function DevelopmentProcess({ isInView }: { isInView: boolean }) {
             transition={{ duration: 0.6, delay: 0.4 }}
             className="perspective-midrange"
           >
-            <Card3D className="modern-card py-20">
+            <Card3D className="modern-card sm:py-10 lg:py-20">
               <div className="relative">
                 {/* Process steps */}
                 <div className="hidden md:block absolute left-1/2 -inset-y-20 w-0.5 bg-primary/20 -translate-x-1/2" />

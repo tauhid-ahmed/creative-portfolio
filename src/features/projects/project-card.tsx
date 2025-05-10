@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { motion } from "motion/react";
+import { AnimatePresence, motion } from "motion/react";
 import Image from "next/image";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
@@ -47,21 +47,23 @@ export function ProjectCard({ project, index }: ProjectCardProps) {
 
             {project.featured && (
               <div className="absolute top-2 left-2 z-10">
-                <Badge className="bg-primary/80 backdrop-blur text-primary-foreground border-none px-3 py-1">
+                <Badge
+                  variant="outline"
+                  className="bg-primary/80 backdrop-blur text-primary-foreground border-none px-3 py-1"
+                >
                   Featured
                 </Badge>
               </div>
             )}
           </div>
 
-          {/* <div className="absolute inset-0 bg-gradient-to-t from-primary/20 via-background/10 to-transparent group-hover:opacity-100 opacity-70" /> */}
+          <div className="absolute inset-0 bg-gradient-to-t from-primary/20 via-background/10 to-transparent group-hover:opacity-100 opacity-70" />
 
           <div className="px-6 relative z-10 space-y-4 p-6 flex flex-col justify-between flex-1">
             <motion.div className="flex flex-wrap gap-2">
               {project.tags.slice(0, 3).map((tag) => (
                 <Badge
                   key={tag}
-                  variant="default"
                   className="font-medium bg-primary/10 text-primary border border-primary/20 hover:bg-primary/20"
                 >
                   {tag}
@@ -69,7 +71,7 @@ export function ProjectCard({ project, index }: ProjectCardProps) {
               ))}
               {project.tags.length > 3 && (
                 <Badge
-                  variant="secondary"
+                  variant="outline"
                   className="font-medium bg-muted/50 text-muted-foreground border border-muted/20"
                 >
                   +{project.tags.length - 3}
@@ -108,7 +110,7 @@ function ProjectActions({
   return (
     <div className="flex gap-2 p-1 rounded">
       <ProjectModal project={project}>
-        <Button size="sm">
+        <Button size="sm" variant="outline">
           View Details
           <Search />
         </Button>
@@ -128,7 +130,7 @@ function ProjectModal({
     <Dialog modal>
       <DialogTrigger asChild>{children}</DialogTrigger>
       <DialogContent className="max-w-xl p-4 overflow-hidden animate-fade-in">
-        <motion.div className="relative">
+        <motion.div className="relative" exit={{ opacity: 0 }}>
           <div className="relative aspect-video overflow-hidden">
             <Image
               src={placeholderImage}
@@ -149,7 +151,9 @@ function ProjectModal({
 
             <div className="mt-6 space-y-4">
               <div>
-                <h4 className="text-sm font-medium mb-2">Technologies Used</h4>
+                <Heading className="text-sm font-medium mb-2">
+                  Technologies Used
+                </Heading>
                 <motion.div className="flex flex-wrap gap-2">
                   {project.tags.map((tag) => (
                     <Badge

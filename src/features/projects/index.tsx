@@ -9,7 +9,6 @@ import { Button } from "@/components/ui/button";
 import { Code, Layers, Search } from "lucide-react";
 import { projects } from "@/data/portfolio-data";
 import { ProjectCard } from "./project-card";
-import PremiumTextReveal from "@/components/premium-text-reveal";
 import { Container } from "@/components/layout/container";
 import {
   Section,
@@ -19,7 +18,6 @@ import {
   SectionName,
   SectionTitle,
 } from "@/components/layout/section";
-import { SectionAnimation } from "@/components/animations/section-animation";
 
 type ProjectCategory = "all" | "frontend" | "fullstack" | "design" | "mobile";
 
@@ -70,92 +68,93 @@ export function ProjectsShowcase() {
         </SectionHeader>
 
         <Container>
-          <div className="flex flex-wrap justify-center gap-2 mb-12">
-            {categories.map((category) => (
-              <Button
-                key={category.value}
-                variant={
-                  activeCategory === category.value ? "default" : "outline"
-                }
-                size="sm"
-                onClick={() => setActiveCategory(category.value)}
-                className={`rounded-full relative overflow-hidden ${
-                  activeCategory === category.value
-                    ? "bg-primary text-primary-foreground"
-                    : "hover:bg-primary/10 hover:text-primary"
-                } `}
-              >
-                {activeCategory === category.value && (
-                  <motion.div
-                    className="absolute inset-0 bg-gradient-to-r from-primary to-purple-500 -z-10"
-                    transition={{ type: "spring", stiffness: 300, damping: 30 }}
-                  />
-                )}
-                <span className="flex items-center gap-2 relative z-10">
-                  {category.icon}
-                  {category.label}
-                </span>
+          <div className="flex flex-col gap-10">
+            <div className="flex flex-wrap justify-center gap-2">
+              {categories.map((category) => (
+                <Button
+                  key={category.value}
+                  variant="outline"
+                  size="sm"
+                  onClick={() => setActiveCategory(category.value)}
+                >
+                  {activeCategory === category.value && (
+                    <motion.div
+                      layoutId="background"
+                      className="absolute z-10 inset-0 bg-gradient-to-r from-primary to-purple-500"
+                      transition={{
+                        type: "spring",
+                        stiffness: 300,
+                        damping: 30,
+                      }}
+                    />
+                  )}
+
+                  <span className="flex items-center gap-2 relative z-10">
+                    {category.icon}
+                    {category.label}
+                  </span>
+                </Button>
+              ))}
+            </div>
+
+            <AnimatePresence mode="wait">
+              {filteredProjects.length <= 0 ? (
+                <motion.div
+                  className="text-center p-8"
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: -20 }}
+                  transition={{ duration: 0.3 }}
+                >
+                  <span className="text-muted-foreground gradient-text text-[clamp(3rem,4.5vw,6rem)] font-bold">
+                    No projects found
+                  </span>{" "}
+                  <br />
+                  <span className="inline-block underline underline-offset-4 capitalize px-4 py-2 text-sm text-primary">
+                    Coming soon
+                  </span>
+                </motion.div>
+              ) : (
+                <motion.div
+                  key={activeCategory}
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: -20 }}
+                  transition={{ duration: 0.3 }}
+                >
+                  <div className="-mx-8 px-4 flex flex-wrap justify-center">
+                    {filteredProjects.map((project, index) => (
+                      <div
+                        key={project.id}
+                        className="basis-1/1 sm:basis-1/2 lg:basis-1/3 shrink-0 p-4"
+                      >
+                        <ProjectCard project={project} index={index} />
+                      </div>
+                    ))}
+                  </div>
+                </motion.div>
+              )}
+            </AnimatePresence>
+
+            <motion.div
+              layout
+              className="text-center"
+              initial={{ opacity: 0 }}
+              animate={isInView ? { opacity: 1 } : { opacity: 0 }}
+              transition={{ duration: 0.6, delay: 0.8 }}
+            >
+              <Button asChild size="lg">
+                <Link
+                  href="https://github.com"
+                  className="gap-2 px-8 py-6"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  View All Projects on GitHub
+                </Link>
               </Button>
-            ))}
+            </motion.div>
           </div>
-
-          <AnimatePresence mode="wait">
-            {filteredProjects.length <= 0 ? (
-              <motion.div
-                className="text-center p-8"
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0, y: -20 }}
-                transition={{ duration: 0.3 }}
-              >
-                <span className="text-muted-foreground gradient-text text-[clamp(3rem,4.5vw,6rem)] font-bold">
-                  No projects found
-                </span>{" "}
-                <br />
-                <span className="inline-block underline underline-offset-4 capitalize px-4 py-2 text-sm text-primary">
-                  Coming soon
-                </span>
-              </motion.div>
-            ) : (
-              <motion.div
-                key={activeCategory}
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0, y: -20 }}
-                transition={{ duration: 0.3 }}
-              >
-                <div className="-mx-8 px-4 flex flex-wrap justify-center">
-                  {filteredProjects.map((project, index) => (
-                    <div
-                      key={project.id}
-                      className="basis-1/1 sm:basis-1/2 lg:basis-1/3 shrink-0 p-4"
-                    >
-                      <ProjectCard project={project} index={index} />
-                    </div>
-                  ))}
-                </div>
-              </motion.div>
-            )}
-          </AnimatePresence>
-
-          <motion.div
-            layout
-            className="text-center mt-12"
-            initial={{ opacity: 0 }}
-            animate={isInView ? { opacity: 1 } : { opacity: 0 }}
-            transition={{ duration: 0.6, delay: 0.8 }}
-          >
-            <Button asChild size="lg">
-              <Link
-                href="https://github.com"
-                className="gap-2 px-8 py-6"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                View All Projects on GitHub
-              </Link>
-            </Button>
-          </motion.div>
         </Container>
       </SectionContent>
     </Section>
