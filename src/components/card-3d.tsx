@@ -157,7 +157,8 @@ export default function Card3D({
           "absolute inset-0 pointer-events-none",
           theme === "accent"
             ? "border border-primary/30"
-            : "border border-border/30"
+            : "border border-border/30",
+          className
         )}
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
@@ -215,7 +216,7 @@ export default function Card3D({
       {...props}
     >
       {/* Card content */}
-      <div className="relative z-10">{children}</div>
+      <div className={cn("relative z-10 h-full")}>{children}</div>
 
       {/* Effects */}
       {borderElement}
