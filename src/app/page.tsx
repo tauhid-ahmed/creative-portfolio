@@ -10,8 +10,6 @@ import { PremiumBackground } from "@/components/animations/premium-background";
 import { SectionAnimation } from "@/components/animations/section-animation";
 
 export default async function Home() {
-  // await new Promise((resolve) => setTimeout(resolve, 10000000));
-  // throw Error();
   return (
     <>
       <Header />

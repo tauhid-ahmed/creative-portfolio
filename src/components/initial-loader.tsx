@@ -1,7 +1,18 @@
 "use client";
 import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "motion/react";
-import { LucideLoader2 } from "lucide-react";
+import { env } from "@/env";
+
+const name = env.NEXT_PUBLIC_AUTHOR_FIRST_NAME ?? "Anonymous";
+const letterVariants = {
+  initial: { y: "100%" },
+  animate: { y: 0 },
+};
+const getLetterTransition = (index: number) => ({
+  duration: 0.3,
+  delay: (index + 1) * 0.1,
+  ease: "linear",
+});
 
 export default function InitialLoader({
   children,
@@ -9,45 +20,42 @@ export default function InitialLoader({
   children: React.ReactNode;
 }) {
   const [mounted, setMounted] = useState(false);
-  const [showSplash, setShowSplash] = useState(true);
+  const totalAnimationTime = name.length * 0.1 + 0.4;
 
   useEffect(() => {
     const timer = setTimeout(() => {
-      setShowSplash(false);
       setMounted(true);
-    }, 0);
+    }, totalAnimationTime * 1000);
     return () => clearTimeout(timer);
   }, []);
 
   return (
     <>
       <AnimatePresence>
-        {showSplash && (
-          <div
-            key="splash"
-            className="flex h-screen items-center justify-center bg-background w-full"
-          >
-            {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map((i) => (
-              <motion.div
-                initial={{
-                  y: 0,
-                  opacity: 1,
-                }}
-                animate={{
-                  y: "100%",
-                  opacity: 0,
-                }}
-                transition={{
-                  delay: (i - 1) * 0.05,
-                }}
-                key={i}
-                className="h-screen w-1/10 bg-gray-300 dark:bg-stone-900"
-              />
-            ))}
-          </div>
+        {!mounted ? (
+          <>
+            <div
+              key="splash"
+              className="flex h-screen items-center justify-center bg-gray-950 text-gray-300 w-full"
+            >
+              <motion.div className="text-[clamp(3rem,3.5vw,6rem)] font-bold inline-block overflow-hidden">
+                {name.split("").map((letter, index) => (
+                  <motion.span
+                    {...letterVariants}
+                    transition={getLetterTransition(index)}
+                    className="inline-block"
+                    key={index}
+                  >
+                    {letter}
+                  </motion.span>
+                ))}
+              </motion.div>
+            </div>
+          </>
+        ) : (
+          children
         )}
       </AnimatePresence>
-      {mounted && children}
     </>
   );
 }
