@@ -15,7 +15,9 @@ import {
 } from "@/components/ui/dialog";
 
 import placeholderImage from "@/images/placeholder.svg";
-import eCommerceProjectImage from "./images/projects/e-commerce.webp";
+import eCommerceProjectImage from "@/images/projects/e-commerce.webp";
+import creativePortfolioImage from "@/images/projects/creative-portfolio.webp";
+
 import Card3D from "@/components/card-3d";
 import { Heading } from "@/components/heading";
 
@@ -23,6 +25,12 @@ interface ProjectCardProps {
   project: Project;
   index: number;
 }
+
+const projectImages = {
+  "e-commerce": eCommerceProjectImage,
+  "creative-portfolio": creativePortfolioImage,
+  "issue-tracker": eCommerceProjectImage,
+};
 
 export function ProjectCard({ project, index }: ProjectCardProps) {
   const [activeProject, setActiveProject] = useState<Project | null>(null);
@@ -38,11 +46,9 @@ export function ProjectCard({ project, index }: ProjectCardProps) {
         <div className="flex flex-col group relative h-full">
           <div className="overflow-hidden relative z-10 h-52 shrink-0">
             <div className="size-full">
-              <Image
-                src={eCommerceProjectImage}
-                alt=""
-                className="object-cover size-full"
-              />
+              <div className="animate-project-image">
+                <Image src={projectImages[project.image]} alt={project.title} />
+              </div>
             </div>
 
             {project.featured && (

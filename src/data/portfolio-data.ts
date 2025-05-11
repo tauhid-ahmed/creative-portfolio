@@ -140,7 +140,7 @@ export const projects: Project[] = [
     title: "E-Commerce Platform",
     description:
       "A full-featured e-commerce system built with modern web technologies, featuring product creation, image uploads, real-time inventory, and secure authentication. Includes a performant dashboard for business insights.",
-    image: "/placeholder.svg?height=600&width=800",
+    image: "e-commerce",
     tags: [
       "Next.js",
       "Hono tRPC",
@@ -162,7 +162,7 @@ export const projects: Project[] = [
     title: "Creative Portfolio",
     description:
       "A visually engaging portfolio site with smooth animations and modern UI components. Showcases creative work using motion effects and aesthetic design principles.",
-    image: "/placeholder.svg?height=600&width=800",
+    image: "creative-portfolio",
     tags: [
       "Next.js",
       "Motion for React",
@@ -180,7 +180,7 @@ export const projects: Project[] = [
     title: "Issue Tracker App",
     description:
       "A robust issue tracking system inspired by modern project management tools. Supports ticket creation, status updates, and team collaboration — built with the same tech stack as the e-commerce app.",
-    image: "/placeholder.svg?height=600&width=800",
+    image: "issue-tracker",
     tags: [
       "Next.js",
       "Prisma ORM",

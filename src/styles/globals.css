@@ -55,6 +55,14 @@
   }
 }
 
+html {
+  scroll-behavior: auto;
+}
+div {
+  transition: none !important;
+  animation: none !important;
+}
+
 .animate-gradient-border {
   --gradient-animation: 0deg;
   cursor: pointer;

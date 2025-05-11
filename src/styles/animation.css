@@ -20,4 +20,15 @@
       background-position-y: -100%;
     }
   }
+
+  --animate-project-image: project-image 20s linear infinite alternate-reverse
+    both;
+  @keyframes project-image {
+    0% {
+      transform: translateY(0);
+    }
+    100% {
+      transform: translateY(calc((100% - 240px) * -1));
+    }
+  }
 }
