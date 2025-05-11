@@ -1,6 +1,7 @@
 import { cn } from "@/lib/utils";
 import { Heading } from "@/components/heading";
 import { forwardRef } from "react";
+import { Container } from "./container";
 
 type Props = React.ComponentProps<"section"> & {};
 
@@ -47,12 +48,14 @@ export function SectionHeader({
   ...props
 }: SectionProps) {
   return (
-    <div
-      className={cn("space-y-4 px-6", align && `text-${align}`, className)}
-      {...props}
-    >
-      {children}
-    </div>
+    <Container size="md">
+      <div
+        className={cn("space-y-4", align && `text-${align}`, className)}
+        {...props}
+      >
+        {children}
+      </div>
+    </Container>
   );
 }
 

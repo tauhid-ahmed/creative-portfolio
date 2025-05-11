@@ -17,7 +17,7 @@ const classnames = (size: Props["size"]) => ({
     size === "h3",
   "text-[clamp(1.375rem,2.5vw,1.89rem)] font-semibold tracking-tight":
     size === "h4",
-  "text-[clamp(1.125rem,2vw,1.51rem)] font-medium": size === "h5",
+  "text-[clamp(1rem,1.6vw,1.2rem)] font-medium": size === "h5",
   "text-[clamp(0.875rem,1.5vw,0.875rem)] font-medium": size === "h6",
 });
 

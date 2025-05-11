@@ -3,6 +3,7 @@ import { Heading } from "@/components/heading";
 import { developer } from "@/data/portfolio-data";
 import { Mail, MapPin, Phone } from "lucide-react";
 import { motion } from "motion/react";
+import Link from "next/link";
 
 const itemVariants = {
   hidden: { y: 20, opacity: 0 },
@@ -16,7 +17,7 @@ const itemVariants = {
 export function ContactInformation() {
   return (
     <>
-      <motion.div variants={itemVariants}>
+      <motion.div className="space-y-2" variants={itemVariants}>
         <Heading as="h3" size="h4" weight="bold" align="left">
           Contact Information
         </Heading>
@@ -54,22 +55,24 @@ export function ContactInformation() {
         ].map((item) => (
           <div key={item.title}>
             <Card3D className="modern-card">
-              <div className="flex items-start gap-4">
+              <div className="flex items-center gap-4">
                 <div
-                  className={`bg-gradient-to-r ${item.color} p-3 rounded-full`}
+                  className={`bg-gradient-to-r ${item.color} p-2 lg:p-3 rounded-full`}
                 >
                   {item.icon}
                 </div>
                 <div>
-                  <h4 className="font-medium mb-1">{item.title}</h4>
-                  <a
+                  <Heading as="h4" size="h5" align="left">
+                    {item.title}
+                  </Heading>
+                  <Link
                     href={item.link}
                     className="text-muted-foreground hover:text-primary transition-colors "
                     target="_blank"
                     rel="noopener noreferrer"
                   >
                     {item.content}
-                  </a>
+                  </Link>
                 </div>
               </div>
             </Card3D>

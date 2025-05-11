@@ -15,7 +15,7 @@ const itemVariants = {
 export function MyStats() {
   const nodeRef = useRef<HTMLDivElement>(null);
   const isInView = useInView(nodeRef, { once: false });
-  console.log({ isInView });
+
   return (
     <motion.div
       ref={nodeRef}

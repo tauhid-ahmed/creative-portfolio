@@ -14,9 +14,7 @@ import {
   DialogTrigger,
 } from "@/components/ui/dialog";
 
-import placeholderImage from "@/images/placeholder.svg";
-import eCommerceProjectImage from "@/images/projects/e-commerce.webp";
-import creativePortfolioImage from "@/images/projects/creative-portfolio.webp";
+import { PROJECT_IMAGES } from "./utils/constants";
 
 import Card3D from "@/components/card-3d";
 import { Heading } from "@/components/heading";
@@ -25,12 +23,6 @@ interface ProjectCardProps {
   project: Project;
   index: number;
 }
-
-const projectImages = {
-  "e-commerce": eCommerceProjectImage,
-  "creative-portfolio": creativePortfolioImage,
-  "issue-tracker": eCommerceProjectImage,
-};
 
 export function ProjectCard({ project, index }: ProjectCardProps) {
   const [activeProject, setActiveProject] = useState<Project | null>(null);
@@ -43,11 +35,16 @@ export function ProjectCard({ project, index }: ProjectCardProps) {
       className="relative overflow-hidden rounded-xl border border-primary/50 bg-card transition-colors duration-500 perspective-midrange h-full"
     >
       <Card3D className="h-full">
-        <div className="flex flex-col group relative h-full">
-          <div className="overflow-hidden relative z-10 h-52 shrink-0">
+        <div className="flex flex-col group relative h-full p-6 gap-6">
+          <div className="overflow-hidden relative z-10 h-52 lg:h-60 shrink-0">
             <div className="size-full">
               <div className="animate-project-image">
-                <Image src={projectImages[project.image]} alt={project.title} />
+                <Image
+                  src={PROJECT_IMAGES[project.image]}
+                  alt={project.title}
+                  placeholder="blur"
+                  blurDataURL={PROJECT_IMAGES["placeholder-image"]}
+                />
               </div>
             </div>
 
@@ -65,7 +62,7 @@ export function ProjectCard({ project, index }: ProjectCardProps) {
 
           <div className="absolute inset-0 bg-gradient-to-t from-primary/20 via-background/10 to-transparent group-hover:opacity-100 opacity-70" />
 
-          <div className="px-6 relative z-10 space-y-4 p-6 flex flex-col justify-between flex-1">
+          <div className="relative z-10 space-y-4 flex flex-col justify-between flex-1">
             <motion.div className="flex flex-wrap gap-2">
               {project.tags.slice(0, 3).map((tag) => (
                 <Badge
@@ -139,7 +136,7 @@ function ProjectModal({
         <motion.div className="relative" exit={{ opacity: 0 }}>
           <div className="relative aspect-video overflow-hidden">
             <Image
-              src={placeholderImage}
+              src={PROJECT_IMAGES["placeholder-image"]}
               alt={project.title}
               className="object-cover"
             />
