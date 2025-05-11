@@ -35,7 +35,7 @@ export function ProjectCard({ project, index }: ProjectCardProps) {
       className="relative overflow-hidden rounded-xl border border-primary/50 bg-card transition-colors duration-500 perspective-midrange h-full"
     >
       <Card3D className="h-full">
-        <div className="flex flex-col group relative h-full p-6 gap-6">
+        <div className="flex flex-col group relative h-full gap-6">
           <div className="overflow-hidden relative z-10 h-52 lg:h-60 shrink-0">
             <div className="size-full">
               <div className="animate-project-image">
@@ -60,7 +60,7 @@ export function ProjectCard({ project, index }: ProjectCardProps) {
             )}
           </div>
 
-          <div className="absolute inset-0 bg-gradient-to-t from-primary/20 via-background/10 to-transparent group-hover:opacity-100 opacity-70" />
+          <div className="absolute -inset-6 bg-gradient-to-t from-primary/20 via-background/10 to-transparent group-hover:opacity-100 opacity-70" />
 
           <div className="relative z-10 space-y-4 flex flex-col justify-between flex-1">
             <motion.div className="flex flex-wrap gap-2">

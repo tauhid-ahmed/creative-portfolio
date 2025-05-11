@@ -51,9 +51,9 @@ export function TechStackShowcase() {
               >
                 <div className="p-px border rounded-lg relative overflow-hidden perspective-dramatic">
                   <div
-                    className="size-full animate-gradient-border absolute -translate-x-1/2 top-1/2 left-1/2 -translate-y-1/2 bg-[linear-gradient(var(--gradient-animation),transparent_50%,var(--primary)_50%)] opacity-50"
+                    className="size-full animate-border absolute -translate-x-1/2 top-1/2 left-1/2 -translate-y-1/2 bg-[linear-gradient(var(--gradient-animation),transparent_90%,var(--primary)_90%)] opacity-60"
                     style={{
-                      animationDelay: `${index * 0.05}s`,
+                      animationDelay: `${index * 0.1}s`,
                       animationDirection:
                         index % 2 === 0 ? "reverse" : "normal",
                     }}

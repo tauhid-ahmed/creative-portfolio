@@ -192,7 +192,7 @@ export default function Card3D({
     <motion.div
       ref={cardRef}
       className={cn(
-        "relative overflow-hidden transition-colors duration-300",
+        "relative overflow-hidden transition-colors duration-300 modern-card",
         radiusClass,
         THEME_CLASSES[theme],
         shadowClass,

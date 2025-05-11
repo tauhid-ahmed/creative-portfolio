@@ -16,20 +16,20 @@ export function Contact() {
   return (
     <Section id="contact">
       <SectionContent>
-        <SectionHeader>
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-          >
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+        >
+          <SectionHeader>
             <SectionName>Get In Touch</SectionName>
             <SectionTitle>Let's Connect</SectionTitle>
             <SectionDescription>
               Have a project in mind or want to discuss potential opportunities?
               I'd love to hear from you!
             </SectionDescription>
-          </motion.div>
-        </SectionHeader>
+          </SectionHeader>
+        </motion.div>
         <Container>
           <div className="flex flex-col lg:flex-row gap-14 mt-10 lg:items-end">
             <div className="flex-1 lg:order-2">

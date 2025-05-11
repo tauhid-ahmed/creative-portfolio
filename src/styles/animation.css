@@ -1,6 +1,5 @@
 @theme {
   --animate-fade-in: fade-in 0.4s ease-in-out both;
-
   @keyframes fade-in {
     0% {
       transform: scale(0.7);
@@ -29,6 +28,17 @@
     }
     100% {
       transform: translateY(calc((100% - 240px) * -1));
+    }
+  }
+
+  --animate-border: gradient-animation 20s linear infinite alternate-reverse
+    both;
+  @keyframes gradient-animation {
+    from {
+      --gradient-animation: -360deg;
+    }
+    to {
+      --gradient-animation: 360deg;
     }
   }
 }

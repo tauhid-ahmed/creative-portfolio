@@ -27,7 +27,7 @@ export function ContactForm() {
           transition={{ duration: 0.6, delay: 0.3 }}
           className="order-1 lg:order-2"
         >
-          <Card3D className="modern-card">
+          <Card3D>
             <div className="space-y-6">
               <Heading as="h3" size="h4" align="left">
                 Send Me a Message
@@ -42,7 +42,6 @@ export function ContactForm() {
                   label="Email"
                   name="email"
                   placeholder="Your email"
-                  type="email"
                 />
 
                 <TextAreaField

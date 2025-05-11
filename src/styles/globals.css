@@ -55,51 +55,16 @@
   }
 }
 
-html {
-  scroll-behavior: auto;
-}
-div {
-  transition: none !important;
-  animation: none !important;
-}
-
-.animate-gradient-border {
-  --gradient-animation: 0deg;
-  cursor: pointer;
-  display: inline-block;
-  /* background: linear-gradient(
-    var(--gradient-animation),
-    red 1%,
-    red 10%,
-    transparent 10%
-  ); */
-  animation: animate-gradient 10s infinite;
-}
-
-.animate-y {
-  animation: animate-y 30s linear infinite both alternate-reverse;
-}
-
 @property --gradient-animation {
   syntax: "<angle>";
   inherits: false;
   initial-value: 0deg;
 }
 
-@keyframes animate-gradient {
-  from {
-    --gradient-animation: 0deg;
-  }
-  to {
-    --gradient-animation: 360deg;
-  }
+/* html {
+  scroll-behavior: auto;
 }
-
-@keyframes animate-y {
-  from {
-    transform: translateY(0);
-  }
-  to {
-    transform: translateY(50vh);
-  }
-}
+div {
+  transition: none !important;
+  animation: none !important;
+} */
