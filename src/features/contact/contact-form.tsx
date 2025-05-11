@@ -9,6 +9,8 @@ import { Heading } from "@/components/heading";
 import { InputField } from "@/components/input-field";
 import { Form } from "@/components/ui/form";
 import { TextAreaField } from "@/components/text-area";
+import { contactSchema } from "@/schema";
+import { zodResolver } from "@hookform/resolvers/zod";
 
 export function ContactForm() {
   const form = useForm({
@@ -17,6 +19,9 @@ export function ContactForm() {
       email: "",
       message: "",
     },
+    mode: "all",
+    reValidateMode: "onChange",
+    resolver: zodResolver(contactSchema),
   });
   return (
     <>
@@ -50,7 +55,7 @@ export function ContactForm() {
                   placeholder="Your message"
                 />
 
-                <Button type="submit">
+                <Button type="submit" disabled={!form.formState.isValid}>
                   <Send className="h-5 w-5" />
                   Send Message
                 </Button>
