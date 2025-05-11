@@ -23,11 +23,11 @@ export default async function Home() {
             </div>
           }
         >
-          <Intro />
-          <AboutMe />
-          <Skills />
+          {/* <Intro /> */}
+          {/* <AboutMe /> */}
+          {/* <Skills /> */}
           <ProjectsShowcase />
-          <Contact />
+          {/* <Contact /> */}
         </Suspense>
       </main>
       <Footer />
