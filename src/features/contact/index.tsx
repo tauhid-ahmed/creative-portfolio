@@ -23,10 +23,10 @@ export function Contact() {
         >
           <SectionHeader>
             <SectionName>Get In Touch</SectionName>
-            <SectionTitle>Let's Connect</SectionTitle>
+            <SectionTitle>Let&#39;s Connect</SectionTitle>
             <SectionDescription>
               Have a project in mind or want to discuss potential opportunities?
-              I'd love to hear from you!
+              I&#39;d love to hear from you!
             </SectionDescription>
           </SectionHeader>
         </motion.div>

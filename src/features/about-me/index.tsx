@@ -14,7 +14,6 @@ import {
   SectionName,
   SectionTitle,
 } from "@/components/layout/section";
-import { SectionAnimation } from "@/components/animations/section-animation";
 
 export function AboutMe() {
   const sectionRef = useRef<HTMLElement>(null);

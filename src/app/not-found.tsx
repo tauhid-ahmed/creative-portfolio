@@ -26,11 +26,11 @@ export default function NotFoundPage() {
       </div>
 
       <h2 className="mb-2 text-2xl font-bold tracking-tight text-stone-900 dark:text-white sm:text-3xl">
-        Oops! We've lost this page
+        Oops! We&apos;ve lost this page
       </h2>
       <p className="mb-8 max-w-md text-stone-600 dark:text-stone-400">
-        The page you're looking for doesn't exist or has been moved to another
-        URL.
+        The page you&apos;re looking for doesn&apos;t exist or has been moved to
+        another URL.
       </p>
 
       <div className="flex flex-wrap items-center justify-center gap-4">

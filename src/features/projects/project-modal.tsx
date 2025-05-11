@@ -1,5 +1,4 @@
 import { AnimatePresence, motion } from "motion/react";
-import { PLACEHOLDER_IMAGE } from "@/constants";
 import Image from "next/image";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";

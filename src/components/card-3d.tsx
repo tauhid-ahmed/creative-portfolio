@@ -165,7 +165,7 @@ export default function Card3D({
         transition={{ duration: 0.2 }}
       />
     );
-  }, [border, isHovered, theme]);
+  }, [border, isHovered, theme, className]);
 
   // Memoized glare effect
   const glareElement = useMemo(() => {

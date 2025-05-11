@@ -1,6 +1,6 @@
 "use client";
 
-import { useRef, useEffect, useState } from "react";
+import { useRef, useEffect, useState, useCallback } from "react";
 import {
   motion,
   useScroll,
@@ -130,7 +130,7 @@ export function PremiumBackground() {
   }, [mouseX, mouseY]);
 
   // Animation function
-  const startAnimation = () => {
+  const startAnimation = useCallback(() => {
     if (!canvasRef.current || !dimensions.width) return;
 
     const ctx = canvasRef.current.getContext("2d");
@@ -209,7 +209,7 @@ export function PremiumBackground() {
     };
 
     render();
-  };
+  }, [dimensions]);
 
   // Start animation when dimensions change
   useEffect(() => {
@@ -225,7 +225,7 @@ export function PremiumBackground() {
         cancelAnimationFrame(animationFrameIdRef.current);
       }
     };
-  }, [dimensions]);
+  }, [dimensions, startAnimation]);
 
   return (
     <motion.div

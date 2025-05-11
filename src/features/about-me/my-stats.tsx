@@ -1,6 +1,6 @@
 import { AnimateStats } from "@/components/animations/animate-stats";
 import Card3D from "@/components/card-3d";
-import { motion, inView, useInView } from "motion/react";
+import { motion, useInView } from "motion/react";
 import { useRef } from "react";
 
 const itemVariants = {

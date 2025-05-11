@@ -22,7 +22,7 @@ export function ContactInformation() {
           Contact Information
         </Heading>
         <p className="text-muted-foreground mb-6">
-          Feel free to reach out through any of the following channels. I'm
+          Feel free to reach out through any of the following channels. I&apos;m
           always open to discussing new projects, creative ideas, or
           opportunities.
         </p>

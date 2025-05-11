@@ -27,7 +27,7 @@ export default function InitialLoader({
       setMounted(true);
     }, totalAnimationTime * 1000);
     return () => clearTimeout(timer);
-  }, []);
+  }, [totalAnimationTime]);
 
   return (
     <>

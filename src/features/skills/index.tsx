@@ -1,11 +1,10 @@
 "use client";
 
 import { useRef } from "react";
-import { motion, useInView } from "motion/react";
+import { useInView } from "motion/react";
 import { SkillStats } from "./skill-stats";
 import { TechStackShowcase } from "./tech-showcase";
 import { DevelopmentProcess } from "./development-process";
-import { SectionAnimation } from "@/components/animations/section-animation";
 
 export function Skills() {
   const sectionRef = useRef<HTMLDivElement | null>(null);

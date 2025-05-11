@@ -51,7 +51,7 @@ export function ThemeSelector() {
       root.dataset.theme = DEFAULT_THEME;
       localStorage.setItem("color-theme", DEFAULT_THEME);
     }
-  }, []);
+  }, [root.dataset]);
 
   const handleThemeChange = (theme: ColorTheme) => {
     setColorTheme(theme);

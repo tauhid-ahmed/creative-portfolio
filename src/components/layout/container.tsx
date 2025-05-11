@@ -15,6 +15,7 @@ export function Container({ size, className, children, ...props }: Props) {
         },
         className
       )}
+      {...props}
     >
       {children}
     </div>
