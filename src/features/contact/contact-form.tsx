@@ -31,6 +31,7 @@ export function ContactForm() {
           whileInView={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.6, delay: 0.3 }}
           className="order-1 lg:order-2"
+          viewport={{ once: true }}
         >
           <Card3D>
             <div className="space-y-6">
