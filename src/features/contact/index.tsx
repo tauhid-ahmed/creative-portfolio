@@ -11,6 +11,7 @@ import {
   SectionTitle,
 } from "@/components/layout/section";
 import { ContactForm } from "./contact-form";
+import { TextReveal } from "@/components/text-reveal";
 
 export function Contact() {
   return (
@@ -24,7 +25,9 @@ export function Contact() {
         >
           <SectionHeader>
             <SectionName>Get In Touch</SectionName>
-            <SectionTitle>Let&#39;s Connect</SectionTitle>
+            <SectionTitle>
+              <TextReveal text={"Let's Connect"}></TextReveal>
+            </SectionTitle>
             <SectionDescription>
               Have a project in mind or want to discuss potential opportunities?
               I&#39;d love to hear from you!

@@ -18,6 +18,7 @@ import {
   SectionName,
   SectionTitle,
 } from "@/components/layout/section";
+import { TextReveal } from "@/components/text-reveal";
 
 type ProjectCategory = "all" | "frontend" | "fullstack" | "design" | "mobile";
 
@@ -56,58 +57,46 @@ export function ProjectsShowcase() {
   return (
     <Section id="projects">
       <SectionContent>
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.2 }}
-          viewport={{ once: true, amount: 0.2 }}
-        >
-          <SectionHeader>
-            <SectionName>My Work</SectionName>
-            <SectionTitle>Featured Projects</SectionTitle>
-            <SectionDescription className="text-muted-foreground max-w-2xl mx-auto">
-              A selection of my recent work showcasing my skills and expertise
-              in frontend development
-            </SectionDescription>
-          </SectionHeader>
-        </motion.div>
+        <SectionHeader>
+          <SectionName>My Work</SectionName>
+          <SectionTitle>
+            <TextReveal text={"Featured Projects"} />
+          </SectionTitle>
+          <SectionDescription className="text-muted-foreground max-w-2xl mx-auto">
+            A selection of my recent work showcasing my skills and expertise in
+            frontend development
+          </SectionDescription>
+        </SectionHeader>
 
         <Container>
           <div className="flex flex-col gap-10">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6 }}
-              viewport={{ once: true, amount: 0.2 }}
-            >
-              <div className="flex flex-wrap justify-center gap-2">
-                {categories.map((category) => (
-                  <Button
-                    key={category.value}
-                    variant="outline"
-                    size="sm"
-                    onClick={() => setActiveCategory(category.value)}
-                  >
-                    {activeCategory === category.value && (
-                      <motion.div
-                        layoutId="background"
-                        className="absolute rounded z-10 inset-0 bg-gradient-to-r from-primary to-purple-500"
-                        transition={{
-                          type: "spring",
-                          stiffness: 300,
-                          damping: 30,
-                        }}
-                      />
-                    )}
+            <div className="flex flex-wrap justify-center gap-2">
+              {categories.map((category) => (
+                <Button
+                  key={category.value}
+                  variant="outline"
+                  size="sm"
+                  onClick={() => setActiveCategory(category.value)}
+                >
+                  {activeCategory === category.value && (
+                    <motion.div
+                      layoutId="background"
+                      className="absolute rounded z-10 inset-0 bg-gradient-to-r from-primary to-purple-500"
+                      transition={{
+                        type: "spring",
+                        stiffness: 300,
+                        damping: 30,
+                      }}
+                    />
+                  )}
 
-                    <span className="flex items-center gap-2 relative z-10">
-                      {category.icon}
-                      {category.label}
-                    </span>
-                  </Button>
-                ))}
-              </div>
-            </motion.div>
+                  <span className="flex items-center gap-2 relative z-10">
+                    {category.icon}
+                    {category.label}
+                  </span>
+                </Button>
+              ))}
+            </div>
 
             <AnimatePresence mode="wait">
               {filteredProjects.length <= 0 ? (

@@ -14,6 +14,7 @@ import {
   SectionName,
   SectionTitle,
 } from "@/components/layout/section";
+import { TextReveal } from "@/components/text-reveal";
 
 export function AboutMe() {
   const sectionRef = useRef<HTMLElement>(null);
@@ -49,7 +50,9 @@ export function AboutMe() {
         >
           <SectionHeader>
             <SectionName>About Me</SectionName>
-            <SectionTitle>Know Me Better</SectionTitle>
+            <SectionTitle>
+              <TextReveal text="Know Me Better" />
+            </SectionTitle>
             <SectionDescription>
               A passionate frontend developer with a keen eye for design and a
               love for creating seamless user experiences
@@ -69,7 +72,7 @@ export function AboutMe() {
                 variants={itemVariants}
                 className="text-2xl font-bold gradient-text"
               >
-                Frontend Developer & UI/UX Enthusiast
+                <TextReveal text="Frontend Developer & UI/UX Enthusiast" />
               </motion.h3>
               <Information />
               <div className="hidden lg:block">

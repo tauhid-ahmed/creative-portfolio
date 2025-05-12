@@ -18,6 +18,7 @@ import {
 import { Container } from "@/components/layout/container";
 import { cn } from "@/lib/utils";
 import { Heading } from "@/components/heading";
+import { TextReveal } from "@/components/text-reveal";
 
 const icons = {
   Code: <Icons.LayersIcon />,
@@ -45,7 +46,9 @@ export function SkillStats() {
         <motion.div>
           <SectionHeader>
             <SectionName>My Expertise</SectionName>
-            <SectionTitle>Skills & Technologies</SectionTitle>
+            <SectionTitle>
+              <TextReveal text={"Skills & Technologies"} />
+            </SectionTitle>
             <SectionDescription>
               A comprehensive toolkit of technologies and skills that I use to
               bring ideas to life

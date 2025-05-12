@@ -3,27 +3,23 @@
 import { useRef } from "react";
 import { motion, useInView } from "motion/react";
 
-interface PremiumTextRevealProps {
+interface TextRevealProps {
   text: string;
   className?: string;
   delay?: number;
   duration?: number;
   once?: boolean;
   threshold?: number;
-  as?: "h1" | "h2" | "h3" | "h4" | "h5" | "h6" | "p" | "span";
-  gradient?: boolean;
 }
 
-export default function PremiumTextReveal({
+export function TextReveal({
   text,
   className = "",
   delay = 0,
   duration = 0.05,
   once = true,
-  threshold = 0.2,
-  as: Component = "h2",
-  gradient = false,
-}: PremiumTextRevealProps) {
+  threshold = 0.1,
+}: TextRevealProps) {
   const ref = useRef<HTMLDivElement>(null);
   const isInView = useInView(ref, { once, amount: threshold });
 
@@ -79,7 +75,7 @@ export default function PremiumTextReveal({
       initial="hidden"
       animate={isInView ? "visible" : "hidden"}
     >
-      <Component className={gradient ? "gradient-text" : ""}>
+      <span>
         {words.map((word, wordIndex) => (
           <motion.span
             key={`word-${wordIndex}`}
@@ -97,7 +93,7 @@ export default function PremiumTextReveal({
             ))}
           </motion.span>
         ))}
-      </Component>
+      </span>
     </motion.div>
   );
 }

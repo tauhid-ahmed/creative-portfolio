@@ -3,7 +3,6 @@ import { Briefcase, GraduationCap, User } from "lucide-react";
 import { motion } from "motion/react";
 import { profileData } from "@/data/portfolio-data";
 import { Timeline } from "@/components/timeline";
-import { Button } from "@/components/ui/button";
 
 type AboutData = Extract<ResumeData[number], { section: "about" }>["content"];
 

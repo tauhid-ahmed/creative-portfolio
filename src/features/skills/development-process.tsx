@@ -11,6 +11,7 @@ import { developmentProcess } from "@/data/portfolio-data";
 import * as Icons from "@/components/icons";
 import { Heading } from "@/components/heading";
 import { cn } from "@/lib/utils";
+import { TextReveal } from "@/components/text-reveal";
 
 const icons = {
   Rocket: <Icons.RocketIcon />,
@@ -25,7 +26,9 @@ export function DevelopmentProcess() {
     <Section>
       <SectionContent>
         <SectionHeader>
-          <SectionTitle>My Development Process</SectionTitle>
+          <SectionTitle>
+            <TextReveal text={"My Development Process"} />
+          </SectionTitle>
         </SectionHeader>
         <Container size="lg">
           <motion.div
