@@ -127,7 +127,7 @@ export function ProjectsShowcase() {
                     {filteredProjects.map((project, index) => (
                       <div
                         key={project.id}
-                        className="basis-1/1 sm:basis-1/2 lg:basis-1/3 shrink-0 p-4"
+                        className="basis-1/1 lg:basis-1/3 shrink-0 p-4"
                       >
                         <ProjectCard project={project} index={index} />
                       </div>

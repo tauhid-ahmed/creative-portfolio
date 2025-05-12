@@ -21,7 +21,7 @@ export function ProjectCard({ project }: ProjectCardProps) {
     <>
       <div
         className={cn(
-          `relative overflow-hidden rounded-xl border border-primary/50 bg-card transition-colors duration-500 perspective-midrange h-full`,
+          `relative overflow-hidden rounded-xl border border-primary/50 bg-card transition-colors duration-500 perspective-midrange h-full max-w-lg mx-auto`,
           isModalOpen && "opacity-0 pointer-events-none"
         )}
       >
