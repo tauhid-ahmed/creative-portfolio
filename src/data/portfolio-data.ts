@@ -47,15 +47,7 @@ export const skills: Skill[] = [
       short: "Frontend",
     },
     icon: "Code",
-    items: [
-      "React",
-      "Next.js",
-      "Vue.js",
-      "TypeScript",
-      "JavaScript",
-      "HTML5",
-      "CSS3",
-    ],
+    items: ["React", "Next.js", "TypeScript", "JavaScript", "HTML5", "CSS3"],
     color: "from-violet-500 to-purple-500",
     description:
       "Developing responsive, dynamic, and maintainable user interfaces using modern JavaScript frameworks and web technologies to deliver seamless digital experiences.",
@@ -133,6 +125,57 @@ export const skills: Skill[] = [
       "Delivering seamless mobile experiences through responsive layouts, progressive web app capabilities, and cross-platform development tools.",
   },
 ];
+
+export const skillProficiency = {
+  // Frontend & Core
+  React: 80,
+  "Next.js": 80,
+  TypeScript: 70,
+  JavaScript: 80,
+  HTML5: 85,
+  CSS3: 85,
+  "Responsive Design": 90,
+
+  // UI Frameworks
+  "Tailwind CSS": 95,
+  "shadcn/ui": 85,
+  "Material UI": 80,
+  Bootstrap: 80,
+  "Chakra UI": 85,
+  "Radix UI": 80,
+
+  // Animation
+  "Framer Motion": 80,
+  GSAP: 75,
+  "CSS Animations": 90,
+  "Three.js": 60,
+  Lottie: 65,
+
+  // Design
+  Figma: 65,
+  "Adobe XD": 65,
+  Photoshop: 50,
+  Illustrator: 50,
+  "UI/UX Design": 55,
+
+  // Performance & Tooling
+  "Web Vitals": 85,
+  Lighthouse: 80,
+  Webpack: 80,
+  Vite: 85,
+  "Code Splitting": 85,
+
+  // Mobile / Cross-platform
+  "React Native": 60,
+  PWA: 50,
+  "App Design": 55,
+  "Touch Interfaces": 60,
+
+  // Backend & Auth
+  ExpressJS: 85,
+  Hono: 85,
+  NextAuth: 85,
+};
 
 export const projects: Project[] = [
   {

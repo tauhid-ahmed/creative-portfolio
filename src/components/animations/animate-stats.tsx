@@ -36,7 +36,7 @@ export function AnimateStats({
     });
 
     return () => controls.stop();
-  }, [data.inView]);
+  }, [data.inView, data.duration, data.from, data.to, data.suffix]);
 
   return (
     <span

@@ -9,6 +9,8 @@ import { Heading } from "@/components/heading";
 import { InputField } from "@/components/input-field";
 import { Form } from "@/components/ui/form";
 import { TextAreaField } from "@/components/text-area";
+import { contactSchema } from "@/schema";
+import { zodResolver } from "@hookform/resolvers/zod";
 
 export function ContactForm() {
   const form = useForm({
@@ -17,6 +19,9 @@ export function ContactForm() {
       email: "",
       message: "",
     },
+    mode: "all",
+    reValidateMode: "onChange",
+    resolver: zodResolver(contactSchema),
   });
   return (
     <>
@@ -26,6 +31,7 @@ export function ContactForm() {
           whileInView={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.6, delay: 0.3 }}
           className="order-1 lg:order-2"
+          viewport={{ once: true }}
         >
           <Card3D>
             <div className="space-y-6">
@@ -50,7 +56,7 @@ export function ContactForm() {
                   placeholder="Your message"
                 />
 
-                <Button type="submit">
+                <Button type="submit" disabled={!form.formState.isValid}>
                   <Send className="h-5 w-5" />
                   Send Message
                 </Button>

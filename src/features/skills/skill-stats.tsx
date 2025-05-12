@@ -2,7 +2,7 @@
 
 import { useState, useMemo } from "react";
 import { motion, AnimatePresence } from "motion/react";
-import { skills } from "@/data/portfolio-data";
+import { skills, skillProficiency } from "@/data/portfolio-data";
 import Card3D from "@/components/card-3d";
 import { Badge } from "@/components/ui/badge";
 import * as Icons from "@/components/icons";
@@ -33,67 +33,12 @@ export function SkillStats() {
     "Frontend Development"
   );
 
-  // Skill proficiency data (for progress bars)
-  const skillProficiency = useMemo(
-    () => ({
-      // Frontend & Core
-      React: 95,
-      "Next.js": 90,
-      TypeScript: 85,
-      JavaScript: 90,
-      HTML5: 95,
-      CSS3: 95,
-      "Responsive Design": 95,
-
-      // UI Frameworks
-      "Tailwind CSS": 95,
-      "shadcn/ui": 85,
-      "Material UI": 80,
-      Bootstrap: 80,
-      "Chakra UI": 85,
-      "Radix UI": 75,
-
-      // Animation
-      "Framer Motion": 80,
-      GSAP: 75,
-      "CSS Animations": 90,
-      "Three.js": 70,
-      Lottie: 65,
-
-      // Design
-      Figma: 85,
-      "Adobe XD": 70,
-      Photoshop: 75,
-      Illustrator: 70,
-      "UI/UX Design": 80,
-
-      // Performance & Tooling
-      "Web Vitals": 85,
-      Lighthouse: 80,
-      Webpack: 80,
-      Vite: 85,
-      "Code Splitting": 80,
-
-      // Mobile / Cross-platform
-      "React Native": 75,
-      PWA: 70,
-      "App Design": 75,
-      "Touch Interfaces": 80,
-
-      // Backend & Auth
-      ExpressJS: 80,
-      Hono: 85,
-      NextAuth: 85,
-    }),
-    []
-  );
-
-  // Get the active skill category
   const activeSkill = useMemo(
     () =>
       skills.find((skill) => skill.category === activeCategory) || skills[0],
     [activeCategory, skills]
   );
+
   return (
     <Section>
       <SectionContent>
@@ -156,89 +101,8 @@ export function SkillStats() {
                   transition={{ duration: 0.5 }}
                   className="grid md:grid-cols-2 gap-8 perspective-distant"
                 >
-                  {/* Skill details */}
-                  <Card3D className="modern-card p-6 md:p-8 h-full">
-                    <div className="flex items-center gap-3 mb-6">
-                      <div
-                        className={`flex items-center justify-center size-12 shrink-0 rounded-xl bg-gradient-to-r ${activeSkill.color} text-white`}
-                      >
-                        {icons[activeSkill.icon as keyof typeof icons]}
-                      </div>
-                      <Heading
-                        className="leading-tight"
-                        as="h3"
-                        size="h4"
-                        align="left"
-                      >
-                        {activeSkill.category}
-                      </Heading>
-                    </div>
-
-                    <div className="space-y-6">
-                      <p className="text-muted-foreground text-base">
-                        {activeSkill.description}
-                      </p>
-
-                      <div className="flex flex-wrap gap-2 pt-2">
-                        {activeSkill.items.map((item) => (
-                          <Badge
-                            key={item}
-                            className="px-3 py-1 bg-primary/10 text-primary rounded-full text-sm border border-primary/20 hover:bg-primary/20"
-                          >
-                            {item}
-                          </Badge>
-                        ))}
-                      </div>
-                    </div>
-                  </Card3D>
-
-                  {/* Skill proficiency */}
-                  <Card3D className="modern-card p-6 md:p-8">
-                    <div className="space-y-6">
-                      <Heading as="h3" size="h4" align="left">
-                        Proficiency
-                      </Heading>
-                      <div className="space-y-6">
-                        {activeSkill.items
-                          .filter(
-                            (item) =>
-                              skillProficiency[
-                                item as keyof typeof skillProficiency
-                              ]
-                          )
-                          .slice(0, 6)
-                          .map((skill) => (
-                            <div key={skill} className="space-y-2">
-                              <div className="flex justify-between items-center">
-                                <span className="font-medium">{skill}</span>
-                                <span className="text-sm text-muted-foreground">
-                                  {
-                                    skillProficiency[
-                                      skill as keyof typeof skillProficiency
-                                    ]
-                                  }
-                                  %
-                                </span>
-                              </div>
-                              <div className="relative h-2 w-full bg-primary/10 rounded-full overflow-hidden">
-                                <motion.div
-                                  className="absolute top-0 left-0 h-full bg-gradient-to-r from-primary to-purple-500 rounded-full"
-                                  initial={{ width: 0 }}
-                                  animate={{
-                                    width: `${
-                                      skillProficiency[
-                                        skill as keyof typeof skillProficiency
-                                      ]
-                                    }%`,
-                                  }}
-                                  transition={{ duration: 1, delay: 0.2 }}
-                                />
-                              </div>
-                            </div>
-                          ))}
-                      </div>
-                    </div>
-                  </Card3D>
+                  <SkillDetails skill={activeSkill} />
+                  <SkillProficiency skill={activeSkill} />
                 </motion.div>
               </AnimatePresence>
             </TabsContent>
@@ -246,5 +110,73 @@ export function SkillStats() {
         </Container>
       </SectionContent>
     </Section>
+  );
+}
+
+function SkillDetails({ skill }: { skill: Skill }) {
+  return (
+    <Card3D>
+      <div className="space-y-6 p-6">
+        <div className="flex items-center gap-3">
+          <div
+            className={`flex items-center justify-center size-12 shrink-0 rounded-xl bg-gradient-to-r ${skill.color} text-white`}
+          >
+            {icons[skill.icon as keyof typeof icons]}
+          </div>
+          <Heading className="leading-tight" as="h3" size="h4" align="left">
+            {skill.category}
+          </Heading>
+        </div>
+
+        <p className="text-muted-foreground text-base">{skill.description}</p>
+
+        <div className="flex flex-wrap gap-1 mt-auto">
+          {skill.items.map((item) => (
+            <Badge key={item} variant="outline">
+              {item}
+            </Badge>
+          ))}
+        </div>
+      </div>
+    </Card3D>
+  );
+}
+
+function SkillProficiency({ skill }: { skill: Skill }) {
+  return (
+    <Card3D>
+      <div className="space-y-6 p-6">
+        <Heading as="h3" size="h4" align="left">
+          Proficiency
+        </Heading>
+        {skill.items
+          .filter(
+            (item) => skillProficiency[item as keyof typeof skillProficiency]
+          )
+          .slice(0, 6)
+          .map((skill) => (
+            <div key={skill} className="space-y-2">
+              <div className="flex justify-between items-center">
+                <span className="font-medium">{skill}</span>
+                <span className="text-sm text-muted-foreground">
+                  {skillProficiency[skill as keyof typeof skillProficiency]}%
+                </span>
+              </div>
+              <div className="relative h-2 w-full bg-primary/10 rounded-full overflow-hidden">
+                <motion.div
+                  className="absolute top-0 left-0 h-full bg-gradient-to-r from-primary to-purple-500 rounded-full"
+                  initial={{ width: 0 }}
+                  animate={{
+                    width: `${
+                      skillProficiency[skill as keyof typeof skillProficiency]
+                    }%`,
+                  }}
+                  transition={{ duration: 1, delay: 0.2 }}
+                />
+              </div>
+            </div>
+          ))}
+      </div>
+    </Card3D>
   );
 }

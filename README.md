@@ -1,36 +1,80 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+<h1 align="center">🎨 Developer Portfolio</h1>
+<p align="center">Modern, animated, theme-aware portfolio built with Next.js 15, Tailwind CSS, and ShadCN UI</p>
 
-## Getting Started
+<p align="center">
+  <img alt="Next.js" src="https://img.shields.io/badge/Next.js-15-000?logo=nextdotjs" />
+  <img alt="Tailwind CSS" src="https://img.shields.io/badge/TailwindCSS-4-06B6D4?logo=tailwindcss" />
+  <img alt="React" src="https://img.shields.io/badge/React-19-61DAFB?logo=react" />
+  <img alt="License" src="https://img.shields.io/github/license/your-username/portfolio" />
+</p>
 
-First, run the development server:
+<p align="center">
+  <a href="https://your-portfolio-site.com" target="_blank">🌐 Live Demo</a> •
+  <a href="https://github.com/your-username/portfolio" target="_blank">📁 Source Code</a>
+</p>
+
+---
+
+## ✨ Overview
+
+This is a sleek, responsive, and accessible developer portfolio site designed to showcase your work, skills, and personality — built using cutting-edge tools like **Next.js**, **Tailwind CSS**, **ShadCN**, and **Framer Motion**.
+
+> Ideal for developers who want a clean and animated showcase of their work, with light/dark mode support.
+
+---
+
+## 🚀 Features
+
+- ✅ Next.js 15 App Router
+- 🎨 Tailwind CSS 4 + ShadCN UI
+- 🌗 Light & Dark theme toggle
+- 🌀 Smooth animations with Framer Motion
+- ⚡ Fast load times and optimized performance
+- 🔁 Reusable, clean components
+- 📱 Fully responsive layout
+- 🧪 Type-safe & linted codebase (TypeScript + ESLint)
+
+---
+
+## 🛠️ Tech Stack
+
+- **Framework**: Next.js 15
+- **UI Layer**: Tailwind CSS + ShadCN (Radix + CVA)
+- **Animation**: Framer Motion, Lenis
+- **Forms**: React Hook Form + Zod
+- **Icons**: Lucide + Simple Icons
+- **State**: Local state (no external store)
+- **Theming**: `next-themes`
+
+---
+
+## 📦 Installation
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
+# 1. Clone the repository
+git clone https://github.com/your-username/portfolio.git
+
+# 2. Navigate into the directory
+cd portfolio
+
+# 3. Install dependencies
+pnpm install
+
+# 4. Run the development server
 pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## 📦 Set Up Environment Variables
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```
+# Author Information (used in metadata, footer, and contact form)
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Create a .env.local file in the root of your project with the following contents:
 
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+NEXT_PUBLIC_AUTHOR_NAME=
+NEXT_PUBLIC_AUTHOR_FIRST_NAME=
+NEXT_PUBLIC_AUTHOR_LAST_NAME=
+AUTHOR_EMAIL=
+AUTHOR_PHONE=
+AUTHOR_LOCATION=
+```
