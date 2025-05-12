@@ -3,6 +3,7 @@ import { Briefcase, GraduationCap, User } from "lucide-react";
 import { motion } from "motion/react";
 import { profileData } from "@/data/portfolio-data";
 import { Timeline } from "@/components/timeline";
+import { Button } from "@/components/ui/button";
 
 type AboutData = Extract<ResumeData[number], { section: "about" }>["content"];
 
@@ -34,7 +35,7 @@ export function Information() {
             <TabsTrigger
               value={item.section}
               key={index}
-              className="data-[state=active]:text-secondary! data-[state=active]:bg-primary! flex items-center gap-2 cursor-pointer p-1.5 transition-transform duration-300"
+              className="data-[state=active]:bg-primary! flex items-center gap-2 cursor-pointer p-1.5 transition-transform duration-300"
             >
               {item.section === "about" && <User />}
               {item.section === "experience" && <Briefcase />}

@@ -7,6 +7,7 @@ import Card3D from "@/components/card-3d";
 import { Heading } from "@/components/heading";
 import { ProjectModal } from "./project-modal";
 import { Button } from "@/components/ui/button";
+import { cn } from "@/lib/utils";
 
 interface ProjectCardProps {
   project: Project;
@@ -18,13 +19,11 @@ export function ProjectCard({ project, index }: ProjectCardProps) {
 
   return (
     <>
-      <motion.div
-        whileInView={{ y: [100, 0], opacity: [0, 1] }}
-        viewport={{ once: true }}
-        transition={{ duration: 0.6, delay: index * 0.1 }}
-        className={`relative overflow-hidden rounded-xl border border-primary/50 bg-card transition-colors duration-500 perspective-midrange h-full ${
-          isModalOpen ? "opacity-0 pointer-events-none" : ""
-        }`}
+      <div
+        className={cn(
+          `relative overflow-hidden rounded-xl border border-primary/50 bg-card transition-colors duration-500 perspective-midrange h-full`,
+          isModalOpen && "opacity-0 pointer-events-none"
+        )}
       >
         <motion.div className="h-full" layoutId={`project-card-${project.id}`}>
           <Card3D className="h-full">
@@ -110,7 +109,7 @@ export function ProjectCard({ project, index }: ProjectCardProps) {
             </div>
           </Card3D>
         </motion.div>
-      </motion.div>
+      </div>
 
       <ProjectModal
         project={project}

@@ -59,8 +59,8 @@ export function ProjectsShowcase() {
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.6 }}
-          viewport={{ once: false, amount: 0.5 }}
+          transition={{ duration: 0.6, delay: 0.2 }}
+          viewport={{ once: true, amount: 0.2 }}
         >
           <SectionHeader>
             <SectionName>My Work</SectionName>
@@ -77,8 +77,8 @@ export function ProjectsShowcase() {
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.6 }}
-              viewport={{ once: true, amount: 0.6 }}
+              transition={{ duration: 0.6 }}
+              viewport={{ once: true, amount: 0.2 }}
             >
               <div className="flex flex-wrap justify-center gap-2">
                 {categories.map((category) => (
@@ -152,7 +152,9 @@ export function ProjectsShowcase() {
               layout
               className="text-center"
               initial={{ opacity: 0 }}
-              transition={{ duration: 0.6, delay: 0.8 }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+              viewport={{ once: true, amount: 0.2 }}
+              whileInView={{ opacity: 1 }}
             >
               <Button asChild size="lg">
                 <Link
