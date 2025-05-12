@@ -32,7 +32,7 @@ export function IntroInformation() {
             as a{" "}
             <span className="relative">
               <span className="absolute -inset-1 rounded-lg bg-primary/10 blur-sm"></span>
-              <span className="relative">Frontend Developer</span>
+              <span className="relative">{developer.title}</span>
             </span>
           </motion.span>
         </Heading>
@@ -66,7 +66,7 @@ export function IntroInformation() {
         <Button variant="outline" size="lg" asChild>
           <Link
             href={resumeDownloadPath}
-            download="Tauhid Ahmed - Frontend Developer.pdf"
+            download={`${developer.name} - ${developer.title}.pdf`}
             target="_blank"
             className="px-8 py-6"
           >

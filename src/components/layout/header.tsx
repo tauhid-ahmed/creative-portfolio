@@ -7,7 +7,7 @@ import { ThemeToggle } from "@/components/theme-toggle";
 import { ThemeSelector } from "@/components/theme-selector";
 import { Button } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
-import { navItems } from "@/data/portfolio-data";
+import { developer, navItems } from "@/data/portfolio-data";
 import { Container } from "./container";
 
 export function Header() {
@@ -94,7 +94,7 @@ export function Header() {
                 transition={{ type: "spring", stiffness: 400, damping: 10 }}
                 className="flex items-center"
               >
-                <span className="gradient-text">Tauhid</span>
+                <span className="gradient-text">{developer.firstName}</span>
               </motion.div>
             </Link>
           </motion.div>

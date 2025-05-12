@@ -1,9 +1,9 @@
 "use client";
 import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "motion/react";
-import { env } from "@/env";
+import { developer } from "@/data/portfolio-data";
 
-const name = env.NEXT_PUBLIC_AUTHOR_FIRST_NAME ?? "Anonymous";
+const name = developer.firstName ?? "Anonymous";
 const letterVariants = {
   initial: { y: "100%" },
   animate: { y: 0 },

@@ -46,13 +46,17 @@ declare global {
 
   interface Developer {
     name: string;
+    firstName: string;
+    lastName: string;
     title: string;
     bio: string;
+    liveResume: string;
+    linkedin: string;
+    github: string;
+    x: string;
     location: string;
     email: string;
     phone: string;
-    avatar: string;
-    typingTexts: string[];
   }
 
   type ResumeData = import("./resume.d.ts").ResumeData;

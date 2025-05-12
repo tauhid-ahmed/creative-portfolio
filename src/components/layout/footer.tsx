@@ -15,7 +15,7 @@ export function Footer() {
         <div className="grid gap-8 lg:grid-cols-3">
           <div className="space-y-4">
             <Link href="/" className="text-2xl font-bold tracking-tighter ">
-              <span className="gradient-text">Tauhid</span>
+              <span className="gradient-text">{developer.firstName}</span>
             </Link>
             <p className="text-muted-foreground max-w-xs">
               Creating exceptional digital experiences with modern web
@@ -53,7 +53,7 @@ export function Footer() {
                 </a>
                 <a
                   href={`tel:${developer.phone.replace(/\s/g, "")}`}
-                  className="text-muted-foreground hover:text-primary transition-colors "
+                  className="text-muted-foreground hover:text-primary transition-colors"
                 >
                   {developer.phone}
                 </a>
@@ -67,7 +67,7 @@ export function Footer() {
 
         <div className="flex flex-col sm:flex-row justify-between items-center mt-12 pt-8 border-t border-primary/10">
           <p className="text-sm text-muted-foreground">
-            &copy; {currentYear} Tauhid. All rights reserved.
+            &copy; {currentYear} {developer.firstName}. All rights reserved.
           </p>
           <div className="flex gap-4 mt-4 sm:mt-0">
             <Button

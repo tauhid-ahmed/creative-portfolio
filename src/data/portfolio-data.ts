@@ -12,31 +12,30 @@ export const navItems: NavItem[] = [
 export const socialLinks: SocialLink[] = [
   {
     platform: "GitHub",
-    url: "https://github.com/tauhid-ahmed",
+    url: env.NEXT_PUBLIC_AUTHOR_GITHUB,
     icon: "Github",
   },
   {
     platform: "LinkedIn",
-    url: "https://www.linkedin.com/in/tauhidxahmed/",
+    url: env.NEXT_PUBLIC_AUTHOR_LINKEDIN,
     icon: "Linkedin",
   },
-  { platform: "X", url: "https://x.com", icon: "X" },
+  { platform: "X", url: env.NEXT_PUBLIC_AUTHOR_X, icon: "X" },
 ];
 
 export const developer: Developer = {
   name: env.NEXT_PUBLIC_AUTHOR_NAME,
-  title: "Frontend Developer",
-  bio: "Passionate frontend developer with 5+ years of experience crafting exceptional digital experiences. Specialized in React, Next.js, and modern web technologies.",
-  location: "Pabna, BD",
-  email: "tauhidahmed.dev@gmail.com",
-  phone: "+880 1670-012716",
-  avatar: "/placeholder.svg?height=600&width=600",
-  typingTexts: [
-    "Frontend Engineer",
-    "UI/UX Enthusiast",
-    "React Specialist",
-    "Creative Coder",
-  ],
+  firstName: env.NEXT_PUBLIC_AUTHOR_FIRST_NAME,
+  lastName: env.NEXT_PUBLIC_AUTHOR_LAST_NAME,
+  title: env.NEXT_PUBLIC_AUTHOR_TITLE,
+  bio: env.NEXT_PUBLIC_AUTHOR_BIO,
+  location: env.NEXT_PUBLIC_AUTHOR_LOCATION,
+  email: env.NEXT_PUBLIC_AUTHOR_EMAIL,
+  phone: env.NEXT_PUBLIC_AUTHOR_PHONE,
+  linkedin: env.NEXT_PUBLIC_AUTHOR_LINKEDIN,
+  github: env.NEXT_PUBLIC_AUTHOR_GITHUB,
+  x: env.NEXT_PUBLIC_AUTHOR_X,
+  liveResume: env.NEXT_PUBLIC_AUTHOR_LIVE_RESUME,
 };
 
 export const skills: Skill[] = [
