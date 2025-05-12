@@ -20,7 +20,7 @@ const icons = {
   Code: <Icons.CodeIcon />,
 };
 
-export function DevelopmentProcess({ isInView }: { isInView: boolean }) {
+export function DevelopmentProcess() {
   return (
     <Section>
       <SectionContent>
@@ -30,8 +30,9 @@ export function DevelopmentProcess({ isInView }: { isInView: boolean }) {
         <Container size="lg">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
-            animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.4 }}
+            viewport={{ once: true }}
             className="perspective-midrange"
           >
             <Card3D className="modern-card sm:py-10 lg:py-20">
