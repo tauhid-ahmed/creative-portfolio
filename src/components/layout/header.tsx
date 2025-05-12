@@ -110,7 +110,7 @@ export function Header() {
               >
                 <Link
                   href={item.href}
-                  className={`relative px-3 py-2 text-sm font-medium transition-colors rounded-md ${
+                  className={`relative px-3 py-1.5 text-sm font-medium transition-colors rounded-md ${
                     activeSection === item.href.substring(1)
                       ? "text-primary"
                       : "text-foreground/70 hover:text-foreground"
@@ -119,7 +119,7 @@ export function Header() {
                   {activeSection === item.href.substring(1) && (
                     <motion.span
                       layoutId="activeSection"
-                      className="absolute inset-0 bg-primary/10 rounded-md -z-10"
+                      className="absolute inset-0 bg-primary/10 border border-primary/50 rounded-md -z-10"
                       transition={{
                         type: "spring",
                         stiffness: 300,
