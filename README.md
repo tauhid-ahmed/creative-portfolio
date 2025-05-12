@@ -63,3 +63,18 @@ pnpm install
 # 4. Run the development server
 pnpm dev
 ```
+
+## 📦 Set Up Environment Variables
+
+```
+# Author Information (used in metadata, footer, and contact form)
+
+## Create a .env.local file in the root of your project with the following contents:
+
+NEXT_PUBLIC_AUTHOR_NAME=
+NEXT_PUBLIC_AUTHOR_FIRST_NAME=
+NEXT_PUBLIC_AUTHOR_LAST_NAME=
+AUTHOR_EMAIL=
+AUTHOR_PHONE=
+AUTHOR_LOCATION=
+```
