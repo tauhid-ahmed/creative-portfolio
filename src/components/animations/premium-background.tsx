@@ -240,7 +240,7 @@ export function PremiumBackground() {
         className="absolute inset-0 w-full h-full"
       />
 
-      {/* Premium gradient overlay */}
+      {/* gradient overlay */}
       <div className="absolute inset-0 bg-gradient-radial from-transparent to-background opacity-80" />
 
       {/* Subtle grid pattern */}

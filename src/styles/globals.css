@@ -54,17 +54,3 @@
     scroll-behavior: smooth;
   }
 }
-
-@property --gradient-animation {
-  syntax: "<angle>";
-  inherits: false;
-  initial-value: 0deg;
-}
-
-/* html {
-  scroll-behavior: auto;
-}
-div {
-  transition: none !important;
-  animation: none !important;
-} */

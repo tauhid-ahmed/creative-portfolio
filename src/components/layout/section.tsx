@@ -13,7 +13,7 @@ export const Section = forwardRef<HTMLElement, Props>(function Section(
     <section
       ref={ref}
       className={cn(
-        "py-14 md:py-20 lg:py-28 relative overflow-hidden",
+        "py-10 md:py-16 lg:py-24 relative overflow-hidden",
         className
       )}
       {...props}

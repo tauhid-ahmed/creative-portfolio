@@ -43,7 +43,7 @@ export function Intro() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 2.1, duration: 0.8 }}
-            className="flex flex-col gap-4 items-center py-8"
+            className="flex flex-col gap-4 items-center lg:pt-8"
           >
             <ScrollIndicator />
             <div className="lg:hidden">

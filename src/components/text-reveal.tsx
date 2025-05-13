@@ -1,15 +1,13 @@
 "use client";
 
-import { useRef } from "react";
-import { motion, useInView } from "motion/react";
+import { motion } from "motion/react";
+import { cn } from "@/lib/utils";
 
 interface TextRevealProps {
   text: string;
   className?: string;
   delay?: number;
   duration?: number;
-  once?: boolean;
-  threshold?: number;
 }
 
 export function TextReveal({
@@ -17,12 +15,7 @@ export function TextReveal({
   className = "",
   delay = 0,
   duration = 0.05,
-  once = true,
-  threshold = 0.1,
 }: TextRevealProps) {
-  const ref = useRef<HTMLDivElement>(null);
-  const isInView = useInView(ref, { once, amount: threshold });
-
   // Split text into words and then characters
   const words = text.split(" ");
 
@@ -69,11 +62,11 @@ export function TextReveal({
 
   return (
     <motion.div
-      ref={ref}
-      className={`overflow-hidden ${className}`}
+      className={cn("overflow-hidden", className)}
       variants={containerVariants}
       initial="hidden"
-      animate={isInView ? "visible" : "hidden"}
+      whileInView="visible"
+      viewport={{ once: true, amount: 0.01 }}
     >
       <span>
         {words.map((word, wordIndex) => (
