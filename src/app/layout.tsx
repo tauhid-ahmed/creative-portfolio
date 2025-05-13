@@ -3,6 +3,7 @@ import { Mona_Sans as FontSans } from "next/font/google";
 import { ThemeProvider } from "@/components/theme-provider";
 import { env } from "@/env";
 import { LenisProvider } from "@/components/animations/lenis";
+import { Analytics } from "@vercel/analytics/react";
 import "@/styles/globals.css";
 
 const fontSans = FontSans({
@@ -43,6 +44,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning={true}>
+      <Analytics />
       <body
         className={`${fontSans.variable} min-h-screen font-sans antialiased`}
       >
